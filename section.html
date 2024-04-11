@@ -1,0 +1,1180 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="euc-kr" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+        
+    <title>정치 : 네이트 뉴스</title>
+	<link rel="canonical" href="https://news.nate.com/section?mid=n0200" /> 
+		<link rel="shortcut icon" href="//m.news.nate.com/icon/favicon.ico" />
+	    <link rel="apple-touch-icon-precomposed" href="//nimg.nate.com/ui/uidev/images/mnews/common/nate_news_114.png?v=20140911" />
+	<link type="text/css" rel="stylesheet" href="//nimg.nate.com/ui/uidev/m/release/css/common.css?202404102157" />    	
+    <script type="text/javascript" src="//m.comm.news.nate.com/userJS?oj=1&amp;r=756907548"></script>    <script type="text/javascript" src="//m.news.nate.com/js/jquery-1.8.3.min.js?202404102141"></script>    <script type="text/javascript" src="//m.news.nate.com/js/common.js?202404102141"></script>    <script type="text/javascript" src="//m.news.nate.com/js/mobile.js?202404102141"></script>    <script type="text/javascript" src="//m.news.nate.com/js/stat.js?202404102141"></script>	<script type="text/javascript" src="//m.news.nate.com/js/flickLib/plast-low-min.js?202404102141"></script>    <script type="text/javascript" src="//m.news.nate.com/js/media.js?202404102141"></script>	<script type="text/javascript" src="//m.news.nate.com/js/menu.js?202404102141"></script>		    <script type="text/javascript" src="//m.news.nate.com/js/clipboard.min.js?202404102141" defer="defer"></script>    <script type="text/javascript" src="//m.news.nate.com/js/cross-origin-message.min.js?v=202404102141"></script>
+<script type="text/javascript">
+//<!CDATA[
+	jQuery(document).ready(function() {
+		// CrossOrigin 초기 세팅
+		crsMsg.init({
+		   	path: '*.news.nate.com', // m.comm.news.nate.com 자식 정보 세팅 (* 하위 도메인 포함)
+			type: 'parent',
+			func: null
+		});
+	});
+
+	function callFnct (parmas) { 
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+
+		if (target == 'move_login') { // params 규격 {target: '실행구분', url: '이동 페이지 주소', params: '로그인 파라미터'}
+		// 로그인 페이지 이동
+
+			var url = (typeof parmas.url === 'undefined') ? '' : parmas.url;
+			var params = (typeof parmas.params === 'undefined') ? '' : parmas.params;
+			
+			if(url != ''){
+				location.href=url+encodeURIComponent(document.location.href)+params;
+			}
+		} else if (target == 'move_report') { // params 규격 {target: '실행구분', url: '이동 페이지 주소'}
+		// 페이지 이동
+
+			var url = (typeof parmas.url === 'undefined') ? '' : parmas.url;
+			
+			if(url != ''){
+				location.href='//m.comm.news.nate.com'+url+'&return_url='+encodeURIComponent(document.location.href);
+			}
+		} else if (target == 'youtube_resize_iframe') { // params 규격 {target: '실행구분', elementClass: 'dom.php에서 youtube를 iframe으로 감싼 클래스명', height: '높이값', idx: 'youtube iframe 순번'}
+		// 기사 내 youtube 플레이 셋팅
+
+			var elementClass = (typeof parmas.elementClass === 'undefined') ? '' : parmas.elementClass;
+			var height = (typeof parmas.height === 'undefined') ? '' : parmas.height;
+			var idx = (typeof parmas.idx === 'undefined') ? '' : parseInt(parmas.idx);
+			
+			if(elementId != '' && height != ''){
+
+				var _elementClassAll = document.querySelectorAll(elementClass);
+				if(_elementClassAll){			
+					if(typeof _elementClassAll[idx] !== 'undefined'){
+						_elementClassAll[idx].style.height = height +'px';
+					}
+				}
+			}
+		} else if (target == 'close_btn'){
+		// 댓글 닫기 버튼 기능
+			
+			var replyPOP = document.querySelector('.reply-guide-popup');
+		    var closeBtn = document.querySelector('#notes_confirm');
+	
+		    closeBtn.addEventListener('click', function(e) {
+		    	e.preventDefault();
+		    	replyPOP.setAttribute('aria-hidden', false);
+		    	document.body.style.overflow = 'visible';
+		    });
+		} else if (target == 'reply_btn') {
+		// 위치 정렬 스크롤 이동
+
+			var replyPOP = document.querySelector('.reply-guide-popup');
+
+		    replyPOP.setAttribute('aria-hidden', true)
+	        replyPOP.querySelector('.context').scrollTop = 0;
+	        document.body.style.overflow = 'hidden';
+		} else if (target == 'move_news_cmt') {
+		// 스크롤 이동
+
+			var elementClass = (typeof parmas.elementClass === 'undefined') ? '' : parmas.elementClass;
+			if(elementClass != ''){
+				window.scrollTo(0, document.querySelector('.'+elementClass).offsetTop);
+			}
+		}
+	}
+
+	function callBackFnct (parmas) {
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+	}
+	
+	// 뉴스 페이지의 광고 통합 처리 함수
+	// 넘어온 광고 target 코드값으로 분기 처리한다. height은 자식 iframe의 도큐먼트 높이 값
+	function callCrossOriginAd (parmas) {
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+		var height = (typeof parmas.height === 'undefined') ? '' : parmas.height;
+
+		if(target == 'ad_big' && height != '') {
+		// ad_big 광고 리사이징
+			
+			resizeIfr2({el: '#ad_big', height: height});
+		} else if (target == 'qatar_ad1' && height != '') {
+
+			// 카타르월드컵 광고1
+			jQuery("#sec_qatar_ad1").css("height", height);
+			resizeIfr2({el: '#qatar_ad1', height: height});
+		} else if (target == 'qatar_ad2' && height != '') {
+
+			// 카타르월드컵 광고2
+			jQuery("#sec_qatar_ad2").css("height", height);
+			resizeIfr2({el: '#qatar_ad2', height: height});
+		} else if (target == 'hangzhou_ad1' && height != '') {
+			// 항저우아시안게임 광고1
+			jQuery("#sec_hangzhou_ad1").css("height", height);
+			resizeIfr2({el: '#hangzhou_ad1', height: height});
+		} else if (target == 'hangzhou_ad2' && height != '') {
+			// 항저우아시안게임 광고2
+			jQuery("#sec_hangzhou_ad2").css("height", height);
+			resizeIfr2({el: '#hangzhou_ad2', height: height});
+		} else if (target == 'election2024_bottom' && height != '') {
+			// 제22대 국회의원선거
+			jQuery("#election2024_bottom").css("height", height);
+			resizeIfr2({el: '#election2024_bottom', height: height});
+		}
+	}
+
+//]]>
+</script>    	<script type="text/javascript" src="//m.news.nate.com/js/flickLib/MNComponent.js?202404102141"></script>
+	<script type="text/javascript">
+	//<![CDATA[	
+		// 빅배너 적용 iframe 사이즈 변경을 위해 추가
+	//]]>
+	</script>
+	
+
+
+
+
+<!-- SEO Meta Tag -->
+<meta name="description" content="한눈에 보는 오늘 : 정치 | 홍준표 &quot;이준석? 괜찮은 정치인…당선 축하한다&quot;. 이슈픽, 정치, 경제, 사회, 세계, IT, TV, 포토 등 최신 뉴스와 랭킹별 뉴스 제공" />
+
+<!-- Open Graph Meta Tag -->
+<meta property="og:url" content="https://m.news.nate.com/section?mid=m01&amp;sq=800964" />
+<meta property="og:title" content="정치 : 네이트 뉴스" />
+<meta property="og:description" content="한눈에 보는 오늘 : 정치 | 홍준표 &quot;이준석? 괜찮은 정치인…당선 축하한다&quot;. 이슈픽, 정치, 경제, 사회, 세계, IT, TV, 포토 등 최신 뉴스와 랭킹별 뉴스 제공" />
+<meta property="og:image" content="https://nimg.nate.com/ui/uidev/images/common/sns-og-fb-logo2.gif" />
+<meta property="og:site_name" content="모바일 네이트 뉴스" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ko_KR" />
+	
+<!-- Twitter Meta Tag -->
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- 네이트썰 Meta Tag -->
+<meta name="ssul:category" content="sisa" /></head><body  >
+			<div id="wrap">
+		<!-- header -->
+		<header id="header"  role="banner">
+
+				<div class="gnbWrap">
+		<div class="gnb">					<a href="//m.nate.com" onclick="statClick('RAX82');" class="nate"><span class="hd-img">네이트</span></a>
+							<a href="//m.news.nate.com" onclick="statClick('RAM91');" class="service">뉴스</a>
+							</div>		<div class="relsvc">
+							<a href="//m.news.nate.com/spo" onclick="statClick('RAN31');">스포츠</a>
+				<a href="//m.news.nate.com/ent" onclick="statClick('RAN30');">연예</a>
+					</div>
+		<div class="banner">
+						<a href="//m.news.nate.com/election2024">
+				<div class="special_logo" aria-label="국회의원 선거"></div>
+			</a>
+					</div>		
+				<div class="searchWrap">
+			 <form id="search-field" name="search-field" role="search" aria-labelledby="search-keyword" method="get" accept-charset="utf-8">
+		        <fieldset>
+		            <legend id="search-keyword">뉴스 기사 검색</legend>
+		            <input type="search" name="q"  />
+		           	<button class="delete hd-img"  type="button"><span class="hd-img">검색어 삭제</span></button>
+		            		                <button class="srchbtn" onclick="searchGo('RAX83');" type="submit"><span class="hd-img">검색</span></button>
+		            		        </fieldset>
+		    </form>
+		</div>
+	</div>
+<script type="text/javascript">
+    var bSearch = '';
+
+	function searchGo(code) {
+        statClick(code);
+		var searchFrm = document.querySelector('#search-field');
+		searchFrm.action = '/search';
+		searchFrm.submit();
+	}
+
+    function statClick(code) {
+        if(bSearch){
+            search_ndrclickwithid('mw0101', code);
+        }
+        else{
+            olapclick(code); // 통계
+        }
+    }
+</script>
+							<!-- SNB 2depth 및 Floating 처리 -->
+												
+
+	<div class="lnbContainer" data-floating="false">
+		<div class="hide">뉴스 메인 메뉴</div>
+		<nav class="lnb flick sisa" role="navigation">
+			<ul style="min-width: 600px">
+				<li><a role="menuitem" href="//m.news.nate.com"  aria-selected="false" onclick="MNstat('olapclick', 'RAM01', 'RAX26');">오늘</a></li>
+				<li><a role="menuitem" href="//m.news.nate.com/rank/list?mid=m2001"  aria-selected="false" onclick="MNstat('olapclick', 'RNK136', 'RAX26');">랭킹뉴스</a></li>
+				<li><a role="menuitem" href="//m.news.nate.com/issuepick"  aria-selected="false" onclick="MNstat('olapclick', 'RAX23', 'RAX26');">이슈픽</a></li>
+				<li><h1><a role="menuitem" href="//m.news.nate.com/section?mid=m01" class="on" aria-selected="true" onclick="MNstat('olapclick', 'RAM02', 'RAX26');">정치</a></h1></li>
+				<li><a role="menuitem" href="//m.news.nate.com/section?mid=m02"  aria-selected="false" onclick="MNstat('olapclick', 'RAM03', 'RAX26');">경제</a></li>
+				<li><a role="menuitem" href="//m.news.nate.com/section?mid=m03"  aria-selected="false" onclick="MNstat('olapclick', 'RAM04', 'RAX26');">사회</a></li>
+				<li><a role="menuitem" href="//m.news.nate.com/section?mid=m04"  aria-selected="false" onclick="MNstat('olapclick', 'RAM05', 'RAX26');">세계</a></li>
+				<li><a role="menuitem" href="//m.news.nate.com/section?mid=m05"  aria-selected="false" onclick="MNstat('olapclick', 'RAM06', 'RAX26');">IT</a></li>
+				<li><a role="menuitem" href="//m.news.nate.com/photoSlide/index?section=sisa"  aria-selected="false" onclick="MNstat('olapclick', 'SBH16', 'RAX26');">포토</a></li>
+				<li><a role="menuitem" href="//m.news.nate.com/livetv"  aria-selected="false" onclick="MNstat('olapclick', 'SBH17', 'RAX26');">TV</a></li>
+			</ul>
+		</nav>
+	</div>						</header>				<hr />
+				<section id="contents" role="main" >
+			 
+		
+	<div class="responsive_wrap">
+		<!-- Responsive_left -->
+		<section class="rwd_left">
+			<div class="newsEnt_main">
+				<div></div>
+				<div class="mlt01" data-fwrapper="y" data-autoresize="y" data-fsequence="sq,800964,1048625,1048473,985691,975951,1048294,924269,1048598,1034971,1048540,1048293,943666,1048450,848874,850462">
+					<div class="flickCover" data-fcover="y">
+													<div class="contents1" >
+																<div class="cluster_title">홍준표 대구시장 행보</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n26409" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="홍준표 대구시장 행보" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/fn/2024/04/11/202402241131092592_l.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/fn/2024/04/11/202402241131092592_l.jpg" /></span>			<span class="tb">
+				<h2 class="tit">홍준표 &quot;이준석? 괜찮은 정치인…당선 축하한다&quot;</h2>
+				<span class="short">홍준표 대구시장(왼쪽)과 이준석 개혁신당 대표/사진=연합뉴스 [파이낸셜뉴스] 홍준표 대구시장이 4·10 총선에서 승리한 이준석 개혁신당 대표를 향해 당선 축하 인사를 전했다. 홍 시장은 11일 소통채널 '청년의 꿈'을 통해 이 대표에게 &quot;당선을 축하</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240327n14467" onclick="olapclick('SBH11');"><h2 class="tit">홍준표 "국회 완전 세종 이전? 이참에 대법원도 지방으로 옮기자"</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240313n14436" onclick="olapclick('SBH11');"><h2 class="tit">홍준표 "검찰, 퀴어축제 고소·고발 사건 1년째 뭉개"</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240311n27556" onclick="olapclick('SBH11');"><h2 class="tit">"이강인 안 된다"던 홍준표, 국대 발탁에···"당분간 경기 안 봐야겠다"</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">[2024 총선] 정부 입장은</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n20988" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="[2024 총선] 정부 입장은" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PCM20240227000122990_P2.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PCM20240227000122990_P2.jpg" /></span>			<span class="tb">
+				<h2 class="tit">尹 &quot;국민 뜻 받들어 국정 쇄신&quot;…한총리·대통령실 참모진 사의(종합2보)</h2>
+				<span class="short">총선 참패 '후폭풍'…인적쇄신 단행·국정운영 기조 변화 관측 대통령실 &quot;尹, 어떤 결과든 국정에 대한 국민 평가로 생각&quot;…野와 협치 시사 (서울=연합뉴스) 안용수 곽민서 이동환 기자 = 윤석열 대통령은 11일 제22대 총선에서 여당인 국민의힘에 참패를</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n17784" onclick="olapclick('SBH11');"><h2 class="tit">尹대통령 "총선에서의 국민 뜻 겸허히 받들어 국정 쇄신"(종합)</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n17866" onclick="olapclick('SBH11');"><h2 class="tit">尹 "국민 뜻 겸허히 받들어 국정 쇄신"…남은 3년, 국정운영 가시밭길</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n16255" onclick="olapclick('SBH11');"><h2 class="tit">尹대통령 "총선에서의 국민 뜻 겸허히 받들어 국정 쇄신"</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">[2024 총선] 화제의 당선인</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n25640" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="[2024 총선] 화제의 당선인" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/mt/2024/04/11/2024041110580811079_1.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/mt/2024/04/11/2024041110580811079_1.jpg" /></span>			<span class="tb">
+				<h2 class="tit">'푸른눈 한국인' 인요한·'개혁신당' 천하람…비례대표 46명 누구?</h2>
+				<span class="short">(서울=뉴스1) 임세영 기자 = 인요한 국민의미래 선거대책위원장이 9일 오전 서울 여의도 중앙당사에서 열린 대국민 본투표 참여호소 기자회견에서 발언을 하고 있다. 2024.4.9/뉴스1 Copyright (C) 뉴스1. All righ</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n27517" onclick="olapclick('SBH11');"><h2 class="tit">김준혁 "왜곡보도 억울…이대생·박정희 유가족 등에 사과"</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n19969" onclick="olapclick('SBH11');"><h2 class="tit">이준석·나경원·안철수·김기현…尹에 밀려났던 비윤, 모두 살았다</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n22600" onclick="olapclick('SBH11');"><h2 class="tit">"출구조사랑 다르네"…나경원·안철수·이준석, 예측 뒤엎고 당선</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">4.10 총선 이후</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n21666" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="4.10 총선 이후" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024041016370001300_P2.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024041016370001300_P2.jpg" /></span>			<span class="tb">
+				<h2 class="tit">민주당 2연속 압승…거센 정권심판론에 이례적 여당 참패(종합3보)</h2>
+				<span class="short">민주 175석 '단독과반' 연속 달성, 조국당 12석 '돌풍'…192석 巨野 탄생 국민의힘 108석 그쳐…'대통령 탄핵·개헌 저지선' 가까스로 사수 범야권 정국주도권 유지…3년 남긴 尹정부, 국정동력 타격 불가피 '여권 3각축' 당·정·대 모두 개편</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n19345" onclick="olapclick('SBH11');"><h2 class="tit">'尹정권 심판론' 제대로 먹혔다…범야권 '완승'·국힘 '참패'</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n17827" onclick="olapclick('SBH11');"><h2 class="tit">민주 175석·조국 12석, 국힘 108석…역대급 '여소야대'(종합)</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n09740" onclick="olapclick('SBH11');"><h2 class="tit">거셌던 정권심판론…野 180+α·與 개헌저지선 사수</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">윤석열 대통령 행보</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n20988" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="윤석열 대통령 행보" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PCM20240227000122990_P2.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PCM20240227000122990_P2.jpg" /></span>			<span class="tb">
+				<h2 class="tit">尹 &quot;국민 뜻 받들어 국정 쇄신&quot;…한총리·대통령실 참모진 사의(종합2보)</h2>
+				<span class="short">총선 참패 '후폭풍'…인적쇄신 단행·국정운영 기조 변화 관측 대통령실 &quot;尹, 어떤 결과든 국정에 대한 국민 평가로 생각&quot;…野와 협치 시사 (서울=연합뉴스) 안용수 곽민서 이동환 기자 = 윤석열 대통령은 11일 제22대 총선에서 여당인 국민의힘에 참패를</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n17784" onclick="olapclick('SBH11');"><h2 class="tit">尹대통령 "총선에서의 국민 뜻 겸허히 받들어 국정 쇄신"(종합)</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n17866" onclick="olapclick('SBH11');"><h2 class="tit">尹 "국민 뜻 겸허히 받들어 국정 쇄신"…남은 3년, 국정운영 가시밭길</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n16255" onclick="olapclick('SBH11');"><h2 class="tit">尹대통령 "총선에서의 국민 뜻 겸허히 받들어 국정 쇄신"</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">[2024 총선] 향후 정국 전망</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n24504" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="[2024 총선] 향후 정국 전망" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/sv/2024/04/11/201918409_700.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/sv/2024/04/11/201918409_700.jpg" /></span>			<span class="tb">
+				<h2 class="tit">2연속 압승한 민주…정국 주도권 야권으로</h2>
+				<span class="short">▲ 출구조사 결과 발표 지켜보는 더불어민주당과 국민의힘 관계자들(오른쪽) 민주당이 제22대 국회의원 총선에서 지난 제21대에 이어 2연속 압도적 승리를 거뒀습니다. 개표가 완료된 오늘(11일) 민주당은 지역구에서 161석, 비례위성정당인 더불어민주연합</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n22183" onclick="olapclick('SBH11');"><h2 class="tit">범야권 192석 압승…與 108석 '참패'…한동훈 비대위원장 사퇴, 향후 정국은?</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n15289" onclick="olapclick('SBH11');"><h2 class="tit">울산 사건·尹명예훼손·도이치모터스…총선후 검찰 수사 향방은</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n15416" onclick="olapclick('SBH11');"><h2 class="tit">동력 잃은 尹경제정책…'금투세 폐지' 등 좌초 수순(종합)</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">조국혁신당 소식</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n25024" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="조국혁신당 소식" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/kh/2024/04/11/news-p.v1.20240411.4cf5427df4344d9c85e0c56c8c352899_P1.jpeg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/kh/2024/04/11/news-p.v1.20240411.4cf5427df4344d9c85e0c56c8c352899_P1.jpeg" /></span>			<span class="tb">
+				<h2 class="tit">조국, 당선되자마자 서초동 찾아 &quot;검찰에 마지막 경고···김건희 수사하라&quot;</h2>
+				<span class="short">조국혁신당 조국 대표를 비롯한 국회의원 당선자들이 11일 오후 서울 서초구 대검찰청 앞에서 김건희 여사에 대한 검찰 수사를 촉구하고 있다. 연합뉴스 조국 조국혁신당 대표는 4·10 총선 직후 첫 일정으로 서울 서초동 대검찰청을 찾아 “검찰에 마지막으로</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n24888" onclick="olapclick('SBH11');"><h2 class="tit">선명성 내건 조국혁신당…원내 '제3당' 등극</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n09146" onclick="olapclick('SBH11');"><h2 class="tit">조국혁신당 광주서도 47.72% 전국 최고득표…'지민비조' 추세되나</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n05867" onclick="olapclick('SBH11');"><h2 class="tit">'지민비조' 외치고 '반윤반명' 파고들어…조국혁신당 돌풍 현실화</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">[2024 총선] 심상정 정계 은퇴 선언</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n20991" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="[2024 총선] 심상정 정계 은퇴 선언" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/ns/2024/04/11/NISI20240411_0020302123_web.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/ns/2024/04/11/NISI20240411_0020302123_web.jpg" /></span>			<span class="tb">
+				<h2 class="tit">심상정, 정계 은퇴 선언…&quot;25년간 진보정치 소임 내려 놓겠다&quot;</h2>
+				<span class="short">고범준 기자 = 심상정 녹색정의당 공동선대위원장이 11일 오전 서울 여의도 국회 소통관에서 22대 총선 결과 관련 입장발표 기자회견을 하고 있다. 2024.04.11. bjko@newsis.com [서울=뉴시스] 이종희 조성하 기자 =</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n24675" onclick="olapclick('SBH11');"><h2 class="tit">울먹인 심상정 "시민의 자리로 돌아갈 것"…정계 은퇴 선언</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n20921" onclick="olapclick('SBH11');"><h2 class="tit">정의당 '0석' 심상정 '낙선'…"진보정치 소임 내려놓겠다"</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n20908" onclick="olapclick('SBH11');"><h2 class="tit">심상정 "25년간 숙명 진보 정치 마무리"…정계은퇴 선언</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">[2024 총선] 한동훈 비대위원장직 사퇴</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n18968" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="[2024 총선] 한동훈 비대위원장직 사퇴" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024041113690001300_P2.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024041113690001300_P2.jpg" /></span>			<span class="tb">
+				<h2 class="tit">한동훈 비대위원장 사퇴…&quot;부족한 당 대표해 국민께 사과&quot;(종합)</h2>
+				<span class="short">&quot;총선 패배, 제 책임…국민 마음 얻지 못했다&quot; &quot;국민 사랑 되찾을 길 고민하겠다&quot;…정치행보 재개 가능성 열어둬 (서울=연합뉴스) 이유미 홍준석 기자 = 국민의힘 한동훈 비상대책위원장은 11일 4·10 총선 참패에 따른 책임을 지고 비대위원장직에서 사</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n18932" onclick="olapclick('SBH11');"><h2 class="tit">한동훈 사퇴…"오롯이 제 책임, 나라 걱정하며 살겠다"</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n18455" onclick="olapclick('SBH11');"><h2 class="tit">한동훈, 총선 참패에 "비대위원장직서 사퇴…대통령실보다 제 책임"(종합)</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n17660" onclick="olapclick('SBH11');"><h2 class="tit">한동훈 비대위원장 사퇴…"부족한 당 대표해 국민께 사과"</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">[2024 총선] 외신 보도</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n14041" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="[2024 총선] 외신 보도" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/hr/2024/04/11/20240411050268_0.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/hr/2024/04/11/20240411050268_0.jpg" /></span>			<span class="tb">
+				<h2 class="tit">외신 &quot;尹, 총선 참패로 레임덕 빠질 것…탄핵 가능성&quot;</h2>
+				<span class="short">윤석열 대통령. 연합뉴스[헤럴드경제=장연주 기자] 국민의힘이 제22대 총선에서 참패함에 따라 주요 외신들은 윤석열 대통령이 남은 임기 3년간 레임덕에 빠질 수 있다고 전망했다.미국 뉴욕타임스(NYT)와 AFP통신 등은 10일 지상파 3사(KBS·MB</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n13318" onclick="olapclick('SBH11');"><h2 class="tit">日언론 "대일정책 변화없겠지만 野비판에 한일관계 시련 가능성"</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n09283" onclick="olapclick('SBH11');"><h2 class="tit">외신 "尹, 국내 입지 약화에 외교 집중할 듯"…日언론 "한일관계 수정 우려"</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n12373" onclick="olapclick('SBH11');"><h2 class="tit">외신들, 윤 대통령 레임덕 언급…"국회 과반 없이 임기 5년"</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">[2024 총선] 최종투표율 67.0%</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n21881" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="[2024 총선] 최종투표율 67.0%" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024041003540005300_P2.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024041003540005300_P2.jpg" /></span>			<span class="tb">
+				<h2 class="tit">22대 총선 최종투표율 67.0%…세종 70.1% 최고·제주 62.2% 최저</h2>
+				<span class="short">32년 만에 최고치…서울·전남 높고 대구·경북 낮아 (서울=연합뉴스) 최평천 기자 = 중앙선거관리위원회는 11일 제22대 총선에서 전체 유권자 4천428만11명 중 2천965만4천450명이 투표해 67.0%의 최종 투표율을 기록했다고 밝혔다. 최종 투</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240410n22080" onclick="olapclick('SBH11');"><h2 class="tit">32년 만의 최고 투표율 67.0%…세종·서울 높고 제주·대구 낮았다</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240410n22976" onclick="olapclick('SBH11');"><h2 class="tit">22대 총선 최종투표율 잠정 67%…32년 만에 최고(종합)</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240410n22429" onclick="olapclick('SBH11');"><h2 class="tit">22대 총선 잠정 투표율 67.0%…32년 만에 최고치(종합)</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">민주당 소식</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n21765" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="민주당 소식" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024041010760001300_P2.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024041010760001300_P2.jpg" /></span>			<span class="tb">
+				<h2 class="tit">[4·10 총선] '친명체제' 강화 속 민주 당권경쟁 시작…&quot;李 한번 더&quot; 요구도</h2>
+				<span class="short">5월 원내대표·8월 당 대표 선거…주류 친명 주자들 '내부 경쟁' 전망 우원식·정청래 등 '당권 주자' 거론…김부겸·임종석 도전 여부 주목 (서울=연합뉴스) 고상민 설승은 정수연 기자 = 4·10 총선에서 압도적 과반 승리를 거두면서 다시금 거야(巨野</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n23623" onclick="olapclick('SBH11');"><h2 class="tit">전국 압승에도 경남 3석 그친 민주당 "민심 읽어내는데 부족"</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n21269" onclick="olapclick('SBH11');"><h2 class="tit">'찐명' 대장동 변호사 대거 국회 입성…'이재명 민주당' 완성</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n18810" onclick="olapclick('SBH11');"><h2 class="tit">민주, '압도적 과반'에도 "두렵다"···환호·박수 없는 해단식</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">[2024 총선] 개표 완료</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n20388" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="[2024 총선] 개표 완료" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yn/2024/04/11/202404111145082435_t.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yn/2024/04/11/202404111145082435_t.jpg" /></span>			<span class="tb">
+				<h2 class="tit">22대 총선 개표 완료…민주 175석·국민의힘108석 확정 </h2>
+				<span class="short">Y 스테이션입니다. 이제 22대 국회의원 선거 개표가 모두 끝났습니다. 개표가 마무리된 가운데 확정된 정당별 의석수 살펴볼까요? 민주당이 비례 위성정당을 합쳐 175석을 확보하면서 원내 1당이 확실해졌습니다. 국민의힘은 비례 위성정당을 포함해모두 10</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n15487" onclick="olapclick('SBH11');"><h2 class="tit">22대 총선 개표 종료…민주당 175석·국민의힘 108석·조국혁신당 12석</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n17820" onclick="olapclick('SBH11');"><h2 class="tit">개표 완료…민주 175석·국민의힘 108석·조국혁신당 12석</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n16528" onclick="olapclick('SBH11');"><h2 class="tit">민주 175, 국힘 108…범야권 192석 '압승'</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">국민의힘 소식</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n20981" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="국민의힘 소식" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/na/2024/04/11/6591409_high.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/na/2024/04/11/6591409_high.jpg" /></span>			<span class="tb">
+				<h2 class="tit">국힘 예고된 '참패'…ⓛ정권 심판 ②조국 돌풍 ③원톱 한계</h2>
+				<span class="short">한동훈 국민의힘 비상대책위원장 겸 총괄선거대책위원장이 11일 오전 서울 여의도 중앙당사에서 총선 결과에 따른 위원장직 사퇴 입장을 밝히고 있다. (공동취재) 2024.4.11/뉴스1 ⓒ News1 구윤성 기자 (서울=뉴스1) 조현기 정재민 기자 = 2</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n17331" onclick="olapclick('SBH11');"><h2 class="tit">'정권 심판론'에 여 지도부도 줄줄이 낙선…박은식 "비대위원 사퇴" 표명</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n14884" onclick="olapclick('SBH11');"><h2 class="tit">출구조사 뒤집은 안철수·김은혜…분당 '샤이보수' 결집했나</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n06729" onclick="olapclick('SBH11');"><h2 class="tit">국힘 총선 참패했지만 동해안벨트 '친윤 트리오'는 다 웃었다</h2></a>
+	</li>
+	</ul>
+							</div>
+													<div class="contents1" style="display:none;">
+																<div class="cluster_title">녹색정의당 소식</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n19920" onclick="olapclick('SBH11');">
+			<span class="ib"><img width="107" height="80" alt="녹색정의당 소식" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024040907750001300_P2.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024040907750001300_P2.jpg" /></span>			<span class="tb">
+				<h2 class="tit">[속보] 심상정 &quot;진보정치 소임 내려놓는다&quot;…정계 은퇴 시사</h2>
+				<span class="short">[이 시각 많이 본 기사]☞ 밧줄로 에펠탑 100ｍ 오른 프랑스 여성…로프 클라이밍 세계기록☞ 배우 류준열, 골프 마스터스 파3 콘테스트에 김주형 캐디로 등장☞ 파주 호텔서 남녀 4명 사망…남성들이 여성 살해뒤 뛰어내린 듯☞ 경매 나온 오타니</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n18009" onclick="olapclick('SBH11');"><h2 class="tit">'0석' 녹색정의당 몰락…20년만에 국회 진입 실패 "새 진보정치 모색"</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n15568" onclick="olapclick('SBH11');"><h2 class="tit">원내 진입 실패한 녹색정의당…김준우 대표 "차기 지도부 선출까지 역할 다할 것"[4·10 국민의선택]</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//m.news.nate.com/view/20240411n11333" onclick="olapclick('SBH11');"><h2 class="tit">'0석' 녹색정의당 12년만에 원외로…심상정 '5선' 좌절</h2></a>
+	</li>
+	</ul>
+							</div>
+											</div>
+
+					<div id="newsPageA" class="pageNav" data-findicator="y">
+						<button class="arrow prev" type="button" onclick="olapclick('SBH11');"><em class="prev">이전</em></button>
+						<span class="pagenum">
+							<span class="num select">1</span><span class="num">2</span><span class="num">3</span><span class="num">4</span><span class="num">5</span><span class="num">6</span><span class="num">7</span><span class="num">8</span><span class="num">9</span><span class="num">10</span><span class="num">11</span><span class="num">12</span><span class="num">13</span><span class="num">14</span><span class="num">15</span>						</span>
+						<button class="arrow next" type="button" onclick="olapclick('SBH11');"><em class="next">다음</em></button>
+					</div>
+				</div>
+				
+				<div class="btn_link_list n3">
+					<div class="btn_link_list_title">핫 이슈 키워드</div>
+					<div class="line1">
+													<a href="//m.news.nate.com/hissue/list?isq=11104" onclick="olapclick('SBH01');"><h2>의대 정원 확대 공방</h2></a>
+													<a href="//m.news.nate.com/hissue/list?isq=10081" onclick="olapclick('SBH02');"><h2>2024 한반도 정세</h2></a>
+													<a href="//m.news.nate.com/hissue/list?isq=10804" onclick="olapclick('SBH03');"><h2>20대 대통령 윤석열</h2></a>
+											</div>
+				</div>								
+				<div id="big_banner" class="main_banner">
+					<iframe src="//m.news.nate.com/etc/AdTop?mid=m01&amp;pos=big" name="ad_big" id="ad_big" width="100%" height="50" title="광고배너" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+				</div>
+				<hr class="comonentDivision" />
+				
+				<!-- 주요뉴스 -->
+				<div class="is_card focus-news" id="list_mainNews">
+					<div id="mdc01" class="cluster_title"><span class="type">정치</span> 주요뉴스</div>
+					<ul class=" mlt01">
+													<li class="lt1 ep2">
+								<a href="//m.news.nate.com/view/20240411n16030" onclick="olapclick('SBH04');">
+									<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/na/2024/04/11/6527308_high.jpg" alt="국회의원 된 가수 리아 &amp;quot;朴 지지? 일 많이 준다해서…文 유세 때 정신차려&amp;quot;" /></span>									<span class="tb">
+										<h2 class="tit">국회의원 된 가수 리아 &quot;朴 지지? 일 많이 준다해서…文 유세 때 정신차려&quot;</h2><span class="short">뉴스1</span>
+									</span>
+								</a>
+							</li>
+													<li class="lt1 ep2">
+								<a href="//m.news.nate.com/view/20240411n24205" onclick="olapclick('SBH04');">
+									<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/jo/2024/04/11/0689ed04-20e2-4ca0-bf64-96bef4b9998c.jpg" alt="&amp;quot;개헌선 아쉽다&amp;quot;vs&amp;quot;나라 망했다&amp;quot;…밤새 '도파민 롤러코스터' 탄 시민들" /></span>									<span class="tb">
+										<h2 class="tit">&quot;개헌선 아쉽다&quot;vs&quot;나라 망했다&quot;…밤새 '도파민 롤러코스터' 탄 시민들</h2><span class="short">중앙일보</span>
+									</span>
+								</a>
+							</li>
+													<li class="lt1 ep2">
+								<a href="//m.news.nate.com/view/20240411n19969" onclick="olapclick('SBH04');">
+									<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/jo/2024/04/11/79418132-c4fd-454e-9dff-17bec88e0d68.jpg" alt="이준석·나경원·안철수·김기현…尹에 밀려났던 비윤, 모두 살았다" /></span>									<span class="tb">
+										<h2 class="tit">이준석·나경원·안철수·김기현…尹에 밀려났던 비윤, 모두 살았다</h2><span class="short">중앙일보</span>
+									</span>
+								</a>
+							</li>
+													<li class="lt1 ep2">
+								<a href="//m.news.nate.com/view/20240411n12143" onclick="olapclick('SBH04');">
+									<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/mk/2024/04/11/news-p.v1.20240411.cec9f4b1dcf64a3c9ca99d428b489932_P1.jpg" alt="유권자 질문에 엉뚱한 답하고 총선에 참패한 여당" /></span>									<span class="tb">
+										<h2 class="tit">유권자 질문에 엉뚱한 답하고 총선에 참패한 여당</h2><span class="short">매일경제</span>
+									</span>
+								</a>
+							</li>
+													<li class="lt1 ep2">
+								<a href="//m.news.nate.com/view/20240411n15947" onclick="olapclick('SBH04');">
+									<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/sg/2024/04/11/20240411515792.png" alt="셀럽들의 금뱃지 도전기…가수 리아·사격황제 진종오 당선, 이수정은 낙선" /></span>									<span class="tb">
+										<h2 class="tit">셀럽들의 금뱃지 도전기…가수 리아·사격황제 진종오 당선, 이수정은 낙선</h2><span class="short">세계일보</span>
+									</span>
+								</a>
+							</li>
+											</ul>
+				</div>				<hr class="comonentDivision" />		
+				<!-- 핫이슈 모듈 (시사, 스포츠) -->
+								
+				
+				<!-- 오늘의 방송 (연예) -->
+					
+				
+				<!-- UIDEV-1307 오늘의 시사포토 -->
+                <div class="section-photo-flick commComponent">
+                	<div class="subj">오늘의 시사 포토</div>
+                	<div class="move_area">
+                		<ul>
+                    		                        		<li class="item">
+                    				<a class="link" href="//m.news.nate.com/photoSlide/view?section=sisa&amp;clstId=1048632" onclick="olapclick('SBH25');">
+                    					<span class="img-wrap"><img src="//news.nateimg.co.kr/etc/cms/2024/04/11/1712814936_128.png" /></span>
+                    					<h2 class="text">이재명은 '웃고' 한동훈은 '울고'···같은 날 엘리베이터 언에서 상반된 표정 [22대 총선 이모저모]</h2>
+                    				</a>
+                    			</li>
+                    		                        		<li class="item">
+                    				<a class="link" href="//m.news.nate.com/photoSlide/view?section=sisa&amp;clstId=1048622" onclick="olapclick('SBH25');">
+                    					<span class="img-wrap"><img src="//news.nateimg.co.kr/etc/cms/2024/04/11/1712813457_529.png" /></span>
+                    					<h2 class="text">대검찰청에서 서초역 방면 행진하는 조국혁신당 [정치 이모저모]</h2>
+                    				</a>
+                    			</li>
+                    		                        		<li class="item">
+                    				<a class="link" href="//m.news.nate.com/photoSlide/view?section=sisa&amp;clstId=1048619" onclick="olapclick('SBH25');">
+                    					<span class="img-wrap"><img src="//news.nateimg.co.kr/etc/cms/2024/04/11/1712813204_644.png" /></span>
+                    					<h2 class="text">시민들에게 감사인사 하는 권영세 [22대 총선 이모저모]</h2>
+                    				</a>
+                    			</li>
+                    		                        		<li class="item">
+                    				<a class="link" href="//m.news.nate.com/photoSlide/view?section=sisa&amp;clstId=1048616" onclick="olapclick('SBH25');">
+                    					<span class="img-wrap"><img src="//news.nateimg.co.kr/etc/cms/2024/04/11/1712812275_132.png" /></span>
+                    					<h2 class="text">조국혁신당 '검찰독재 조기종식 기자회견' [정치 이모저모]</h2>
+                    				</a>
+                    			</li>
+                    		                        		<li class="item">
+                    				<a class="link" href="//m.news.nate.com/photoSlide/view?section=sisa&amp;clstId=1048611" onclick="olapclick('SBH25');">
+                    					<span class="img-wrap"><img src="//news.nateimg.co.kr/etc/cms/2024/04/11/1712811262_732.jpg" /></span>
+                    					<h2 class="text"> 손 흔드는 김준혁 당선인 [22대 총선 이모저모]</h2>
+                    				</a>
+                    			</li>
+                    		                        		<li class="item">
+                    				<a class="link" href="//m.news.nate.com/photoSlide/view?section=sisa&amp;clstId=1048610" onclick="olapclick('SBH25');">
+                    					<span class="img-wrap"><img src="//news.nateimg.co.kr/etc/cms/2024/04/11/1712811016_114.jpg" /></span>
+                    					<h2 class="text">떠나는 심상정, 고별 인사 직전 '젊은 리더들' 끌어안았다 [22대 총선 이모저모]</h2>
+                    				</a>
+                    			</li>
+                    		                        		<li class="item">
+                    				<a class="link" href="//m.news.nate.com/photoSlide/view?section=sisa&amp;clstId=1048609" onclick="olapclick('SBH25');">
+                    					<span class="img-wrap"><img src="//news.nateimg.co.kr/etc/cms/2024/04/11/1712810882_935.jpg" /></span>
+                    					<h2 class="text">산더미 처럼 쌓여 있는 총선 현수막[22대 총선 이모저모]</h2>
+                    				</a>
+                    			</li>
+                    		                        		<li class="item">
+                    				<a class="link" href="//m.news.nate.com/photoSlide/view?section=sisa&amp;clstId=1048608" onclick="olapclick('SBH25');">
+                    					<span class="img-wrap"><img src="//news.nateimg.co.kr/etc/cms/2024/04/11/1712810666_067.jpg" /></span>
+                    					<h2 class="text">떠나는 한동훈 비상대책위원장 [22대 총선 이모저모]</h2>
+                    				</a>
+                    			</li>
+                    		                        		<li class="item">
+                    				<a class="link" href="//m.news.nate.com/photoSlide/view?section=sisa&amp;clstId=1048599" onclick="olapclick('SBH25');">
+                    					<span class="img-wrap"><img src="//news.nateimg.co.kr/etc/cms/2024/04/11/1712805536_637.png" /></span>
+                    					<h2 class="text">당사 나서는 한동훈 비상대책위원장 [22대 총선 이모저모]</h2>
+                    				</a>
+                    			</li>
+                    		                        		<li class="item">
+                    				<a class="link" href="//m.news.nate.com/photoSlide/view?section=sisa&amp;clstId=1048597" onclick="olapclick('SBH25');">
+                    					<span class="img-wrap"><img src="//news.nateimg.co.kr/etc/cms/2024/04/11/1712804815_242.png" /></span>
+                    					<h2 class="text">나경원의 당선인사 [22대 총선 이모저모]</h2>
+                    				</a>
+                    			</li>
+                    		                		</ul>
+                	</div>
+                	<a href="//m.news.nate.com/photoSlide/index?section=sisa" class="more" onclick="olapclick('SBH24');">더 보기</a>
+                </div>
+				
+				<hr class="comonentDivision" />
+				<div class="list_plast" data-fwrapper="y" data-autoresize="y">
+										<div class="cluster_title">정치 랭킹 <a href="//m.news.nate.com/rank/list?mid=m01&amp;section=pol&amp;rmode=interest" class="more" onclick="olapclick('SBH07');">: 자세히 보기</a></div>
+					<div class="wrap" data-fcover="y">
+													<ol class="numeric">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n12750" class="ellipsis" onclick="olapclick('SBH08');">한동훈, 총선 참패에 사퇴 의사…오전 11시 입장 발표</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n16633" class="ellipsis" onclick="olapclick('SBH08');">한총리, 尹대통령에 사의…안보실 뺀 대통령실 참모진도 사의</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n20514" class="ellipsis" onclick="olapclick('SBH08');">눈물 흘리는 심상정 '정계 은퇴 선언'</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n17833" class="ellipsis" onclick="olapclick('SBH08');">'6선' 당선인사 하는 추미애</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n15853" class="ellipsis" onclick="olapclick('SBH08');">4년 만에 국회 복귀하는 나경원</a></h2></li>
+															</ol>
+													<ol class="numeric set1">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n17784" class="ellipsis" onclick="olapclick('SBH08');">尹대통령 &quot;총선에서의 국민 뜻 겸허히 받들어 국정 쇄신&quot;(종합)</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n06654" class="ellipsis" onclick="olapclick('SBH08');">민주 지역구 161석, 국힘 90석…민심은 여당에 매서웠다</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n16255" class="ellipsis" onclick="olapclick('SBH08');">尹대통령 &quot;총선에서의 국민 뜻 겸허히 받들어 국정 쇄신&quot;</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n18651" class="ellipsis" onclick="olapclick('SBH08');">비대위원장 사퇴 한동훈, '나라 걱정하며 살겠다'</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n25686" class="ellipsis" onclick="olapclick('SBH08');">대검찰청에서 서초역 방면 행진하는 조국혁신당</a></h2></li>
+															</ol>
+													<ol class="numeric set2">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n04257" class="ellipsis" onclick="olapclick('SBH08');">3년 남은 尹, 최대 정치적 위기…인사권 행사조차 쉽지 않아</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n00461" class="ellipsis" onclick="olapclick('SBH08');">'참패 충격' 與, 한숨·눈물…한동훈 &quot;실망스럽다&quot;(종합)</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n01804" class="ellipsis" onclick="olapclick('SBH08');">막말 논란 김준혁 당선, 이수정 눌렀다…&quot;혹독한 통과의례&quot; [화제의 당선인]</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n02837" class="ellipsis" onclick="olapclick('SBH08');">심상정마저…0석 정의당, 파산 위기</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n25024" class="ellipsis" onclick="olapclick('SBH08');">조국, 당선되자마자 서초동 찾아 &quot;검찰에 마지막 경고···김건희 수사하라&quot;</a></h2></li>
+															</ol>
+													<ol class="numeric set3">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n05846" class="ellipsis" onclick="olapclick('SBH08');">예상보다 쓰디쓴 성적표…한동훈 책임론 나올 듯</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n17660" class="ellipsis" onclick="olapclick('SBH08');">한동훈 비대위원장 사퇴…&quot;부족한 당 대표해 국민께 사과&quot;</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n05447" class="ellipsis" onclick="olapclick('SBH08');">매서운 '윤석열 심판'에 야당 몰표…한동훈 약발 백약무효</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n08425" class="ellipsis" onclick="olapclick('SBH08');">&quot;범야권 200석이라더니…&quot; 72억 들였는데 빗나간 '출구조사', 왜</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n02093" class="ellipsis" onclick="olapclick('SBH08');">총선 압승 진두지휘한 이재명, 대권 재도전 '청신호'</a></h2></li>
+															</ol>
+													<ol class="numeric set4">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n10345" class="ellipsis" onclick="olapclick('SBH08');">이준석 &quot;한동훈, 선거 결과 못 받아들일 것…尹? 콤플렉스 사로잡혔다&quot;</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n00674" class="ellipsis" onclick="olapclick('SBH08');">개표율 70%…현재 1위 민주 159곳, 국힘 92곳 [4·10 총선]</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n01884" class="ellipsis" onclick="olapclick('SBH08');">조국혁신당 돌풍 현실 됐다…&quot;10석 이상 가능&quot; 총선 후 행보는?</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n20839" class="ellipsis" onclick="olapclick('SBH08');">당사 나서는 한동훈 비상대책위원장</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n01426" class="ellipsis" onclick="olapclick('SBH08');">'당선 확실 나경원' 남편, 딸과 함께</a></h2></li>
+															</ol>
+													<ol class="numeric set5">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n11776" class="ellipsis" onclick="olapclick('SBH08');">'총선 낙선' 이낙연 출근길 고별 인사</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n06399" class="ellipsis" onclick="olapclick('SBH08');">민주 '압도적 과반'·與 3연패…야권 190석 넘을 듯(종합2보)</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n05230" class="ellipsis" onclick="olapclick('SBH08');">당선 소감 밝히는 김은혜</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n20991" class="ellipsis" onclick="olapclick('SBH08');">심상정, 정계 은퇴 선언…&quot;25년간 진보정치 소임 내려 놓겠다&quot;</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n04728" class="ellipsis" onclick="olapclick('SBH08');">안철수 &quot;쓴소리하는 역할 제대로 하겠다&quot;</a></h2></li>
+															</ol>
+											</div>
+					<div class="pageNav" data-findicator="y">
+						<button class="arrow prev" type="button"><em class="prev">이전</em></button>
+						<span class="pagenum">
+							<span class="num select">1</span><span class="num">2</span><span class="num">3</span><span class="num">4</span><span class="num">5</span><span class="num">6</span>						</span>
+						<button class="arrow next" type="button"><em class="next">다음</em></button>
+					</div>
+				</div>
+			</div>
+		</section><!-- //Responsive_left -->
+		
+		<!-- Responsive_right -->
+		<section class="rwd_right">
+		         <!-- 최신뉴스 -->
+				<div class="is_card latest-news" id="sectRecentNews">
+					<div class="cluster_title" id="latest01"><span class="type">정치</span> 최신뉴스</div>
+					<ul class="mlt01">
+		<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n27831?mid=m01&amp;list=recent&amp;cpcd=" onclick="olapclick('SBH26');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews60///news.nateimg.co.kr/orgImg/hk/2024/04/11/01.36393647.1.jpg" alt="기사이미지" /></span>			<span class="tb">
+				<h2 class="tit">"형 당선되면 잔디 깔아줄게"…진보 텃밭서 이변 일으킨 김재섭</h2>
+				<span class="short">
+					한국경제										<span class="date">1분전</span>
+				</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n28091?mid=m01&amp;list=recent&amp;cpcd=" onclick="olapclick('SBH26');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews60///news.nateimg.co.kr/orgImg/at/2024/04/11/2024041101001117900065691.jpg" alt="기사이미지" /></span>			<span class="tb">
+				<h2 class="tit">[4·10 총선] 심상정, 정계 은퇴 선언 "진보정치 소임 내려놓는다"</h2>
+				<span class="short">
+					아시아투데이										<span class="date">1분전</span>
+				</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n28089?mid=m01&amp;list=recent&amp;cpcd=" onclick="olapclick('SBH26');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews60///news.nateimg.co.kr/orgImg/mt/2024/04/11/2024041115031570394_1.jpg" alt="기사이미지" /></span>			<span class="tb">
+				<h2 class="tit">이준석의 도발 "다음 대선 3년 남았다고요? 확실합니까?"</h2>
+				<span class="short">
+					머니투데이										<span class="date">1분전</span>
+				</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n27909?mid=m01&amp;list=recent&amp;cpcd=" onclick="olapclick('SBH26');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews60///news.nateimg.co.kr/orgImg/wh/2024/04/11/1072634_1301800_3219.jpg" alt="기사이미지" /></span>			<span class="tb">
+				<h2 class="tit">"尹, 국정운영 타격 불가피…쇄신 통해 협치구조 만들어야"</h2>
+				<span class="short">
+					데일리한국										<span class="date">1분전</span>
+				</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n28077?mid=m01&amp;list=recent&amp;cpcd=" onclick="olapclick('SBH26');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews60///news.nateimg.co.kr/orgImg/ni/2024/04/11/2404111457132800.jpg" alt="기사이미지" /></span>			<span class="tb">
+				<h2 class="tit">쌍용C&E 동해공장 삼화동 봄맞이 대청소</h2>
+				<span class="short">
+					뉴스핌										<span class="date">1분전</span>
+				</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n28072?mid=m01&amp;list=recent&amp;cpcd=" onclick="olapclick('SBH26');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews60///news.nateimg.co.kr/orgImg/yt/2024/04/11/PYH2024041120130006300_P2.jpg" alt="기사이미지" /></span>			<span class="tb">
+				<h2 class="tit">김제선 중구청장 기자 간담회</h2>
+				<span class="short">
+					연합뉴스										<span class="date">1분전</span>
+				</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n28071?mid=m01&amp;list=recent&amp;cpcd=" onclick="olapclick('SBH26');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews60///news.nateimg.co.kr/orgImg/fr/2024/04/11/art_635460_1712815019.jpg" alt="기사이미지" /></span>			<span class="tb">
+				<h2 class="tit">박정수 의원 '충청남도 작은축제 육성 및 지원에 관한 조례안' 예고</h2>
+				<span class="short">
+					프라임경제										<span class="date">1분전</span>
+				</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n28070?mid=m01&amp;list=recent&amp;cpcd=" onclick="olapclick('SBH26');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews60///news.nateimg.co.kr/orgImg/ns/2024/04/11/NISI20240411_0001524380_web.jpg" alt="기사이미지" /></span>			<span class="tb">
+				<h2 class="tit">총선 끝, 다시 검경의 시간…광주·전남 '선거법 수사' 속도</h2>
+				<span class="short">
+					뉴시스										<span class="date">1분전</span>
+				</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n28062?mid=m01&amp;list=recent&amp;cpcd=" onclick="olapclick('SBH26');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews60///news.nateimg.co.kr/orgImg/ni/2024/04/11/240410194003619_w.jpg" alt="기사이미지" /></span>			<span class="tb">
+				<h2 class="tit">조국 "검찰에 마지막 경고…김건희 여사 당장 소환하라"</h2>
+				<span class="short">
+					뉴스핌										<span class="date">1분전</span>
+				</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt1 ep2">
+		<a href="//m.news.nate.com/view/20240411n28055?mid=m01&amp;list=recent&amp;cpcd=" onclick="olapclick('SBH26');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews60///news.nateimg.co.kr/orgImg/js/2024/04/11/17128157831712815783_zhses3.jpg" alt="기사이미지" /></span>			<span class="tb">
+				<h2 class="tit">범야권 192석…정권심판론 강타로 여당 참패</h2>
+				<span class="short">
+					조세일보										<span class="date">1분전</span>
+				</span>
+			</span>
+		</a>
+	</li>
+	</ul>
+
+	<div class="page_type2" id="list_paging">
+		<a  class="btn prev disable" onclick="ndrclick('SBH32');">이전</a>
+						<strong>1</strong>
+								<a href="?mid=m01&amp;cate=pol&amp;date=20240411&amp;page=2#sectRecentNews" onclick="ndrclick('SBH32');">2</a>
+								<a href="?mid=m01&amp;cate=pol&amp;date=20240411&amp;page=3#sectRecentNews" onclick="ndrclick('SBH32');">3</a>
+								<a href="?mid=m01&amp;cate=pol&amp;date=20240411&amp;page=4#sectRecentNews" onclick="ndrclick('SBH32');">4</a>
+								<a href="?mid=m01&amp;cate=pol&amp;date=20240411&amp;page=5#sectRecentNews" onclick="ndrclick('SBH32');">5</a>
+				<a href="?mid=m01&amp;cate=pol&amp;date=20240411&amp;page=6#sectRecentNews" class="btn next" onclick="ndrclick('SBH32');">다음</a>
+</div>				</div>
+				
+				<hr class="comonentDivision" />
+				
+				<div class="list_plast" data-fwrapper="y" data-autoresize="y">
+					<div class="cluster_title">시사 랭킹 <a href="//m.news.nate.com/rank/list?mid=m2001&amp;section=sisa&amp;rmode=interest&amp;date=20240411" class="more" onclick="olapclick('SBH27');">: 자세히 보기</a></div>
+					<div class="wrap" data-fcover="y">
+													<ol class="numeric">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n12750" class="ellipsis" onclick="olapclick('SBH28');">한동훈, 총선 참패에 사퇴 의사…오전 11시 입장 발표</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n11871" class="ellipsis" onclick="olapclick('SBH28');">나라살림 87조 적자, GDP 4% 육박…재정준칙 '공염불'</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n11947" class="ellipsis" onclick="olapclick('SBH28');">발표 왜 미뤘나 했더니…지난해 나라 살림 최악 수준</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n16633" class="ellipsis" onclick="olapclick('SBH28');">한총리, 尹대통령에 사의…안보실 뺀 대통령실 참모진도 사의</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n20514" class="ellipsis" onclick="olapclick('SBH28');">눈물 흘리는 심상정 '정계 은퇴 선언'</a></h2></li>
+															</ol>
+													<ol class="numeric set1">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n14041" class="ellipsis" onclick="olapclick('SBH28');">외신 &quot;尹, 총선 참패로 레임덕 빠질 것…탄핵 가능성&quot;</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n17833" class="ellipsis" onclick="olapclick('SBH28');">'6선' 당선인사 하는 추미애</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n15853" class="ellipsis" onclick="olapclick('SBH28');">4년 만에 국회 복귀하는 나경원</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n17784" class="ellipsis" onclick="olapclick('SBH28');">尹대통령 &quot;총선에서의 국민 뜻 겸허히 받들어 국정 쇄신&quot;(종합)</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n06654" class="ellipsis" onclick="olapclick('SBH28');">민주 지역구 161석, 국힘 90석…민심은 여당에 매서웠다</a></h2></li>
+															</ol>
+													<ol class="numeric set2">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n16255" class="ellipsis" onclick="olapclick('SBH28');">尹대통령 &quot;총선에서의 국민 뜻 겸허히 받들어 국정 쇄신&quot;</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n14902" class="ellipsis" onclick="olapclick('SBH28');">횡단보도 건너다 차에 치여 날아간 보행자…&quot;위자료 15만원이 끝&quot;[CCTV 영상]</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n18651" class="ellipsis" onclick="olapclick('SBH28');">비대위원장 사퇴 한동훈, '나라 걱정하며 살겠다'</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n25686" class="ellipsis" onclick="olapclick('SBH28');">대검찰청에서 서초역 방면 행진하는 조국혁신당</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n04257" class="ellipsis" onclick="olapclick('SBH28');">3년 남은 尹, 최대 정치적 위기…인사권 행사조차 쉽지 않아</a></h2></li>
+															</ol>
+													<ol class="numeric set3">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n00461" class="ellipsis" onclick="olapclick('SBH28');">'참패 충격' 與, 한숨·눈물…한동훈 &quot;실망스럽다&quot;(종합)</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n01804" class="ellipsis" onclick="olapclick('SBH28');">막말 논란 김준혁 당선, 이수정 눌렀다…&quot;혹독한 통과의례&quot; [화제의 당선인]</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n02837" class="ellipsis" onclick="olapclick('SBH28');">심상정마저…0석 정의당, 파산 위기</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n25024" class="ellipsis" onclick="olapclick('SBH28');">조국, 당선되자마자 서초동 찾아 &quot;검찰에 마지막 경고···김건희 수사하라&quot;</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n05846" class="ellipsis" onclick="olapclick('SBH28');">예상보다 쓰디쓴 성적표…한동훈 책임론 나올 듯</a></h2></li>
+															</ol>
+													<ol class="numeric set4">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n17660" class="ellipsis" onclick="olapclick('SBH28');">한동훈 비대위원장 사퇴…&quot;부족한 당 대표해 국민께 사과&quot;</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n05447" class="ellipsis" onclick="olapclick('SBH28');">매서운 '윤석열 심판'에 야당 몰표…한동훈 약발 백약무효</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n08425" class="ellipsis" onclick="olapclick('SBH28');">&quot;범야권 200석이라더니…&quot; 72억 들였는데 빗나간 '출구조사', 왜</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n02093" class="ellipsis" onclick="olapclick('SBH28');">총선 압승 진두지휘한 이재명, 대권 재도전 '청신호'</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n10345" class="ellipsis" onclick="olapclick('SBH28');">이준석 &quot;한동훈, 선거 결과 못 받아들일 것…尹? 콤플렉스 사로잡혔다&quot;</a></h2></li>
+															</ol>
+													<ol class="numeric set5">
+																	<li><h2><a href="//m.news.nate.com/view/20240411n22668" class="ellipsis" onclick="olapclick('SBH28');">여당 참패에 '의정대화' 본격화하나…정부-의사 모두 '신중모드'</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n00674" class="ellipsis" onclick="olapclick('SBH28');">개표율 70%…현재 1위 민주 159곳, 국힘 92곳 [4·10 총선]</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n01884" class="ellipsis" onclick="olapclick('SBH28');">조국혁신당 돌풍 현실 됐다…&quot;10석 이상 가능&quot; 총선 후 행보는?</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n09697" class="ellipsis" onclick="olapclick('SBH28');">기뻐하는 박지원, 81세 최고령 당선인</a></h2></li>
+																	<li><h2><a href="//m.news.nate.com/view/20240411n20839" class="ellipsis" onclick="olapclick('SBH28');">당사 나서는 한동훈 비상대책위원장</a></h2></li>
+															</ol>
+											</div>
+					<div class="pageNav" data-findicator="y">
+						<button class="arrow prev" type="button"><em class="prev">이전</em></button>
+						<span class="pagenum">
+							<span class="num select">1</span><span class="num">2</span><span class="num">3</span><span class="num">4</span><span class="num">5</span><span class="num">6</span>						</span>
+						<button class="arrow next" type="button"><em class="next">다음</em></button>
+					</div>
+				</div>
+			<!-- 퀵링크 -->
+			<div class="quick_section">
+	<ul>
+					<li><a href="//m.news.nate.com" onclick="olapclick('RAN35');">뉴스</a></li>
+			<li><a href="//m.news.nate.com/ent" onclick="olapclick('RAN35');">연예</a></li>
+			<li><a href="//m.news.nate.com/spo" onclick="olapclick('RAN35');">스포츠</a></li>
+			<li><a href="//m.news.nate.com/rank/list?mid=m2001&amp;section=sisa&amp;rmode=interest" onclick="olapclick('RAN35');">랭킹</a></li>
+			<li><a href="//m.news.nate.com/issuepick" onclick="olapclick('RAN35');">이슈픽</a></li>
+			<li><a href="//m.news.nate.com/photoSlide/index?section=sisa" onclick="olapclick('RAN35');">포토</a></li>
+			<li><a href="//m.news.nate.com/selectCP?mid=m00" onclick="olapclick('RAN35');">언론사별</a></li>
+			<li><a href="//m.news.nate.com/Idol24" onclick="olapclick('RAN35');">아이돌</a></li>
+			</ul>
+</div>			<div class="etc_footer">
+		<div class="fontSize">
+		<button type="button" data-btn="f1" onclick="olapclick('RAM101');changeFontSize(event)" title="보통 글씨" class="">가</button>
+		<button type="button" data-btn="f2" onclick="olapclick('RAM102');changeFontSize(event);" title="큰 글씨">가</button>
+		<button type="button" data-btn="f3" onclick="olapclick('RAM103');changeFontSize(event);" title="가장 큰 글씨" class="">가</button>
+	</div>
+		<div class="scroll_up_v2"><a href="#header" onclick="olapclick('RAM51');">맨위로</a></div></div>	
+			<div class="bt_banner">
+				<iframe id="ifr_ad_shopbox" name="ifr_ad_shopbox" src="about:blank" data-src="//m.news.nate.com/etc/adShopBox" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" width="100%" height="0"></iframe>
+			</div>
+			
+			<!-- SA 광고 -->
+	<div class="shopBox">
+	    <div class="mallBox">
+	        <div class="ml">
+	        		            <a href="https://mdirect.hi.co.kr/service.do?m=b5eef5f9a4&amp;src=nate_da&amp;kw=003956&amp;HDMS1=cpc&amp;HDMS2=nate&amp;HDMS3=brandsearch&amp;HDMS4=%EC%9E%90%EB%8F%99%EC%B0%A8%5F%EA%B8%B0%EB%B3%B8%5F%EB%A9%94%EC%9D%B8%EC%9D%B4%EB%AF%B8%EC%A7%80&amp;utm_source=nate&amp;utm_medium=brandsearch&amp;utm_campaign=%EC%9E%90%EB%8F%99%EC%B0%A8%EB%B3%B4%ED%97%98&amp;utm_term=%EC%9E%90%EB%8F%99%EC%B0%A8%5F%EA%B8%B0%EB%B3%B8%5F%EB%A9%94%EC%9D%B8%EC%9D%B4%EB%AF%B8%EC%A7%80" target="_blank" onclick="olapclick('SAT01');">현대해상</a>
+	            	            <a href="https://mdirect.kbinsure.co.kr/websquare/mobilePromotion.jsp?pid=1090040&amp;code=0002&amp;page=m_step1&amp;utm_source=Nate&amp;utm_medium=Nate_BS&amp;utm_campaign=0517_1231_nate_bs&amp;utm_term=%7Bkeyword%7D&amp;utm_content=10900400002&amp;_AT=0426143D01A803430876" target="_blank" onclick="olapclick('SAT02');">KB손해보험</a>
+	            	            <a href="https://m.directdb.co.kr/at/prd/atarc/step1/formStepPreView.do?src=nate_da&amp;kw=03F01B&amp;partner_code=C559&amp;keyword=MTZ100015&amp;utm_source=nate_m&amp;utm_medium=cpc&amp;utm_campaign=nhnad&amp;utm_term=DB%EB%8B%A4%EC%9D%B4%EB%A0%89%ED%8A%B8%EC%9E%90%EB%8F%99%EC%B0%A8%EB%B3%B4%ED%97%98" target="_blank" onclick="olapclick('SAT03');">DB손해보험</a>
+	            	        </div>
+	        <div class="ml">
+	        		            <a href="https://m.dbinsure.co.kr/driver?JEHUSA_CD=C5204&amp;utm_medium=cpc&amp;utm_source=nate_mobile&amp;utm_campaign=biz&amp;utm_content=driver&amp;utm_term=%EC%9A%B4%EC%A0%84%EC%9E%90%EB%B3%B4%ED%97%98" target="_blank" onclick="olapclick('SAT04');">운전자보험</a>
+	            	            <a href="https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&amp;tid=1001647852" target="_blank" onclick="olapclick('SAT05');">11번가</a>
+	            	            <a href="https://m.axa.co.kr/indexm_email_relay.jsp?sm_flag=N&amp;site_acq_src=0813001&amp;cmpid=sa_nate_pre_bs_M-image&amp;relay_lang_type=ko&amp;go_url=/mobdblcms/html/dmai/cal/dmai_cal_11_m.html&amp;utm_source=nate&amp;utm_medium=cpm&amp;utm_campaign=BRAND-SEARCH&amp;utm_content=image" target="_blank" onclick="olapclick('SAT06');">AXA손해보험</a>
+	            	        </div>
+	    </div>
+	</div>
+		</section><!-- //Responsive_right -->
+	</div>
+
+		</section>
+				<hr />
+					<script type="text/javascript">
+		try {
+			function holdPCVersion() {
+				var domain = '.news.nate.com';
+				var exp_time = new Date(); exp_time.setTime(exp_time.getTime() + 5*1000 );
+				setCookie('HOLDPC', '1', exp_time, '/', domain);
+			}
+		} catch(e) {}
+	</script>
+    <!-- footer -->
+    <footer id="footer" role="contentinfo">
+        <!-- 로그인 전 -->
+        <div class="footer">
+            <!-- a태그 줄바꿈 금지 -->
+            <div class="svcBtn">
+                <a href="//m.nate.com" onclick="ndrclick('RAM56');">네이트홈</a><a href="#" onclick="ndrclick('RAM56');loginout(encodeURIComponent(document.location.href));"><span id="loginbtnmsg">로그인</span></a><a href="//news.nate.com/section?mid=n0200" onclick="ndrclick('RAM56');holdPCVersion();">PC버전</a><a href="//m.nate.com/sitemap.html" onclick="ndrclick('RAM56');">전체서비스</a>
+            </div>            <ul class="sitemap">
+            	<li><a href="//news.nate.com/enews/editguide" onclick="ndrclick('RAM56');">기사배열기본방침(책임:김경옥)</a></li>
+            	<li><span>청소년보호책임:조유형</span></li>
+            	<li><a href="//m.news.nate.com/newssitemap" onclick="ndrclick('RAM56');">뉴스 전체서비스</a></li>
+            </ul>                        <div class="copyright"><span>&copy; SK Communications</span><a class="cscenter" href="//m.helpdesk.nate.com" onclick="ndrclick('RAM56');">고객센터</a></div>
+        </div>
+    </footer>
+    <!-- // footer -->		<!-- 최상단으로 이동 / NateAppViewBanner -->
+		<!-- 앱 이벤트 배너 설정 -->
+<div id="viewAppPOP" class="viewAppPOP" style="display: none">
+	<a href="javascript:executeAppLink();" class="txt">네이트앱으로 보기</a>
+	<button class="close" onclick="denyNateApp();">팝업 닫기</button>
+</div>
+
+<script type="text/javascript">
+
+	var appBannerCookie = "NATEAPP_VIEW";
+
+	var visitedAt = +new Date;
+
+	function checkNateApp(retry_num) {
+		
+		var top_button_id = '';
+		var body_class = '';
+		var service_snb = '';
+		
+		if ( typeof gUserJS_sAppFrom == 'undefined' ) {
+			retry_num -= 1;
+			if ( retry_num > 0 ) {
+				setTimeout(checkNateApp(retry_num), 1000);
+			}
+		} else {
+			// TOP 이동 버튼
+			if ( gUserJS_sAppFrom == 'nate_app' && top_button_id != '' ) {
+				$("#").hide();
+			} 
+			
+			// 네이트앱으로 보기 버튼
+			if ( gUserJS_sAppFrom != 'nate_app' && body_class == 'view_pg' && navigator.userAgent.indexOf("nateon_app") === -1 ) {
+				var nateapp_view = GetCookie(appBannerCookie);
+
+				if (nateapp_view != 'no') {
+					if( gUserJS_sOs == 'android' || gUserJS_sOs == 'osx' || (navigator.userAgent.match('Macintosh') && navigator.maxTouchPoints > 1) ){
+	 					if($(".viewAppPOP")){
+	 						$(".viewAppPOP").show();
+	 	 				}
+	 	 				if($(".viewAppEvent")){
+	 	 					$(".viewAppEvent").show();
+	 	 	 			}
+					}
+					if($(".viewAppPop_2023")){
+						$(".viewAppPop_2023").show();
+					}
+				}
+			}
+		}
+	}
+
+	function denyNewsBanner(){
+
+		if(document.querySelector('.viewAppPop_2023')){
+			olapclick('RAX92');
+			document.querySelector('.viewAppPop_2023').style.display='none';
+		}
+
+		setBannerCookie();
+
+		return false;
+	}
+	
+	
+	function denyNateApp() {
+		
+		if(document.querySelector('.viewAppPOP')){
+			document.querySelector('.viewAppPOP').style.display='none';
+		}
+
+		if(document.querySelector('.viewAppEvent')){
+			document.querySelector('.viewAppEvent').style.display='none';
+		}
+
+		if (gUserJS_sOs == 'android') {
+			olapclick('RAX89');
+		} else if (gUserJS_sOs == 'osx') {
+			olapclick('RAX86');
+		}
+		
+		setBannerCookie();
+
+		return false;
+	}
+
+	function setBannerCookie(){
+		var domain = '.news.nate.com';
+		var exp_time = new Date(); 
+		exp_time.setTime(exp_time.getTime() + 1000*60*60*24*1 );
+		setCookie(appBannerCookie, 'no', exp_time, '/', domain);
+	}
+
+	function executeNewsLink(artcSq){
+		olapclick('RAX91');
+		var url = "https://m.news.nate.com/view/"+artcSq;
+		document.location.href = url;
+		
+	}
+
+	function executePromotionLink(){
+		
+			}
+
+	function executeAppLink(){
+
+		var url = document.location.href
+		useNateApp(url);
+	}
+
+	function useNateApp(link_url) {
+
+		nateapp_custom_scheme = 'nate://newslink?url=' + encodeURIComponent(link_url);
+
+		aos_nateapp_appstore_url = 'https://play.google.com/store/apps/details?id=com.nate.android.portalmini';
+		ios_nateapp_appstore_url = 'https://apps.apple.com/kr/app/id402681762?mt=8';
+
+		aos_intent_url = 'intent://newslink?url=' + encodeURIComponent(link_url) + '#Intent;scheme=nate;package=com.nate.android.portalmini;end';
+		ios_universal_link_url = 'https://m.nate.com/scheme/news/newslink/?' + encodeURIComponent(link_url);
+		
+		var visitedAt = +new Date;
+		
+		if (gUserJS_sOs == 'android') {
+			// AOS execute
+			olapclick('RAX88');
+			document.location = aos_intent_url;
+		} else if (gUserJS_sOs == 'osx') {
+			if ( navigator.userAgent.match('iPhone') != null || navigator.userAgent.match('iPod') != null || navigator.userAgent.match('iPad') != null ) {
+				// IOS execute
+				olapclick('RAX85');
+				document.location = ios_universal_link_url;
+			}
+		} else if (navigator.userAgent.match('Macintosh') && navigator.maxTouchPoints > 1){ //ipad
+			olapclick('RAX85');
+			document.location = ios_universal_link_url;
+		}
+		return false;
+	}
+
+	checkNateApp(10);
+
+	</script>		<!--// 최상단으로 이동 / NateAppViewBanner -->
+	</div>
+
+		
+	<!-- ndr code -->
+	<script type="text/javascript">
+	//<![CDATA[
+		var sRef2 = "";
+				try {
+			draw_mndr('m_ndr.nate.com/news/pol/recent', gUserJS_sAppFrom, '', gUserJS_sAppSkai, gUserJS_sAppNdruk, sRef2);
+		} catch(e) {
+			draw_mndr('m_ndr.nate.com/news/pol/recent', '', '', '', '', sRef2);
+		}
+		
+				draw_ndr('news_ndr.nate.com/mnate/pol/recent');
+			//]]>
+	</script>
+
+
+	
+	<!-- //ndr code -->
+</body> 
+</html>
