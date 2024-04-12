@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페이지가 떠날때 Event 감지</title>
+</head>
+<body>
+    <a href="https://www.nate.com" class="nate">네이트링크</a>
+    <br/>
+    <a href="test.html">다른 테스트 링크</a>
+    <br/>
+    <p id="leave_text"></p>
+    <br/>
+    <button id="storage">스토리지 삭제 & 텍스트 제거</button>
+    <script>
+
+        const leaveText = document.getElementById('leave_text');
+        const btn = document.getElementById('storage');
+ 
+        window.addEventListener('pagehide', function(e){       
+            e.preventDefault(); 
+            eventFunc();
+        })
+        btn.addEventListener('click', function(){
+            localStorage.removeItem('unloadCount');
+            leaveText.innerText = '';
+        })
+        function eventFunc(){
+            localStorage.setItem("unloadCount", "이 텍스트는 페이지를 떠났을때 생성되는 텍스트 입니다. (닫기, 새로고침, 링크이동, 뒤로가기)");
+        }
+        if(localStorage.getItem("unloadCount")){
+            leaveText.innerText = localStorage.getItem("unloadCount")
+        }
+    </script>
+</body>
+</html>
