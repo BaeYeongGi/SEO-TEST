@@ -30,7 +30,9 @@
             localStorage.setItem("unloadCount", "이 텍스트는 페이지를 떠났을때 생성되는 텍스트 입니다. (닫기, 새로고침, 링크이동, 뒤로가기)");
         }
         if(localStorage.getItem("unloadCount")){
-            leaveText.innerText = localStorage.getItem("unloadCount")
+            setTimeout(() => {
+                leaveText.innerText = localStorage.getItem("unloadCount")
+            },1000)
         }
     </script>
 </body>
