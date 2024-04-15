@@ -48,7 +48,7 @@
         setUnloadCount('pop');
     });
 
-    window.onpageshow = function(event){
+    window.onpagehide = function(event){
         if(event.persisted){
             setUnloadCount('back');
         }
