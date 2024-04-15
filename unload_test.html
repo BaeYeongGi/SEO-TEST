@@ -32,14 +32,14 @@
     mobileTag.innerText = isMobile ? "이건 모바일" : "이건PC"; 
 
     function setUnloadCount(count){
-        if(count === 'pop'){
-            localStorage.setItem('popCount', popCount + 1);
-        }
         if(count === 'unload'){
-            localStorage.setItem('unloadCount', unloadCount + 1);
+            localStorage.setItem('unloadCount', unloadCount + 1 + 'unloadCount');
+        }
+        if(count === 'pop'){
+            localStorage.setItem('popCount', popCount + 1 +'popCount');
         }
         if(count === 'back'){
-            localStorage.setItem('backCount', backCount + 1);
+            localStorage.setItem('backCount', backCount + 1, 'backCount');
         }
     }
     window.addEventListener('popstate', function() {
@@ -67,10 +67,11 @@
         popCount = 0;
         backCount = 0;
     });
+    console.log(localStorage.getItem('unloadCount') + ' unloadCount')
     setTimeout(() => {
-        leaveText.innerText = localStorage.getItem('unloadCount') + ' unloadCount';
-        leaveText2.innerText = localStorage.getItem('popCount') + ' popCount'; 
-        leaveText3.innerText = localStorage.getItem('backCount') + ' backCount';
+        leaveText.innerText = localStorage.getItem('unloadCount');
+        leaveText2.innerText = localStorage.getItem('popCount'); 
+        leaveText3.innerText = localStorage.getItem('backCount');
     }, 1000);
     </script>
 </body>
