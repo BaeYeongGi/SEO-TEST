@@ -6,6 +6,7 @@
     <title>페이지가 떠날때 Event 감지</title>
 </head>
 <body>
+    <h1>페이지를 떠나면 숫자가 증가함</h1>
     <a href="https://www.nate.com" class="nate">네이트링크</a>
     <br/>
     <a href="test.html">다른 테스트 링크</a>
@@ -13,27 +14,54 @@
     <p id="leave_text"></p>
     <br/>
     <button id="storage">스토리지 삭제 & 텍스트 제거</button>
+    <p id="mobile"></p>
     <script>
 
-        const leaveText = document.getElementById('leave_text');
-        const btn = document.getElementById('storage');
- 
-        window.addEventListener('pagehide', function(e){       
-            e.preventDefault(); 
-            eventFunc();
-        })
-        btn.addEventListener('click', function(){
-            localStorage.removeItem('unloadCount');
-            leaveText.innerText = '';
-        })
-        function eventFunc(){
-            localStorage.setItem("unloadCount", "이 텍스트는 페이지를 떠났을때 생성되는 텍스트 입니다. (닫기, 새로고침, 링크이동, 뒤로가기)");
-        }
-        if(localStorage.getItem("unloadCount")){
-            setTimeout(() => {
-                leaveText.innerText = localStorage.getItem("unloadCount")
-            },1000)
-        }
+    const leaveText = document.getElementById('leave_text');
+    const btn = document.getElementById('storage');
+    const mobileTag = document.getElementById('mobile');
+
+
+
+    let count = localStorage.getItem('unloadCount') ? parseInt(localStorage.getItem('unloadCount')) : 0;
+
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+        // window.onpagehide = function(event){
+        //     if(event.persisted || window.performance.navigation.type === 2){
+        //         localStorage.setItem('unloadCount', count + 1);
+        //     }
+        // }
+        window.addEventListener('popstate', (event) => {
+            if (event.persisted === true) {
+                localStorage.setItem('unloadCount', count + 1);
+            }
+        });
+    }
+
+
+    window.addEventListener('beforeunload', function(e){       
+        localStorage.setItem('unloadCount', count + 1);
+    });
+
+    btn.addEventListener('click', function(){
+        localStorage.removeItem('unloadCount');
+        leaveText.innerText = '';
+        count = 0;
+    });
+
+    setTimeout(() => {
+        leaveText.innerText = localStorage.getItem('unloadCount');
+        console.log(localStorage.getItem('unloadCount'));
+    }, 1000);
+
+    
+    mobileTag.innerText = isMobile ? "이건 모바일" : "이건PC" 
+
+
+
+
+
     </script>
 </body>
 </html>
