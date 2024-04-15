@@ -33,10 +33,11 @@
 
     function setUnloadCount(count){
         if(count === 'unload'){
-            localStorage.setItem('unloadCount', unloadCount + 1 + 'unloadCount');
+            localStorage.setItem('unloadCount', unloadCount + 1 + ' unloadCount');
         }
         if(count === 'pop'){
-            localStorage.setItem('popCount', popCount + 1 +'popCount');
+            alert('뒤로가기 혹은 앞으로가기 감지')
+            localStorage.setItem('popCount', popCount + 1 + 'popCount');
         }
         if(count === 'back'){
             localStorage.setItem('backCount', backCount + 1, 'backCount');
@@ -67,7 +68,6 @@
         popCount = 0;
         backCount = 0;
     });
-    console.log(localStorage.getItem('unloadCount') + ' unloadCount')
     setTimeout(() => {
         leaveText.innerText = localStorage.getItem('unloadCount');
         leaveText2.innerText = localStorage.getItem('popCount'); 
