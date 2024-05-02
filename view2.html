@@ -1,0 +1,2421 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="euc-kr" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, width=device-width" />
+        
+    <title>SK컴즈, 재택근무로 네이트온 사용량 올해 최고치 : 네이트 뉴스</title>
+	<link rel="canonical" href="https://news.nate.com/view/20200309n34198" /> 
+	<link rel="shortcut icon" href="//m.news.nate.com/icon/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="//nimg.nate.com/ui/uidev/images/mnews/common/nate_news_114.png?v=20140911" />
+	<link type="text/css" rel="stylesheet" href="//nimg.nate.com/ui/uidev/m/release/css/common.css?202405021617" />    	
+    <script type="text/javascript" src="//m.comm.news.nate.com/userJS?oj=1&amp;r=314294081"></script>    <script type="text/javascript" src="//m.news.nate.com/js/jquery-1.8.3.min.js?202405021617"></script>    <script type="text/javascript" src="//m.news.nate.com/js/common.js?202405021617"></script>    <script type="text/javascript" src="//m.news.nate.com/js/mobile.js?202405021617"></script>    <script type="text/javascript" src="//m.news.nate.com/js/stat.js?202405021617"></script>	<script type="text/javascript" src="//m.news.nate.com/js/flickLib/plast-low-min.js?202405021617"></script>    <script type="text/javascript" src="//m.news.nate.com/js/media.js?202405021617"></script>	<script type="text/javascript" src="//m.news.nate.com/js/menu.js?202405021617"></script>		    <script type="text/javascript" src="//m.news.nate.com/js/clipboard.min.js?202405021617" defer="defer"></script>    <script type="text/javascript" src="//m.news.nate.com/js/cross-origin-message.min.js?v=202405021617"></script>
+<script type="text/javascript">
+//<!CDATA[
+	jQuery(document).ready(function() {
+		// CrossOrigin 초기 세팅
+		crsMsg.init({
+		   	path: '*.news.nate.com', // m.comm.news.nate.com 자식 정보 세팅 (* 하위 도메인 포함)
+			type: 'parent',
+			func: null
+		});
+	});
+
+	function callFnct (parmas) { 
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+
+		if (target == 'move_login') { // params 규격 {target: '실행구분', url: '이동 페이지 주소', params: '로그인 파라미터'}
+		// 로그인 페이지 이동
+
+			var url = (typeof parmas.url === 'undefined') ? '' : parmas.url;
+			var params = (typeof parmas.params === 'undefined') ? '' : parmas.params;
+			
+			if(url != ''){
+				location.href=url+encodeURIComponent(document.location.href)+params;
+			}
+		} else if (target == 'move_report') { // params 규격 {target: '실행구분', url: '이동 페이지 주소'}
+		// 페이지 이동
+
+			var url = (typeof parmas.url === 'undefined') ? '' : parmas.url;
+			
+			if(url != ''){
+				location.href='//m.comm.news.nate.com'+url+'&return_url='+encodeURIComponent(document.location.href);
+			}
+		} else if (target == 'youtube_resize_iframe') { // params 규격 {target: '실행구분', elementClass: 'dom.php에서 youtube를 iframe으로 감싼 클래스명', height: '높이값', idx: 'youtube iframe 순번'}
+		// 기사 내 youtube 플레이 셋팅
+
+			var elementClass = (typeof parmas.elementClass === 'undefined') ? '' : parmas.elementClass;
+			var height = (typeof parmas.height === 'undefined') ? '' : parmas.height;
+			var idx = (typeof parmas.idx === 'undefined') ? '' : parseInt(parmas.idx);
+			
+			if(elementId != '' && height != ''){
+
+				var _elementClassAll = document.querySelectorAll(elementClass);
+				if(_elementClassAll){			
+					if(typeof _elementClassAll[idx] !== 'undefined'){
+						_elementClassAll[idx].style.height = height +'px';
+					}
+				}
+			}
+		} else if (target == 'close_btn'){
+		// 댓글 닫기 버튼 기능
+			
+			var replyPOP = document.querySelector('.reply-guide-popup');
+		    var closeBtn = document.querySelector('#notes_confirm');
+	
+		    closeBtn.addEventListener('click', function(e) {
+		    	e.preventDefault();
+		    	replyPOP.setAttribute('aria-hidden', false);
+		    	document.body.style.overflow = 'visible';
+		    });
+		} else if (target == 'reply_btn') {
+		// 위치 정렬 스크롤 이동
+
+			var replyPOP = document.querySelector('.reply-guide-popup');
+
+		    replyPOP.setAttribute('aria-hidden', true)
+	        replyPOP.querySelector('.context').scrollTop = 0;
+	        document.body.style.overflow = 'hidden';
+		} else if (target == 'move_news_cmt') {
+		// 스크롤 이동
+
+			var elementClass = (typeof parmas.elementClass === 'undefined') ? '' : parmas.elementClass;
+			if(elementClass != ''){
+				window.scrollTo(0, document.querySelector('.'+elementClass).offsetTop);
+			}
+		}
+	}
+
+	function callBackFnct (parmas) {
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+	}
+	
+	// 뉴스 페이지의 광고 통합 처리 함수
+	// 넘어온 광고 target 코드값으로 분기 처리한다. height은 자식 iframe의 도큐먼트 높이 값
+	function callCrossOriginAd (parmas) {
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+		var height = (typeof parmas.height === 'undefined') ? '' : parmas.height;
+
+		if(target == 'ad_big' && height != '') {
+		// ad_big 광고 리사이징
+			
+			resizeIfr2({el: '#ad_big', height: height});
+		}
+	}
+
+//]]>
+</script>    	
+
+
+
+
+<!-- SEO Meta Tag -->
+<meta name="description" content="한눈에 보는 오늘 : IT/과학 - 뉴스 : SK커뮤니케이션즈(이하 SK컴즈)는 메신저 서비스 '네이트온'이 코로나19로 주요 기업들의 재택근무가 늘면서 지난주 '네이트온' 이용자 수 및 메시지 전송 건수가 올해 들어 최고치를 기록하였다고 6일 밝혔다. SK텔레콤, KT, 카카오, NHN 등 주" />
+
+<!-- Open Graph Meta Tag -->
+<meta property="og:url" content="https://m.news.nate.com/view/20200309n34198?mid=m05" />
+<meta property="og:title" content="SK컴즈, 재택근무로 네이트온 사용량 올해 최고치 : 네이트 뉴스" />
+<meta property="og:description" content="한눈에 보는 오늘 : IT/과학 - 뉴스 : SK커뮤니케이션즈(이하 SK컴즈)는 메신저 서비스 '네이트온'이 코로나19로 주요 기업들의 재택근무가 늘면서 지난주 '네이트온' 이용자 수 및 메시지 전송 건수가 올해 들어 최고치를 기록하였다고 6일 밝혔다. SK텔레콤, KT, 카카오, NHN 등 주" />
+<meta property="og:image" content="https://news.nateimg.co.kr/orgImg/cb/2020/03/09/20200309154935861148_6_710_473.jpg" />
+<meta property="og:site_name" content="모바일 네이트 뉴스" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ko_KR" />
+	
+<!-- Twitter Meta Tag -->
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- 네이트썰 Meta Tag -->
+<meta name="ssul:category" content="sisa" />	<meta name="robots" content="max-image-preview:large, all " />	<link rel="image_src" href="//thumbnews.nateimg.co.kr/news90///news.nateimg.co.kr/orgImg/cb/2020/03/09/20200309154935861148_6_710_473.jpg" />
+	<script type="text/javascript" src="//m.news.nate.com/js/view.js?202405021617"></script>
+	<script type="text/javascript" src="//m.news.nate.com/js/sns_mobile.js?202405021617" defer="defer"></script>
+	<script type="text/javascript" src="//m.news.nate.com/js/nateonShare.js?202405021617" defer="defer"></script>
+   	<script type="text/javascript" src="//m.news.nate.com/js/flickLib/MNComponent.js?202405021617"></script>
+
+		
+	<script type="text/javascript" src="//m.news.nate.com/js/kakao.min.js?202405021617" defer="defer"></script>
+	<script type="text/javascript" src="//m.news.nate.com/js/kakao.link.js?202405021617" defer="defer"></script>
+	
+	<link type="text/css" rel="stylesheet" href="//nimg.nate.com/ui/uidev/m/release/css/natesisaq.css?202405021617" />	
+	<script type="text/javascript">
+	//<![CDATA[
+		var UpDown = {
+				setData: function(choice, cnt) {
+					if ( choice == "up" ) {
+						var inner = $("#up_cnt").html = "";
+						inner += "<a href=\"javascript:UpDown.vote(\'up\', '" + cnt + "')\" aria-selected=\"false\" role=\"button\"><span class=\'up img\'></span><div class='\count_wrap'\><span class='\count_txt'\>올려</span><span class='\count up'\><em>올려수</em>\n" + cnt  + "</span></div></a>";
+						$("#up_cnt").html(inner);
+					} else if ( choice == "down" ) {
+						var inner = $("#down_cnt").html = "";
+						inner += "<a href=\"javascript:UpDown.vote(\'down\', '" + cnt + "')\" aria-selected=\"false\" role=\"button\"><span class=\'down img\'></span><div class='\count_wrap'\><span class='\count_txt'\>내려</span><span class='\count down'\><em>내려수</em>\n" + cnt  + "</span></div></a>";
+						$("#down_cnt").html(inner);
+					}
+				},
+				getData: function() {
+					jQuery.ajax({
+						type: "POST", dataType: "jsonp", url: "//m.comm.news.nate.com/View/GetUpDown?aid=20200309n34198",
+						success: function(data){
+							if (data["err"] == 1) {
+								alert(data["msg"]);
+							} else {
+								UpDown.setData("up",data.up_cnt);
+								UpDown.setData("down",data.down_cnt);
+							}
+						},
+						error: function(e){ }
+					});
+				},
+				vote:function (choice, cnt) {
+					jQuery.ajax({
+						type: "POST", dataType: "jsonp", url: "//m.comm.news.nate.com/View/UpdownAction?aid=20200309n34198&choice="+choice,
+						success: function(data){
+							switch(data["err"]){
+								case 0 :
+									UpDown.setData(choice,UpDown.addFormattedNumber(cnt, 1));
+									(choice == 'up') ? $('#up_cnt').addClass('active') : $('#down_cnt').addClass('active');
+									(choice == 'up') ? $('#up_cnt a').attr('aria-selected','true') : $('#down_cnt a').attr('aria-selected','true');
+									break;
+								case 2 :
+									alertSystemCheck(data["StartUpDown"],data["EndUpDown"]);
+									break;
+								case 3 :
+									checkLogin();
+									break;
+								default :
+									alert(data["msg"]);
+									break;
+							}
+						},
+						error: function(e){}
+					});
+				},
+				addFormattedNumber:function (formattedNumberString, addNumber) {
+					num = Number(formattedNumberString.replace(/[^\d]+/g, ''));
+					num = num + addNumber;
+					str = num.toLocaleString('en');
+					return str;
+				}
+			};
+		
+					// 댓글개수 세팅
+			function setCmtCount(cmt) {
+				jQuery('#view_cmtCnt').html(cmt);
+			}
+			
+			// 감정이모티콘 load 
+			var emoticonUrl = "//m.comm.news.nate.com"+"/comment/articleEmoticonComment/ArticleEmoticonList?artc_sq=20200309n34198&mid=m05";
+			getEmoticonList(emoticonUrl);
+			
+			var check_period_millisec = 60*1000; // 갱신 주기
+			var check_max_limit = (30*(60*1000))/check_period_millisec; // 30분간
+			var check_cnt = 0; // 갱신 횟수
+			var check_stop = false; // 갱신 종료 여부
+			function getArticleEmoticon() {
+				// 중단 조건 확인
+				if ( check_cnt > check_max_limit || check_stop == true ) {
+					return;
+				}
+
+				getEmoticonList(emoticonUrl);
+
+				check_cnt++;
+				if ( check_cnt > check_max_limit ) {
+					check_stop = true;
+				} else {
+					window.setTimeout( getArticleEmoticon, check_period_millisec );
+				}
+			}
+			window.setTimeout( getArticleEmoticon, check_period_millisec );
+				
+		window.onload = function() {
+			UpDown.getData();
+			
+			
+			RankCall('',0);
+		}
+	//]]>
+	</script>
+</head>
+<body class="view_pg" >
+		<div class="view_shortcut">
+		<span>네이트뉴스 기사 본문영역 바로가기 링크</span>
+		<ul>
+			<li><a href="#contents">본문영역 바로가기</a></li>
+		</ul>
+	</div>	<div id="wrap">
+		<!-- header -->
+		<header id="header"  role="banner">
+
+				<div class="gnbWrap">
+		<div class="gnb">					<a href="//m.nate.com" onclick="statClick('RAX82');" class="nate"><span class="hd-img">네이트</span></a>
+							<a href="//m.news.nate.com" onclick="statClick('RAM91');" class="service">뉴스</a>
+							</div>		<div class="relsvc">
+							<a href="//m.news.nate.com/spo" onclick="statClick('RAN31');">스포츠</a>
+				<a href="//m.news.nate.com/ent" onclick="statClick('RAN30');">연예</a>
+					</div>
+		<div class="banner">
+			<a href="//m.news.nate.com/todayq" onclick="olapclick('RAX90');">
+				<div class="todayq_logo">
+					<img class="todayq_logo_1" alt="오늘의 퀴즈 - 로고 이미지" />
+					<div class="todayq_logo_3"></div>
+					<div class="todayq_logo_2"></div>
+				</div>
+			</a>
+		</div>		
+				<div class="searchWrap">
+			 <form id="search-field" name="search-field" role="search" aria-labelledby="search-keyword" method="get" accept-charset="utf-8">
+		        <fieldset>
+		            <legend id="search-keyword">뉴스 기사 검색</legend>
+		            <input type="search" name="q"  aria-labelledby="search-keyword" />
+		           	<button class="delete hd-img"  type="button"><span class="hd-img">검색어 삭제</span></button>
+		            		                <button class="srchbtn" onclick="searchGo('RAX83');" type="submit"><span class="hd-img">검색</span></button>
+		            		        </fieldset>
+		    </form>
+		</div>
+	</div>
+<script type="text/javascript">
+    var bSearch = '';
+
+	function searchGo(code) {
+        statClick(code);
+		var searchFrm = document.querySelector('#search-field');
+		searchFrm.action = '/search';
+		searchFrm.submit();
+	}
+
+    function statClick(code) {
+        if(bSearch){
+            search_ndrclickwithid('mw0101', code);
+        }
+        else{
+            olapclick(code); // 통계
+        }
+    }
+</script>
+							<!-- SNB 2depth 및 Floating 처리 -->
+												
+
+	<div class="lnbContainer" data-floating="true">
+		<div class="hide">뉴스 메인 메뉴</div>
+		<nav class="lnb flick sisa">
+			<ul role="tablist" style="min-width: 600px">
+				<li role="presentation"><a role="tab" href="//m.news.nate.com"  aria-selected="false" onclick="MNstat('olapclick', 'RAM01', 'RAX26');">오늘</a></li>
+				<li role="presentation"><a role="tab" href="//m.news.nate.com/rank/list?mid=m2001"  aria-selected="false" onclick="MNstat('olapclick', 'RNK136', 'RAX26');">랭킹뉴스</a></li>
+				<li role="presentation"><a role="tab" href="//m.news.nate.com/issuepick"  aria-selected="false" onclick="MNstat('olapclick', 'RAX23', 'RAX26');">이슈픽</a></li>
+				<li role="presentation"><a role="tab" href="//m.news.nate.com/section?mid=m01"  aria-selected="false" onclick="MNstat('olapclick', 'RAM02', 'RAX26');">정치</a></li>
+				<li role="presentation"><a role="tab" href="//m.news.nate.com/section?mid=m02"  aria-selected="false" onclick="MNstat('olapclick', 'RAM03', 'RAX26');">경제</a></li>
+				<li role="presentation"><a role="tab" href="//m.news.nate.com/section?mid=m03"  aria-selected="false" onclick="MNstat('olapclick', 'RAM04', 'RAX26');">사회</a></li>
+				<li role="presentation"><a role="tab" href="//m.news.nate.com/section?mid=m04"  aria-selected="false" onclick="MNstat('olapclick', 'RAM05', 'RAX26');">세계</a></li>
+				<li role="presentation"><a role="tab" href="//m.news.nate.com/section?mid=m05" class="on" aria-selected="true" onclick="MNstat('olapclick', 'RAM06', 'RAX26');">IT</a></li>
+				<li role="presentation"><a role="tab" href="//m.news.nate.com/photoSlide/index?section=sisa"  aria-selected="false" onclick="MNstat('olapclick', 'SBH16', 'RAX26');">포토</a></li>
+				<li role="presentation"><a role="tab" href="//m.news.nate.com/livetv"  aria-selected="false" onclick="MNstat('olapclick', 'SBH17', 'RAX26');">TV</a></li>
+			</ul>
+		</nav>
+	</div>						</header>		<hr />
+		<section id="contents" role="main" >
+			<!-- SNS 공유 더보기 팝업 -->
+<!-- javascript -->
+<script type="text/javascript">
+//<!CDATA[
+	var bDupClickFlag = true;	// 중복호출방지플래그  
+	
+	function openSnsPopWithoutSetting() {
+		jQuery(".font_sizing_popup").removeClass("active");
+		jQuery("#sns_share_pop").show().on('touchmove', eventBlock).find('.modal_backdrop').on('click', closeSnsPop);
+	}
+	
+	function openSnsPop( sUrl, sMurl, sTitle, sDesc, sImg ) {
+		jQuery(".font_sizing_popup").removeClass("active");
+		if ( (typeof sUrl === "undefined" || sUrl === "") || (typeof sMurl === "undefined" || sMurl === "") || (typeof sTitle === "undefined" || sTitle === "") ) {
+			return false;
+		}
+		// SNS 공유 정보 셋팅
+		jQuery("#sns_share_pop").data("data", {
+			url		: sUrl,
+			mUrl	: sMurl,
+			title	: sTitle,
+			desc	: (typeof sDesc === "undefined" || sDesc === "") ? "" : sDesc,
+			img		: (typeof sImg === "undefined" || sImg === "") ? "" : sImg
+		}).show().on('touchmove', eventBlock).find('.modal_backdrop').on('click', closeSnsPop);
+	}
+	
+	function eventBlock(){
+		event.preventDefault ? event.preventDefault() : event.returnValue = false;
+	}
+	
+	function closeSnsPop() {
+		// SNS 공유 정보 초기화
+		jQuery("#sns_share_pop").hide();
+	}
+	
+	function checkMobileAgent(sSnsNm) {
+		if (!isMobileAgent()) {
+			alert(sSnsNm + ' 보내기는 모바일에서만 사용 가능합니다.');
+			return false;
+		}
+		return true;
+	}
+	
+	function shareSNS( sSnsGb, sTarget ) {
+		var sUrl	= jQuery("#sns_share_pop").data("data").url;
+		var sMUrl	= jQuery("#sns_share_pop").data("data").mUrl;
+		var sTitle	= jQuery("#sns_share_pop").data("data").title;
+		var sDesc	= jQuery("#sns_share_pop").data("data").desc;
+		var sImg	= jQuery("#sns_share_pop").data("data").img;
+
+		// SNS 공유용 url 을 정제한다. 
+		sUrl = refineSnsShareUrl(sUrl);
+		sMUrl = refineSnsShareUrl(sMUrl);
+		sImg = refineSnsShareUrl(sImg);
+		
+		switch( sSnsGb ){
+			//facebook
+			case 'fb' :
+				// change meta tags
+				jQuery('meta[property="og:url"]').attr("content", sUrl);
+				jQuery('meta[property="og:title"]').attr("content", sTitle);
+				jQuery('meta[property="og:description"]').attr("content", sDesc);
+				jQuery('meta[property="og:image"]').attr("content", sImg);
+				
+				sendSNSURL( sUrl, "fb" , sTitle );
+				closeSnsPop();
+			break;
+			
+			// twitter
+			case 'tw' :
+				sendSNSURL( sUrl, "tw" , sTitle );
+				closeSnsPop();
+			break;
+			
+			// nateon
+			case 'no' :
+				var memo	= "";
+				var ver		= "1.0";
+				var appList = [];
+				var appname = "네이트";
+				var list1	= {os:"ios",		devicetype:"phone",	installurl:"", executeurl:""};
+				var list2	= {os:"android",	devicetype:"none",	installurl:"", executeurl:""};
+				
+				appList.push(list1);
+				appList.push(list2);
+			    
+				var applist	= new AppList(appList);
+				var link	= new com.nateon.talk.NateonShare(sTitle, sDesc, sImg, sUrl, sUrl, memo, ver, applist, appname);
+				
+				if( bDupClickFlag ) {
+					bDupClickFlag = false;
+					link.execute();
+					setTimeout(function() { bDupClickFlag = true; }, 1500);
+				}
+			break;
+		
+			// kakaotalk
+			case 'kt' :
+				sendSNSURL( sUrl, "kt" , sTitle, sImg );
+			break;
+			
+			// kakao story
+			case 'ks' :
+				sendSNSURL( sUrl, "ks" , sTitle );
+			break;
+			
+			// band
+			case 'bd' :
+				sendSNSURL( sUrl, "bd" , sTitle );
+			break;
+			
+			// line
+			case 'li' :
+				sendSNSURL( sUrl, "li" , sTitle );
+			break;
+			
+			case 'lk' :
+				var clipboard = new ClipboardJS(".lk",{
+                    text: function() {
+                        return sUrl;
+                    }
+                });
+				clipboard.on("success", function() {
+                    alert("URL이 복사되었습니다.");
+                    clipboard.destroy();
+                });
+				clipboard.on("error", function() {
+                    alert("지원하지 않는 브라우저입니다.");
+                    clipboard.destroy();
+                })
+			break;
+		}
+	}
+//]]>
+</script>
+<!-- //javascript -->
+	<!-- S : SNS Share Layer -->
+	<div id="sns_share_pop" style="display: none;">
+		<div class="sns_share_layer">
+			<button type="button" class="btnClosePopup" onclick="ndrclick(''); closeSnsPop(); return false;">닫기</button>
+			<div class="title">공유하기</div>
+			<ul class="sns_btns">
+				<li><a class="no" title="새창으로 이동" id="sns-no" href="javascript:;" onclick="checkMobileAgent('네이트온 쪽지')?shareSNS('no'):false; ndrclick('RAM76'); return false;">네이트온</a></li>
+				<li><a class="kt" title="새창으로 이동" id="sns-kt" href="javascript:;" onclick="checkMobileAgent('카카오톡')?shareSNS('kt'):false; ndrclick('RAM002'); return false;">카카오톡</a></li>
+				<li><a class="fb" title="새창으로 이동" id="sns-fb" href="javascript:;" onclick="shareSNS('fb'); ndrclick('RAM77'); return false;">페이스북</a></li>
+				<li><a class="tw" title="새창으로 이동" id="sns-tw" href="javascript:;" onclick="shareSNS('tw'); ndrclick('RAM78'); return false;">엑스</a></li>
+				<li><a class="ks" title="새창으로 이동" id="sns-ks" href="javascript:;" onclick="checkMobileAgent('카카오스토리')?shareSNS('ks'):false; ndrclick('RAM003'); return false;">카카오스토리</a></li>
+				<li><a class="bd" title="새창으로 이동" id="sns-bd" href="javascript:;" onclick="checkMobileAgent('네이버 밴드')?shareSNS('bd'):false; ndrclick('RAM004'); return false;">밴드</a></li>
+				<li><a class="li" title="새창으로 이동" id="sns-li" href="javascript:;" onclick="checkMobileAgent('네이버 라인')?shareSNS('li'):false; ndrclick('RAM005'); return false;">라인</a></li>
+				<li><a class="lk" title="새창으로 이동" id="sns-url" href="javascript:;" onclick="shareSNS('lk'); ndrclick('RAM006'); return false;">URL 복사</a></li>
+			</ul>	
+		</div>
+		<div class="modal_backdrop"></div>
+	</div>
+	<!-- E : SNS Share Layer -->
+<!-- //SNS 공유 더보기 팝업 -->
+<div class="responsive_wrap">
+	<!-- Responsive_left -->
+	<section class="rwd_left">
+				<div class="news_view">
+			<!-- SNB 플롯팅 광고 -->
+			<div class="float-adv-wrap">
+				<div class="adv" id="ad_snb"><script language="javascript" src="//cyad1.nate.com/js.kti/mnate/news@snb_Top2"></script></div>
+				<div class="adv-temp"></div>
+			</div>			<header>
+				<!-- <p class="news_cate" cyt:if="strlen($this->sSubMenuNM) > 0"><a href="//m.news.nate.com/section?mid=m05" onclick="ndrclick('RAX27');" >IT</a></p>  -->
+				<h1 id="artcTitle">SK컴즈, 재택근무로 네이트온 사용량 올해 최고치</h1>
+				<div class="medium">
+					<div class="author">
+						<em><b>노컷뉴스</b><span>2020.03.09 17:12</span></em>
+											</div>
+				</div>
+				<div class="view_tools_wrap">
+					<ul class="cmt_count">
+													<!-- 댓글수 -->
+							<li>
+								<a href="//m.comm.news.nate.com/Comment/ArticleComment/List?artc_sq=20200309n34198&amp;vp=bGlzdD0mY2F0ZT0mY3BjZD0mZGF0ZT0mY2xzdHNxPSZjbHN0YXJ0Y3NxPQ%3D%3D&amp;mid=m05" onclick="ndrclick('NEWRE01');" aria-label="댓글">
+									<svg width="18" height="18" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M14.722 11.7C15.5274 10.698 16 9.475 16 8.155C16 4.756 12.8656 2 8.99953 2C5.13348 2 2 4.756 2 8.155C2 11.554 5.13348 14.31 8.99953 14.31C9.96651 14.31 10.8862 14.138 11.7247 13.826L15.2296 15.375L14.722 11.7Z" fill="white" stroke="#333333" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+										<circle cx="5.9" cy="7.9" r="0.9" fill="#333333"></circle>
+										<circle cx="8.9" cy="7.9" r="0.9" fill="#333333"></circle>
+										<circle cx="11.9" cy="7.9" r="0.9" fill="#333333"></circle>
+									</svg>
+								<em id="view_cmtCnt" name="view_cmtCnt">-</em>
+								</a>
+							</li>							<!-- 감정 액션 -->
+							<li class="top-emotion">
+								<a class="md-emotion" href="#md-emotion-view" aria-label="감정선택 바로가기" id="top_emoticon" onclick="ndrclick('NEWRE22');">
+									<!-- <span class="em-type0 img"></span> -->
+									<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M17.656 6.3861C15.6147 3.02163 12.677 1.88306 9.98439 1.88306C9.97204 1.88306 9.95977 1.8834 9.94756 1.88407C9.93558 1.88342 9.92354 1.88309 9.91143 1.88309C7.21883 1.88309 4.28113 3.02167 2.23985 6.38613C0.198566 9.7506 0.717412 14.2196 1.01269 14.6879C1.03407 14.7218 1.05543 14.7565 1.07706 14.7916C1.35418 15.2419 1.6744 15.7622 2.61375 15.5272C2.63072 15.5586 2.64959 15.5949 2.67062 15.6354C2.94744 16.1677 3.59734 17.4175 5.19622 17.7344C6.62972 18.0186 7.70777 18.0267 9.18268 18.0379C9.35254 18.0391 9.52767 18.0405 9.7092 18.0422C9.73065 18.0458 9.75229 18.0474 9.7741 18.0471C9.83217 18.0463 9.88957 18.0455 9.94633 18.0448C10.0041 18.0455 10.0626 18.0463 10.1217 18.0471C10.1437 18.0474 10.1655 18.0458 10.1871 18.0422C10.3685 18.0404 10.5434 18.0391 10.7131 18.0378C12.188 18.0267 13.2661 18.0186 14.6996 17.7344C16.2985 17.4174 16.9484 16.1677 17.2252 15.6353C17.2462 15.5949 17.2651 15.5586 17.2821 15.5272C18.2214 15.7622 18.5416 15.2419 18.8188 14.7916C18.8404 14.7564 18.8617 14.7217 18.8831 14.6878C19.1784 14.2196 19.6973 9.75056 17.656 6.3861Z" fill="#FEC101"></path>
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M9.95144 1.5394L9.97483 1.53871L9.98447 1.53857C13.1928 1.53857 16.0349 3.04991 17.9507 6.20749C18.8916 7.75825 19.3811 9.6414 19.49 11.6041C19.5705 13.0565 19.415 14.4908 19.1747 14.8718L19.0511 15.0712L19.0221 15.117C18.8285 15.4189 18.6574 15.6111 18.4096 15.7534C18.1469 15.9043 17.8401 15.96 17.4827 15.9155L17.4686 15.9136L17.4462 15.9557C17.415 16.0137 17.385 16.0679 17.3537 16.1225L17.3347 16.1552C17.1957 16.3939 17.045 16.6137 16.8691 16.8228C16.3364 17.4562 15.6497 17.8976 14.7667 18.0726C14.1094 18.2029 13.5008 18.2817 12.8497 18.3258C12.3904 18.3568 12.0009 18.3695 11.2941 18.3774L10.2104 18.3868L10.1933 18.3888C10.1764 18.3904 10.1594 18.3914 10.1424 18.3918L10.1169 18.3919L9.9479 18.3896L9.77904 18.3919C9.75442 18.3922 9.72985 18.3913 9.70539 18.3891L9.68699 18.3871L8.78541 18.3795C7.9915 18.3718 7.57655 18.3604 7.10389 18.3296L6.96492 18.3201C6.3442 18.2751 5.75901 18.1975 5.12921 18.0726C4.24625 17.8976 3.5595 17.4562 3.02678 16.8228C2.85092 16.6137 2.70025 16.3939 2.56118 16.1552C2.52289 16.0895 2.4871 16.0253 2.44973 15.9557L2.42729 15.9136L2.41316 15.9155C2.06416 15.9589 1.76335 15.9069 1.50473 15.7638L1.48632 15.7534C1.23165 15.6071 1.05791 15.4082 0.857632 15.0916L0.714005 14.8601C0.477839 14.4621 0.326208 13.042 0.405958 11.6041C0.514818 9.6414 1.00434 7.75825 1.94521 6.20749C3.86096 3.04991 6.70309 1.53857 9.91144 1.53857L9.93008 1.53875L9.95144 1.5394ZM10.1266 17.7027L10.1399 17.7008C10.1537 17.6989 10.1677 17.6979 10.1816 17.6978L10.7943 17.6928C11.7844 17.6851 12.2333 17.6752 12.7472 17.6418L12.8841 17.6324C13.476 17.5894 14.0323 17.5155 14.6327 17.3965C15.352 17.2539 15.9046 16.8987 16.3416 16.3792C16.49 16.2028 16.6188 16.0149 16.7392 15.8082C16.7846 15.7302 16.8267 15.6535 16.8743 15.5631C16.8757 15.5604 16.8809 15.5505 16.8882 15.5365C16.9108 15.4932 16.9542 15.4099 16.9736 15.3735L16.985 15.3528C17.0621 15.2214 17.217 15.1558 17.3658 15.193C17.6831 15.2724 17.9003 15.2511 18.0662 15.1558C18.2007 15.0785 18.3104 14.9529 18.4557 14.7232L18.4593 14.7176L18.5937 14.5007C18.6352 14.4277 18.7118 14.0781 18.7605 13.6293L18.7657 13.5792C18.8245 13.0084 18.8403 12.3378 18.8017 11.6423C18.6987 9.78413 18.237 8.00831 17.3614 6.56506C15.5751 3.62078 12.961 2.22954 9.98976 2.22789L9.98981 2.22789H9.98447C9.98623 2.22789 9.98799 2.22789 9.98976 2.22789L9.95785 2.22877L9.94349 2.22887L9.92033 2.22801L9.91144 2.22789C6.93801 2.22789 4.32191 3.61903 2.53451 6.56506C1.65886 8.00831 1.19724 9.78413 1.09418 11.6423C1.05448 12.3582 1.0724 13.0478 1.13545 13.6293L1.13791 13.6517C1.18748 14.0971 1.26396 14.4403 1.30422 14.5042L1.41659 14.6854L1.45327 14.7438C1.59217 14.9605 1.69928 15.0809 1.82967 15.1558C1.99558 15.2511 2.21281 15.2724 2.5301 15.193C2.6829 15.1548 2.84217 15.225 2.91701 15.3636L3.03729 15.5927C3.07859 15.6706 3.11632 15.7389 3.15674 15.8082C3.27714 16.0149 3.40593 16.2028 3.55429 16.3792C3.99129 16.8987 4.54391 17.2539 5.26325 17.3965C5.89087 17.5209 6.47031 17.596 7.09265 17.6381C7.54264 17.6686 7.92747 17.6808 8.64163 17.6887L9.7144 17.6981C9.73143 17.6983 9.74843 17.6997 9.76525 17.7024L9.76731 17.7026L9.76931 17.7027L9.94375 17.7004H9.95211L10.1266 17.7027Z" fill="#AB7234"></path>
+										<path d="M10.4348 11.7393V15.2175H9.56519V11.7393H10.4348Z" fill="black"></path>
+										<ellipse cx="8.4781" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+										<ellipse cx="11.5216" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+										<path d="M15.2173 15.6523L5.21729 15.6523L5.21729 14.7827L15.2173 14.7827L15.2173 15.6523Z" fill="black"></path>
+										<path d="M2.57021 8.11194C2.03303 10.9839 1.99583 13.4643 2.46083 15.5549C2.49839 15.7238 2.66576 15.8303 2.83465 15.7927C3.00355 15.7552 3.18476 16.0275 3.14719 15.8586C2.70171 13.8556 2.66409 11.018 3.18609 8.22714C3.2179 8.05706 3.10582 7.89341 2.93575 7.8616C2.76568 7.82979 2.60202 7.94187 2.57021 8.11194Z" fill="#AB7234"></path>
+										<path d="M17.3421 8.11194C17.8793 10.9839 17.9165 13.4643 17.4515 15.5549C17.414 15.7238 17.386 16.0172 17.2171 15.9796C17.0482 15.9421 16.8038 15.8368 16.8414 15.6679C17.2869 13.6649 17.2483 11.018 16.7263 8.22714C16.6945 8.05706 16.8065 7.89341 16.9766 7.8616C17.1467 7.82979 17.3103 7.94187 17.3421 8.11194Z" fill="#AB7234"></path>
+										<path d="M2.29464 12.9978C2.29464 12.9978 2.34198 15.3184 1.91694 15.2044C1.49191 15.0905 2.7083 15.5476 2.7083 15.5476L2.29464 12.9978Z" fill="#AB7234"></path>
+										<path d="M17.6316 12.9978C17.6316 12.9978 17.5843 15.3184 18.0093 15.2044C18.4344 15.0905 17.218 15.5476 17.218 15.5476L17.6316 12.9978Z" fill="#AB7234"></path>
+										<path d="M10.0488 9.33422C9.23061 9.33422 8.2368 9.29294 7.89898 9.53441C7.56116 9.77588 7.5512 9.90966 7.46912 10.3102C7.38704 10.7108 7.82516 11.404 8.43106 11.6177C9.03697 11.8313 9.84683 12.0401 11.092 11.7623C12.3372 11.4846 12.4582 10.3541 12.4104 10.0474C12.3627 9.74061 12.2082 9.43977 11.7767 9.40867C11.3452 9.37757 10.8669 9.33422 10.0488 9.33422Z" fill="#6D3411"></path>
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M7.54036 9.60454C7.60317 9.53202 7.68345 9.46243 7.79204 9.38482C8.05711 9.19534 8.5066 9.14747 9.42311 9.14771L9.51529 9.14788L9.76645 9.14924L10.16 9.15059C10.597 9.15253 10.9426 9.1661 11.3421 9.19288L11.4948 9.20354L11.8085 9.22677C12.2726 9.26762 12.5221 9.56979 12.592 10.019C12.6312 10.2713 12.5697 10.6631 12.4 10.9986C12.1631 11.4669 11.744 11.8051 11.132 11.9417C10.0446 12.1842 9.25806 12.1041 8.36988 11.7909C7.71475 11.5599 7.18149 10.7979 7.289 10.2733L7.32021 10.1202L7.334 10.0565C7.38063 9.85003 7.43199 9.72964 7.54036 9.60454ZM10.0486 9.51803L9.57268 9.5158L9.39741 9.51543C8.59987 9.51662 8.17695 9.56155 8.00571 9.68395C7.9189 9.746 7.85962 9.79738 7.81813 9.84528C7.75384 9.91951 7.7243 9.99141 7.68825 10.1566L7.67986 10.1959L7.64699 10.358C7.59089 10.6885 8.00319 11.2719 8.49203 11.4443C9.31941 11.736 10.0376 11.8092 11.0518 11.5829C11.554 11.4709 11.8836 11.205 12.0719 10.8328C12.2068 10.5661 12.2561 10.252 12.2286 10.0756C12.1817 9.77408 12.0461 9.61238 11.7633 9.59201L11.4174 9.56662C10.9476 9.53337 10.568 9.51803 10.0486 9.51803Z" fill="black"></path>
+										<path d="M8.86448 11.6668C8.86448 11.6668 8.83962 11.2627 8.86448 10.9514C8.88934 10.64 9.07405 10.5929 9.19629 10.6135C9.31853 10.6341 9.40496 10.7666 9.38059 10.9514C9.35622 11.1361 9.34173 11.555 9.38059 11.8282C9.41945 12.1014 8.86448 11.6668 8.86448 11.6668Z" fill="black"></path>
+										<path d="M10.6769 11.7522C10.6769 11.7522 10.7124 11.3978 10.6769 11.1602C10.6414 10.9226 10.5071 10.5952 10.8194 10.5429C11.1317 10.4906 11.1883 11.4274 11.1538 11.6367C11.1192 11.8461 10.6769 11.7522 10.6769 11.7522Z" fill="black"></path>
+									</svg>
+									<span class="text">-</span>
+								</a>
+							</li>
+											</ul>
+					<ul class="tools">
+						<!-- 공유하기 -->
+						<li>
+							<button class="btnShare" aria-label="공유하기" onclick="ndrclick('RAM001');openSnsPop('//m.news.nate.com/view/20200309n34198?mid=m05', '//m.news.nate.com/view/20200309n34198?mid=m05', 'SK컴즈, 재택근무로 네이트온 사용량 올해 최고치 | IT : 네이트 뉴스', 'IT 뉴스: SK커뮤니케이션즈(이하 SK컴즈)는 메신저 서비스 \'네이트온\'이 코로나19로 주요 기업들의 재택근무가 늘면서 지난주 \'네이트온\' 이용자 수 및 메시지 전송 건수가 올해 들어 최고치를 기록하였다고 6일 밝혔다. SK텔레콤, KT, 카카오, NHN 등 주... ', '//news.nateimg.co.kr/orgImg/cb/2020/03/09/20200309154935861148_6_710_473.jpg');return false;">
+							<svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M14.9732 8.07419L17.5793 10.6802C17.8259 10.9269 18.2258 10.9269 18.4725 10.6802C18.7191 10.4336 18.7191 10.0337 18.4725 9.78704L14.9321 6.24665C14.6112 5.92577 14.0938 5.91685 13.762 6.22648L9.96334 9.77191C9.70834 10.0099 9.69456 10.4096 9.93256 10.6646C10.1706 10.9196 10.5702 10.9334 10.8252 10.6954L13.7101 8.00282V16.4968C13.7101 16.8456 13.9928 17.1284 14.3416 17.1284C14.6905 17.1284 14.9732 16.8456 14.9732 16.4968V8.07419Z" fill="#222222"></path>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M7.13158 15.3799C7.48039 15.3799 7.76316 15.6627 7.76316 16.0115V19.6957C7.76316 20.2189 8.18731 20.643 8.71053 20.643H20.2895C20.8127 20.643 21.2368 20.2189 21.2368 19.6957V16.0115C21.2368 15.6627 21.5196 15.3799 21.8684 15.3799C22.2172 15.3799 22.5 15.6627 22.5 16.0115V19.6957C22.5 20.9165 21.5103 21.9062 20.2895 21.9062H8.71053C7.48969 21.9062 6.5 20.9165 6.5 19.6957V16.0115C6.5 15.6627 6.78277 15.3799 7.13158 15.3799Z" fill="#222222"></path>
+							</svg>
+							</button>
+						</li>						
+						<!-- 기사뷰 AI 요약 -->
+						<li class="ai_btn_wrap" >
+							<img class="ai_summary_chat" onclick="ndrclick('RAM104');draw_mndr('m_ndr.nate.com/news/aichat', gUserJS_sAppFrom, 'view', gUserJS_sAppSkai, gUserJS_sAppNdruk)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAABUCAMAAADqHmgaAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACoUExURUdwTAMDAwCvdQF/VQMDAwIGBAMDAw8PDwYGBgQEBAC7aAC1rQC9jQDBVQC+fQC7pQC6qgC9iADCUP///wDBWgDAXwC6rwC7oAC8kwC+ggDCTAC8mADAYwC+eQC8nAC/dADAZwC/cfv/IQDAawC6sgC/bkDOpuT485/m0l3VseD4KCLFqCHIX37gQ4Leyr7u4yHHirrvM2PZST7PV5XmPXLbutDz6szzLqdSgoYAAAAMdFJOUwAZlUMVHBIECQ/c2WHauvYAAAtYSURBVHja7VuJdhrJDmVvTBoMbfbGgM3aNLsh+f8/m9pLpVIDM/HLecwZJXFswHZfrq6kktS53L/UAv03pz96T4t/AXqB+jogf1YAXqt/dBCgb8W/559dPL+0u5YjPyW+vPvtD7wiR39fJobHrAo+uk9Ugz9qWRCqyl7kP/MXfFYFr5HPvJhvQd/ufj/8AS/oceL3vJBXYH4ECUMhePldq3zDK+5/s4DioRAY+IsqpSewCsfioVAYKqV8Pl/+/7d8vlTxUQgMlVKxUIuU1ZW1lXWUjaRNhc2kLZh9SJsIe1fWUDZQ1jIWausbi5WNhfW0vSprausy+1EoMhguCoGhVC4MmUkIFoSA0bEwCBQCxMKAeFcgGu8Gg4bRkjhCA6KvYcT8j0XRkyheNYYm/8MRCAzd+bxbKEsU0JleKuXa0IAwGAwVHZKKqQGxAERYGApEQyOwXGgc7PpDjQIQoVEYHJaIpgAxn/+QKBwMJcGDBFFXVLQz3UmCmBkQigiKiUED8ICY6If90HGnsUXhUqFgdJuaivm8UGK6CCwKBqI4BEQYKtoGhOtOU+xODhNaFAYGZiI0RISWCE0F9CeGoafcCUhCoShWIAgWmBQRkdFEBCRhqRgR7rTAwn6XKBrYn7iyfVG4wtZU+MJ+hf4kUDAqrCo4Efmaw0Q98iTR9pnARHxMqOjkQTDhyfWmvq+JV4IJgWHOQfzIV150fBLelB8CJupQ2EjaCoQnCqiJiROdBsCfNBOhRRG6IXaMYiwiogv9KW/9ScamIdKE406chrYj7JGNTTei0zuiwqYKz5v6CIPLxCtiQmCY50sOiJIGgZnQRGQIGzGhIUwod7IQQqDsvk0UPhOvJsIiKoQ7zcs0iIgOTx0MAnrTwmdCoWj4MRZlCSiKPpWwM0KsZCIDBE7YWBMqOglJzASK6QJJ+91XtuSiBYKsF55i6U9jN2P7IbYL/ekmCC88ASY6mImFF540EUoUA1s7DVpY133kT2M3Otm6g8gTAkSVAjF0nIlhqFMpe+r5U3YBOCDSnYLRtyVg7IanXq/nVU/KnZr3NKGFjapYTxPKn2ZIExmJwhN2qP3JEoE0MR5TGECMvSXsyM3YMMZKTXQEhNEUMQGqWCLCekQYYRNMoCpWF4AuE/MHmPCE3clMdovZdrtdnHe7LXSniVPGogNFCItYFJ1Antjv9yZLGFV0u/eY8COs8ae2V8Vuz9xms+3n52Zx+vz8MiAax6NlYnBcOoZCbJyyx2Ir7Hicpq+Sibe3t5TI2M17ITYaut6kUWx3u92XgsE/5TScP7k5IDiA62HFfvvbITkqJg5v0FYQRLxfqUevqSQiXfNHDmnPgugpDK8Pa2JIM3Fhl3tReYJ9uhvRID4Wy5W93GsWiFCVHekKPJ4KDPqRRII4HA6urk2y6z6Q7FB42rDL3ahsJ0CMrK4tiMnkyC9nfU2u4g29ChDAnfaWiZbEsNonabrkrxYo+P/X60/+lQDBPnFF0X1A2JE5nkYwT8g3/UuKQjJx2Sg7cRBbxQS7iJ9Hke4Ga3YBA5mvTZBNFAjJBH9FKmMsx3OI4yV/hAmCkbcXIFarb2BC5Tp2ib+kP1kQn8o2W/UJA8Eu4u2oUvZgpahI1sYOmgkhCvaGJ7rs4PDimDG15uGJfXVwhW0bBQ8XgHWn7KizyzwxMjZtAOJrtzvxz3ZnC2LBL8XkurUCsfaFLZXNUCYKw5jDj+OrBNEzIJLlEiW7h2ontwQ03nTmsji7muBkfElNnDeaiVVDo+A+oUCsrB1sdGIvWOuEzV70U7vTeMw4WjuaaBoq7jMR2aojArpmb/mWfzgJf+IguKy30plgdHpnb+5egWDv6ttSgdijdCfDE3/396lIdJythAmbS3otZY6FjTRxnwk3OLGr/NXucHG3AYjtRgjl8wLzBL/y9ZJluSW/rLVIdxCEe7Dbi4TCpMJD2ZoKsftr4h6KskrxHFGKmxKQuVNdeFNH+hMrngSIDhfEZsRQbL5gntgD9z8MGr47rRKQ7ZKVTSqxTXYrm+wymx0oOuWqfsZ2mGBXv2MFxkb6k41OzJVml8+zU3Z8JDq3/byqusMV9lvinImWe5bPDvvl2FaxaapqWBCdmqDwsHWHBRHQ7mRz9tentbaJTqMNT9tM1jNRAJra6ePjuLwyLzia+k+GWO4wwmDxlKz3iQiw+3XiN5RTVkWBQzbNhH8oiryDHUNxASB2oOxQ7Y7TZnNeLC6n0xa0AFHThhnPIE7bqSVFceAgeCBTjSeXttSWscTR7u6hyEYnHj233ER8GoGyQ8BgT1/8ToHXUOYgWrhT4IKICRA9fcamsl3mocjr2XDdynKc+9UXAMHbBLOziLMSQuLbQJdNPOAqCwUVvATn2YE/wvMC+49XT3trDhPNx092prVv++IXHpvEIVso3OYJQQQPtCzUShRvviXEY0tRd6z9Jw6m7dQz0Qn3nR5hwi+eNjzTyVM2j0iwip2OduwLEWzP278FoiXKPwKEkjY4FLmi6D6iicjrPLVVEeh1bL4uvyQLssY9XT6OhC19E/m6lfpPpG4bU4DoPVQ7Bbczdj2zLS5C72Y3nS245Jm8bVMZCFvr2606VMfGGa+Mx+iMTblTV+UJUHYEmeeJyK3FyQHFaXM6q3bH9vJrswWjognVs6E7gF6jwLgTS+/ZTHQfORThmR3Rix2pIYsan0687lnDH7Kgdkdft2NjPO/qZfWdHigAtSQi09qv3xgCz9DkcUIRMQB9cTDwcqenZsqip13OuKtpzqdZeSLnN884gghrIqMXa6nwsh2aT0BvMii81j4aFfX+QQdQ4KjjaXwncxw/JTC8Z827TE/ZGRSF7rzLa4uTKBATAdEV99qYWBRTrxn7QbXF3fkENcYG3ViNIIbDU112oGn87Q4gnlAoUXTorrjnTnBm5w0orEOFziibHBWhnQJAhIyw3fvziToen7ZRmtAzuynZFcfjroa/UZA1KYrdhQKvA/hIy0YE2Tocd9WdXiw5js8oYjEKuNvh7xSY4EQN420JCJux96JT5HQKgKz9QTY1n8iYPLZQspMQwmxv6tlp1+vdlo2dYw+d42m7jpnAUzt/fAqDU8aYJUTSdqlwk53PROYcOz/MaAFqFFTK5oqYKibcedeESnbkkg0eZMvwxIkYgxCLR8BSEwKE3XZSaxFRVt3R8fadRpmDbDB29FM2FZzC7IUnG2OJ2ulHCWyoCGUX4NHOa8ZiXU+9qoNaKWi8Zy48hZnuRK872QOFTXbuggpYFRpGxHnCG9pBf/L3Im5kbH9o5w0e49t5omkTtrsqJLbnCuCM7a3ZdG7tRSwWs4zljszaCZax9EoB2ouAZWyT2BTSKyo1U4v7ugZMjHB0ymaigReeUIh1aie0ZoP2IvDMrivX55xFRoGiQB1P6YztLjwBYVMHCrMWAdfnWv6ZyCnF7UoBvXpWcFYA3ZVSNLODC3TEEiDO2GSyG1A7pcRSKblRgBZUFAa1UuquWoPl3m/Zvi3W/PNErfh9u73kcq9aFf+WNWvxPhRxC7DFMeT5r/+OLWsBgQsioJb2X37f+PuQVyhAAVgs5+WO93dYldp3l7eVgHsPfsc4jny5YFAIDIVyqaJ//XfYzTsozI0eVXBvR1V8VXWfq6LbP/TTAodCYXY7JIYqfCG4paQK7y2pwh9fJV5z514Wc6+Q/nvj9ptbN76IUMdR6OgkMIA7XXL379PJ2Udy3i0sQfA/v69Kpp18uaZR1Mp+QPzNO7dyfwCF5KKmMcjCP3iym9zkDn1RoKjpxPR0t+qpEoAT8awYdAlQKjQaRZVcn/K2SRlsCwWqQHgiLgKQmZ71DlYFIwieF4NTAjz3/cRPj+APptf/7D/7PvsLVz0MxScxJ54AAAAASUVORK5CYII=" alt="AI챗으로 요약" />
+							<button class="ai_summary_btn" aria-label="AI챗으로 요약하기"  onclick="ndrclick('RAM104');draw_mndr('m_ndr.nate.com/news/aichat', gUserJS_sAppFrom, 'view', gUserJS_sAppSkai, gUserJS_sAppNdruk);">
+								<svg class="icon_ai" width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect x="5.6" y="9.99941" width="17.28" height="13.2" rx="6.6" stroke="#222222" stroke-width="1.2"></rect>
+									<rect x="12.4004" y="17.7988" width="2.2" height="3.8" rx="1.1" transform="rotate(-180 12.4004 17.7988)" fill="#222222"></rect>
+									<rect x="17.8" y="17.7988" width="2.2" height="3.8" rx="1.1" transform="rotate(-180 17.8 17.7988)" fill="#222222"></rect>
+									<line x1="12.8262" y1="9.79289" x2="15.6546" y2="6.96447" stroke="#222222" stroke-linecap="square"></line>
+									<circle cx="16.8" cy="5.5998" r="1.8" fill="#222222"></circle>
+								</svg>
+							</button>
+						</li>
+						<!-- 글자 크기 -->
+						<li>
+							<button class="font_size" aria-label="기사내용 글자 크기 조절하기">
+								<svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="path-1-inside-1_692_115" fill="white">
+									<path d="M5 7C5 5.89543 5.89543 5 7 5H11.3636V9.36358C11.3636 10.4682 10.4681 11.3636 9.36358 11.3636H5V7Z"></path>
+									</mask>
+									<path d="M3.7 7C3.7 5.17746 5.17746 3.7 7 3.7H11.3636V6.3H7C6.6134 6.3 6.3 6.6134 6.3 7H3.7ZM11.3636 11.3636H5H11.3636ZM3.7 11.3636V7C3.7 5.17746 5.17746 3.7 7 3.7V6.3C6.6134 6.3 6.3 6.6134 6.3 7V11.3636H3.7ZM11.3636 5V11.3636V5Z" fill="#222222" mask="url(#path-1-inside-1_692_115)"></path>
+									<mask id="path-3-inside-2_692_115" fill="white">
+									<path d="M20.9998 5C22.1043 5 22.9998 5.89543 22.9998 7L22.9998 11.3636L18.6362 11.3636C17.5316 11.3636 16.6362 10.4681 16.6362 9.36358L16.6362 5L20.9998 5Z"></path>
+									</mask>
+									<path d="M20.9998 3.7C22.8223 3.7 24.2998 5.17746 24.2998 7L24.2998 11.3636L21.6998 11.3636L21.6998 7C21.6998 6.6134 21.3864 6.3 20.9998 6.3L20.9998 3.7ZM16.6362 11.3636L16.6362 5L16.6362 11.3636ZM16.6362 3.7L20.9998 3.7C22.8223 3.7 24.2998 5.17746 24.2998 7L21.6998 7C21.6998 6.6134 21.3864 6.3 20.9998 6.3L16.6362 6.3L16.6362 3.7ZM22.9998 11.3636L16.6362 11.3636L22.9998 11.3636Z" fill="#222222" mask="url(#path-3-inside-2_692_115)"></path>
+									<mask id="path-5-inside-3_692_115" fill="white">
+									<path d="M22.9998 21C22.9998 22.1046 22.1043 23 20.9998 23L16.6362 23L16.6362 18.6364C16.6362 17.5318 17.5316 16.6364 18.6362 16.6364L22.9998 16.6364L22.9998 21Z"></path>
+									</mask>
+									<path d="M24.2998 21C24.2998 22.8225 22.8223 24.3 20.9998 24.3L16.6362 24.3L16.6362 21.7L20.9998 21.7C21.3864 21.7 21.6998 21.3866 21.6998 21L24.2998 21ZM16.6362 16.6364L22.9998 16.6364L16.6362 16.6364ZM24.2998 16.6364L24.2998 21C24.2998 22.8225 22.8223 24.3 20.9998 24.3L20.9998 21.7C21.3864 21.7 21.6998 21.3866 21.6998 21L21.6998 16.6364L24.2998 16.6364ZM16.6362 23L16.6362 16.6364L16.6362 23Z" fill="#222222" mask="url(#path-5-inside-3_692_115)"></path>
+									<mask id="path-7-inside-4_692_115" fill="white">
+									<path d="M7 23C5.89543 23 5 22.1046 5 21L5 16.6364L9.36358 16.6364C10.4682 16.6364 11.3636 17.5319 11.3636 18.6364L11.3636 23L7 23Z"></path>
+									</mask>
+									<path d="M7 24.3C5.17746 24.3 3.7 22.8225 3.7 21L3.7 16.6364L6.3 16.6364L6.3 21C6.3 21.3866 6.6134 21.7 7 21.7L7 24.3ZM11.3636 16.6364L11.3636 23L11.3636 16.6364ZM11.3636 24.3L7 24.3C5.17746 24.3 3.7 22.8225 3.7 21L6.3 21C6.3 21.3866 6.6134 21.7 7 21.7L11.3636 21.7L11.3636 24.3ZM5 16.6364L11.3636 16.6364L5 16.6364Z" fill="#222222" mask="url(#path-7-inside-4_692_115)"></path>
+									<path d="M18.0642 13.77H16.7742V18.29H15.6142V9.38H16.7742V12.8H18.0642V13.77ZM14.4342 10.29C14.3542 12.98 13.1742 15.2 10.4442 16.68L9.73424 15.8C11.6742 14.91 13.0042 13.04 13.1642 11.26H10.2742V10.29H14.4342Z" fill="#222222"></path>
+								</svg>
+							</button>
+						</li>
+					</ul>
+					<div class="font_sizing_popup">
+						<ul>
+							<li>
+								<button class="size1">가<sub>1</sub>
+									<span class="txt">작게</span>
+								</button>
+							</li>
+							<li>
+								<button class="size2">가<sub>2</sub>
+									<span class="txt">보통</span>
+								</button>
+							</li> 
+							<li>
+								<button class="size3">가<sub>3</sub>
+									<span class="txt">크게</span>
+								</button>
+							</li>
+							<li>
+								<button class="size4">가<sub>4</sub>
+									<span class="txt">아주<br />크게</span>
+								</button>
+							</li>
+							<li>
+								<button class="size5">가<sub>5</sub>
+									<span class="txt">가장<br />크게</span>
+								</button>
+							</li>		
+						</ul>
+					</div>
+				</div>
+			</header>
+			
+			<!-- AI 요약 팝업 -->
+			<div class="view_ai_pop_dimmed">
+				<div class="view_ai_pop">
+					<div class="top">
+						<div class="left">
+							<p><span>AI</span>요약</p>
+							<a aria-label="AI 요약 서비스에 대한 설명 페이지로 이동 링크" href="https://m.helpdesk.nate.com/mobile/faq-detail?faqId=KNOW0000008099&amp;nodeId=NODE0000000276" onclick="ndrclick('RAM107');">
+								<svg class="icon_notice" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<circle cx="8" cy="8" r="7.5" stroke="#E0E0E0"></circle>
+									<rect x="7.5" y="4.40002" width="1" height="1" fill="#7C7C7C"></rect>
+									<rect x="7.5" y="6.40002" width="1" height="5" fill="#7C7C7C"></rect>
+								</svg>
+							</a>
+						</div>
+						<button class="right ai_pop_close_btn" aria-label="AI요약 닫기" onclick="ndrclick('RAM106');">
+							<svg width="22" height="22" viewbox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="18.7782" y="17.4821" width="1.4" height="20.1667" rx="0.7" transform="rotate(135 18.7782 17.4821)" fill="#999999"></rect>
+								<rect x="4.51819" y="18.7782" width="1.4" height="20.1667" rx="0.7" transform="rotate(-135 4.51819 18.7782)" fill="#999999"></rect>
+							</svg>
+						</button>
+					</div>
+					<p class="view_ai_pop_guide">
+						기사 제목과 본문 내용을 자동 요약한 내용입니다.<span> </span>전체 내용을 이해하기 위해서는 기사 본문 전체를 확인하는 것이 더 좋습니다.
+					</p>
+					
+					<!-- AI챗 텍스트 입력상태 -->
+					<div class="view_ai_contents" id="ai_summary_text" style="display:none">
+					</div>
+
+					<!-- AI챗 노출전 Loading 상태 -->
+					<div class="view_ai_contents state loading" id="ai_summary_loading">
+						<svg class="icon_ai" width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect x="5.6" y="9.99941" width="17.28" height="13.2" rx="6.6" stroke="#222222" stroke-width="1.2"></rect>
+							<rect x="12.4004" y="17.7988" width="2.2" height="3.8" rx="1.1" transform="rotate(-180 12.4004 17.7988)" fill="#222222"></rect>
+							<rect x="17.8" y="17.7988" width="2.2" height="3.8" rx="1.1" transform="rotate(-180 17.8 17.7988)" fill="#222222"></rect>
+							<line x1="12.8262" y1="9.79289" x2="15.6546" y2="6.96447" stroke="#222222" stroke-linecap="square"></line>
+							<circle cx="16.8" cy="5.5998" r="1.8" fill="#222222"></circle>
+						</svg>
+						<p class="state">AI챗이 열심히 분석 중입니다.<span></span>잠시만 기다려주세요.</p>
+					</div>
+
+					<!-- AI챗 오류 상태 -->
+					<div class="view_ai_contents state error" id="ai_summary_error" style="display:none">
+						<svg class="icon_ai_error" width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect x="4.6" y="9.19961" width="17.28" height="13.2" rx="6.6" stroke="#222222" stroke-width="1.2"></rect>
+							<rect x="9.2002" y="18.7998" width="1.2" height="7.6" rx="0.6" transform="rotate(-90 9.2002 18.7998)" fill="#333333"></rect>
+							<rect x="11.4004" y="15.4004" width="2.8" height="1.6" rx="0.8" transform="rotate(-180 11.4004 15.4004)" fill="#222222"></rect>
+							<rect x="16.7998" y="15.4004" width="2.8" height="1.6" rx="0.8" transform="rotate(-180 16.7998 15.4004)" fill="#222222"></rect>
+							<line x1="11.8301" y1="8.99309" x2="14.6585" y2="6.16466" stroke="#222222" stroke-linecap="square"></line>
+							<circle cx="15.404" cy="4.8" r="1.8" fill="#222222"></circle>
+						</svg>						
+						<p class="state" id="ai_summary_error_text"></p>
+					</div>
+					
+					<div class="bottom">
+						<a href="https://m.nate.com/?sqq=AICHAT" class="bubble" onclick="ndrclick('RAM105');"><p><span>AI챗</span> 바로가기</p></a>
+						<button class="ai_chat_btn" aria-label="AI챗" onclick="location.href='https://m.nate.com/?sqq=AICHAT';ndrclick('RAM105');"></button>
+					</div>
+				</div>
+			</div>
+			
+			<script type="text/javascript">
+			// 기사뷰 AI 요약 기능 :: UIDEV-1711
+			(function(){
+					const aiSummaryBtn = document.querySelector('.ai_summary_btn');
+					const aiSummaryChat = document.querySelector('.ai_summary_chat');
+					const aiSummaryPopCloseBtn = document.querySelector('.ai_pop_close_btn');
+					const aiSummaryPopDimmed = document.querySelector('.view_ai_pop_dimmed'); 
+					const fontSizingLayerPopup = document.querySelector('.font_sizing_popup');
+					
+					function activeLayerPopup(){
+							errorMsg = '기사 요약 중 오류가 발생했습니다.<span></span>잠시 후 다시 시도해주세요.';
+							aiSummaryPopDimmed.classList.add('active');
+							fontSizingLayerPopup.classList.remove('active');
+							document.body.style.overflow = "hidden";
+			
+							jQuery.ajax({
+								type: "GET", 
+								dataType: "json", 
+								url: "/view/summary?artc_sq=20200309n34198",
+								dataType: 'json', 
+								success: function(summary_result){
+									if (summary_result['response_code']=='200') {
+										summaryHtml = '<ul>';
+
+										summary_lines = Object.entries(summary_result['summary']);
+										summary_lines.forEach((summary_line) => {
+											summaryHtml += '<li>' + summary_line[1] + '</li>'; 
+										});
+
+										summaryHtml += '<ul>';
+										
+										jQuery("#ai_summary_text").html(summaryHtml);
+										jQuery("#ai_summary_loading").hide();
+										jQuery("#ai_summary_error").hide();
+										jQuery("#ai_summary_text").show();
+									} else {
+										if (summary_result['response_msg'] != '')  errorMsg = errorMsg + '<span></span>' + summary_result['response_msg'];										
+										jQuery("#ai_summary_error_text").html(errorMsg);
+										jQuery("#ai_summary_loading").hide();
+										jQuery("#ai_summary_error").show();
+										jQuery("#ai_summary_text").hide();
+									}
+									
+								},
+								error: function(e){
+									jQuery("#ai_summary_error_text").html(errorMsg);
+									jQuery("#ai_summary_loading").hide();
+									jQuery("#ai_summary_error").show();
+									jQuery("#ai_summary_text").hide();
+								}
+							});				
+					}
+
+					aiSummaryBtn.addEventListener('click', activeLayerPopup);
+					aiSummaryChat.addEventListener('click', activeLayerPopup);
+										
+					aiSummaryPopDimmed.addEventListener('click', function(e){
+							if(e.target === e.currentTarget){
+									aiSummaryPopDimmed.classList.remove('active');
+									document.body.style.removeProperty('overflow');
+							}
+					})
+					aiSummaryPopCloseBtn.addEventListener('click', function(){
+							aiSummaryPopDimmed.classList.remove('active');
+							document.body.style.removeProperty('overflow');
+					})
+			})();		
+			</script>
+			<!-- //AI 요약 팝업 -->
+
+			<article>
+				
+																								<div id="txt_size" class="view_cont">
+											
+
+
+코로나19로 주요 기업 재택근무 시행
+SK컴즈, 네이트온 사용량 최대 10% 이상 증가<br><br><div id="content_img" class="view_img"><a href="//m.news.nate.com/view/photo?url=//thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/cb/2020/03/09/20200309154935861148_6_710_473.jpg"><img src="//thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/cb/2020/03/09/20200309154935861148_6_710_473.jpg" onError="this.src='//news.nateimg.co.kr/ui/uidev/images/mobile/img/common/blank_138x79.jpg';checkChangeImg(this,true);" onload="checkChangeImg(this);" alt="SK컴즈, 재택근무로 네이트온 사용량 올해 최고치"/><span class="enlarge"><span class="hide">이미지 크게 보기</span></span></a><span class="sub_tit">재택근무 중 네이트온 서비스를 이용하고 있다(사진=SK컴즈 제공)</span></div>SK커뮤니케이션즈(이하 SK컴즈)는 메신저 서비스 '네이트온'이 코로나19로 주요 기업들의 재택근무가 늘면서 지난주 '네이트온' 이용자 수 및 메시지 전송 건수가 올해 들어 최고치를 기록하였다고 6일 밝혔다.<br><br>SK텔레콤, KT, 카카오, NHN 등 주요 대기업들이 재택근무를 시행한 지난 2월 24일부터 3월 1일까지 네이트온의 이용자 수가 큰 폭으로 증가해 전월 동기간 대비 메시지 발송 건수가 최대 10% 이상 증가하는 등 업무용 메신저 네이트온 서비스의 사용률이 크게 증가했다.<br><br>						<div id="ad_innerView">
+							<script language="javascript" src="//cyad1.nate.com/js.kti/mnate/news@view_middle3" data-press_code="cb" data-item_id="20200309n34198"></script>
+						</div>
+						<br>지난 2월 3일부터 3월 1일까지 네이트온이 한 달간 약 1만 명의 의견을 조사한 결과 사용자들은 '업무용 메신저'로서 서비스를 편리하게 사용하고 있다고 평가했다. 응답자 중 31%가 '업무에 적합한 메신저'로, 19%가 '업무상 자주 사용하는 대용량 파일 전송 사용'을 이유로 꼽았다. 재택근무 시행으로 더욱 필요해진 사용자 PC 간 원격 접속 기능과 업무 히스토리 관리가 용이하며 프로젝트 멤버 관리를 할 수 있는 '팀룸'에 대한 사용자들의 호평도 이어졌다. 그 밖에 '한번 메시지', '대화창 흔들기' 기능에 대한 긍정적인 반응도 있었다.<br><br><div id="content_img" class="view_img"><a href="//m.news.nate.com/view/photo?url=//thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/cb/2020/03/09/20200309155447849021_6_710_359.jpg"><img src="//thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/cb/2020/03/09/20200309155447849021_6_710_359.jpg" onError="this.src='//news.nateimg.co.kr/ui/uidev/images/mobile/img/common/blank_138x79.jpg';checkChangeImg(this,true);" onload="checkChangeImg(this);" alt="기사 이미지"/><span class="enlarge"><span class="hide">이미지 크게 보기</span></span></a><span class="sub_tit">네이트온 사용자 의견 조사 결과(사진=SK컴즈 제공)</span></div>SK커뮤니케이션즈 '네이트온' 김경옥 담당은 "현재 '네이트온'에서는 공유한 문서와 파일을 저장 기간의 제한 없이 편리하게 다운로드 및 검색할 수 있는 온라인 협업 툴 '팀룸'을 무료로 서비스하고 있다"며 "재택근무 중에도 향상된 업무 효율로 근무자 피로도도 줄이고, 사회 안전 확보 및 코로나 확산 저지에 도움이 되길 바란다"고 밝혔다. <br><br>한편 네이트온은 4월 이용자들의 요청이 가장 많았던 △메시지/파일 발송 취소 기능 적용을 시작으로 △파일함 사용성 및 전송 보관 주기 개선 △다양한 이모티콘 제공 확대 △팀룸 이용 편의성 개선 등의 요구 사항을 연내 순차적으로 개선할 예정이다. 하반기에는 디자인과 사용성에 대한 개편을 준비하고 있다. <br><br>CBSi 노컷TV 박다솔PD <br><br><a href="http://pf.kakao.com/_xeEUAd" target="_blank">▶ 기자와 카톡 채팅하기</a><br><a href="https://www.facebook.com/nocutv2017/" target="_blank">▶ 노컷뉴스 영상 구독하기</a>
+
+
+									</div>
+
+								<!-- //칼럼니스트 -->
+
+				<div class="isolation">
+					
+					
+									</div>
+
+				<!-- VOD PLAYER -->
+								
+				<!--  주요키워드 -->
+<ul class="seo_tag">
+	</ul>
+				 <!-- 감정이모티콘 -->
+<div class="md-emotion-view" id="md-emotion-view">
+		<ul class="md-emotion" id="md-emotion">
+					<li id="emoticon_1">
+				<button aria-pressed="false">
+                  <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M17.656 6.3861C15.6147 3.02163 12.677 1.88306 9.98439 1.88306C9.97204 1.88306 9.95977 1.8834 9.94756 1.88407C9.93558 1.88342 9.92354 1.88309 9.91143 1.88309C7.21883 1.88309 4.28113 3.02167 2.23985 6.38613C0.198566 9.7506 0.717412 14.2196 1.01269 14.6879C1.03407 14.7218 1.05543 14.7565 1.07706 14.7916C1.35418 15.2419 1.6744 15.7622 2.61375 15.5272C2.63072 15.5586 2.64959 15.5949 2.67062 15.6354C2.94744 16.1677 3.59734 17.4175 5.19622 17.7344C6.62972 18.0186 7.70777 18.0267 9.18268 18.0379C9.35254 18.0391 9.52767 18.0405 9.7092 18.0422C9.73065 18.0458 9.75229 18.0474 9.7741 18.0471C9.83217 18.0463 9.88957 18.0455 9.94633 18.0448C10.0041 18.0455 10.0626 18.0463 10.1217 18.0471C10.1437 18.0474 10.1655 18.0458 10.1871 18.0422C10.3685 18.0404 10.5434 18.0391 10.7131 18.0378C12.188 18.0267 13.2661 18.0186 14.6996 17.7344C16.2985 17.4174 16.9484 16.1677 17.2252 15.6353C17.2462 15.5949 17.2651 15.5586 17.2821 15.5272C18.2214 15.7622 18.5416 15.2419 18.8188 14.7916C18.8404 14.7564 18.8617 14.7217 18.8831 14.6878C19.1784 14.2196 19.6973 9.75056 17.656 6.3861Z" fill="#FEC101"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M9.95144 1.5394L9.97483 1.53871L9.98447 1.53857C13.1928 1.53857 16.0349 3.04991 17.9507 6.20749C18.8916 7.75825 19.3811 9.6414 19.49 11.6041C19.5705 13.0565 19.415 14.4908 19.1747 14.8718L19.0511 15.0712L19.0221 15.117C18.8285 15.4189 18.6574 15.6111 18.4096 15.7534C18.1469 15.9043 17.8401 15.96 17.4827 15.9155L17.4686 15.9136L17.4462 15.9557C17.415 16.0137 17.385 16.0679 17.3537 16.1225L17.3347 16.1552C17.1957 16.3939 17.045 16.6137 16.8691 16.8228C16.3364 17.4562 15.6497 17.8976 14.7667 18.0726C14.1094 18.2029 13.5008 18.2817 12.8497 18.3258C12.3904 18.3568 12.0009 18.3695 11.2941 18.3774L10.2104 18.3868L10.1933 18.3888C10.1764 18.3904 10.1594 18.3914 10.1424 18.3918L10.1169 18.3919L9.9479 18.3896L9.77904 18.3919C9.75442 18.3922 9.72985 18.3913 9.70539 18.3891L9.68699 18.3871L8.78541 18.3795C7.9915 18.3718 7.57655 18.3604 7.10389 18.3296L6.96492 18.3201C6.3442 18.2751 5.75901 18.1975 5.12921 18.0726C4.24625 17.8976 3.5595 17.4562 3.02678 16.8228C2.85092 16.6137 2.70025 16.3939 2.56118 16.1552C2.52289 16.0895 2.4871 16.0253 2.44973 15.9557L2.42729 15.9136L2.41316 15.9155C2.06416 15.9589 1.76335 15.9069 1.50473 15.7638L1.48632 15.7534C1.23165 15.6071 1.05791 15.4082 0.857632 15.0916L0.714005 14.8601C0.477839 14.4621 0.326208 13.042 0.405958 11.6041C0.514818 9.6414 1.00434 7.75825 1.94521 6.20749C3.86096 3.04991 6.70309 1.53857 9.91144 1.53857L9.93008 1.53875L9.95144 1.5394ZM10.1266 17.7027L10.1399 17.7008C10.1537 17.6989 10.1677 17.6979 10.1816 17.6978L10.7943 17.6928C11.7844 17.6851 12.2333 17.6752 12.7472 17.6418L12.8841 17.6324C13.476 17.5894 14.0323 17.5155 14.6327 17.3965C15.352 17.2539 15.9046 16.8987 16.3416 16.3792C16.49 16.2028 16.6188 16.0149 16.7392 15.8082C16.7846 15.7302 16.8267 15.6535 16.8743 15.5631C16.8757 15.5604 16.8809 15.5505 16.8882 15.5365C16.9108 15.4932 16.9542 15.4099 16.9736 15.3735L16.985 15.3528C17.0621 15.2214 17.217 15.1558 17.3658 15.193C17.6831 15.2724 17.9003 15.2511 18.0662 15.1558C18.2007 15.0785 18.3104 14.9529 18.4557 14.7232L18.4593 14.7176L18.5937 14.5007C18.6352 14.4277 18.7118 14.0781 18.7605 13.6293L18.7657 13.5792C18.8245 13.0084 18.8403 12.3378 18.8017 11.6423C18.6987 9.78413 18.237 8.00831 17.3614 6.56506C15.5751 3.62078 12.961 2.22954 9.98976 2.22789L9.98981 2.22789H9.98447C9.98623 2.22789 9.98799 2.22789 9.98976 2.22789L9.95785 2.22877L9.94349 2.22887L9.92033 2.22801L9.91144 2.22789C6.93801 2.22789 4.32191 3.61903 2.53451 6.56506C1.65886 8.00831 1.19724 9.78413 1.09418 11.6423C1.05448 12.3582 1.0724 13.0478 1.13545 13.6293L1.13791 13.6517C1.18748 14.0971 1.26396 14.4403 1.30422 14.5042L1.41659 14.6854L1.45327 14.7438C1.59217 14.9605 1.69928 15.0809 1.82967 15.1558C1.99558 15.2511 2.21281 15.2724 2.5301 15.193C2.6829 15.1548 2.84217 15.225 2.91701 15.3636L3.03729 15.5927C3.07859 15.6706 3.11632 15.7389 3.15674 15.8082C3.27714 16.0149 3.40593 16.2028 3.55429 16.3792C3.99129 16.8987 4.54391 17.2539 5.26325 17.3965C5.89087 17.5209 6.47031 17.596 7.09265 17.6381C7.54264 17.6686 7.92747 17.6808 8.64163 17.6887L9.7144 17.6981C9.73143 17.6983 9.74843 17.6997 9.76525 17.7024L9.76731 17.7026L9.76931 17.7027L9.94375 17.7004H9.95211L10.1266 17.7027Z" fill="#AB7234"></path>
+						<path d="M10.4348 11.7393V15.2175H9.56519V11.7393H10.4348Z" fill="black"></path>
+						<ellipse cx="8.4781" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+						<ellipse cx="11.5216" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+						<path d="M15.2173 15.6523L5.21729 15.6523L5.21729 14.7827L15.2173 14.7827L15.2173 15.6523Z" fill="black"></path>
+						<path d="M2.57021 8.11194C2.03303 10.9839 1.99583 13.4643 2.46083 15.5549C2.49839 15.7238 2.66576 15.8303 2.83465 15.7927C3.00355 15.7552 3.18476 16.0275 3.14719 15.8586C2.70171 13.8556 2.66409 11.018 3.18609 8.22714C3.2179 8.05706 3.10582 7.89341 2.93575 7.8616C2.76568 7.82979 2.60202 7.94187 2.57021 8.11194Z" fill="#AB7234"></path>
+						<path d="M17.3421 8.11194C17.8793 10.9839 17.9165 13.4643 17.4515 15.5549C17.414 15.7238 17.386 16.0172 17.2171 15.9796C17.0482 15.9421 16.8038 15.8368 16.8414 15.6679C17.2869 13.6649 17.2483 11.018 16.7263 8.22714C16.6945 8.05706 16.8065 7.89341 16.9766 7.8616C17.1467 7.82979 17.3103 7.94187 17.3421 8.11194Z" fill="#AB7234"></path>
+						<path d="M2.29464 12.9978C2.29464 12.9978 2.34198 15.3184 1.91694 15.2044C1.49191 15.0905 2.7083 15.5476 2.7083 15.5476L2.29464 12.9978Z" fill="#AB7234"></path>
+						<path d="M17.6316 12.9978C17.6316 12.9978 17.5843 15.3184 18.0093 15.2044C18.4344 15.0905 17.218 15.5476 17.218 15.5476L17.6316 12.9978Z" fill="#AB7234"></path>
+						<path d="M10.0488 9.33422C9.23061 9.33422 8.2368 9.29294 7.89898 9.53441C7.56116 9.77588 7.5512 9.90966 7.46912 10.3102C7.38704 10.7108 7.82516 11.404 8.43106 11.6177C9.03697 11.8313 9.84683 12.0401 11.092 11.7623C12.3372 11.4846 12.4582 10.3541 12.4104 10.0474C12.3627 9.74061 12.2082 9.43977 11.7767 9.40867C11.3452 9.37757 10.8669 9.33422 10.0488 9.33422Z" fill="#6D3411"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.54036 9.60454C7.60317 9.53202 7.68345 9.46243 7.79204 9.38482C8.05711 9.19534 8.5066 9.14747 9.42311 9.14771L9.51529 9.14788L9.76645 9.14924L10.16 9.15059C10.597 9.15253 10.9426 9.1661 11.3421 9.19288L11.4948 9.20354L11.8085 9.22677C12.2726 9.26762 12.5221 9.56979 12.592 10.019C12.6312 10.2713 12.5697 10.6631 12.4 10.9986C12.1631 11.4669 11.744 11.8051 11.132 11.9417C10.0446 12.1842 9.25806 12.1041 8.36988 11.7909C7.71475 11.5599 7.18149 10.7979 7.289 10.2733L7.32021 10.1202L7.334 10.0565C7.38063 9.85003 7.43199 9.72964 7.54036 9.60454ZM10.0486 9.51803L9.57268 9.5158L9.39741 9.51543C8.59987 9.51662 8.17695 9.56155 8.00571 9.68395C7.9189 9.746 7.85962 9.79738 7.81813 9.84528C7.75384 9.91951 7.7243 9.99141 7.68825 10.1566L7.67986 10.1959L7.64699 10.358C7.59089 10.6885 8.00319 11.2719 8.49203 11.4443C9.31941 11.736 10.0376 11.8092 11.0518 11.5829C11.554 11.4709 11.8836 11.205 12.0719 10.8328C12.2068 10.5661 12.2561 10.252 12.2286 10.0756C12.1817 9.77408 12.0461 9.61238 11.7633 9.59201L11.4174 9.56662C10.9476 9.53337 10.568 9.51803 10.0486 9.51803Z" fill="black"></path>
+						<path d="M8.86448 11.6668C8.86448 11.6668 8.83962 11.2627 8.86448 10.9514C8.88934 10.64 9.07405 10.5929 9.19629 10.6135C9.31853 10.6341 9.40496 10.7666 9.38059 10.9514C9.35622 11.1361 9.34173 11.555 9.38059 11.8282C9.41945 12.1014 8.86448 11.6668 8.86448 11.6668Z" fill="black"></path>
+						<path d="M10.6769 11.7522C10.6769 11.7522 10.7124 11.3978 10.6769 11.1602C10.6414 10.9226 10.5071 10.5952 10.8194 10.5429C11.1317 10.4906 11.1883 11.4274 11.1538 11.6367C11.1192 11.8461 10.6769 11.7522 10.6769 11.7522Z" fill="black"></path>
+					</svg> 
+					<span class="state">최고예요</span>
+					<span class="cnt">0</span>
+				</button>
+			</li>
+					<li id="emoticon_2">
+				<button aria-pressed="false">
+                  <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M17.656 6.3861C15.6147 3.02163 12.677 1.88306 9.98439 1.88306C9.97204 1.88306 9.95977 1.8834 9.94756 1.88407C9.93558 1.88342 9.92354 1.88309 9.91143 1.88309C7.21883 1.88309 4.28113 3.02167 2.23985 6.38613C0.198566 9.7506 0.717412 14.2196 1.01269 14.6879C1.03407 14.7218 1.05543 14.7565 1.07706 14.7916C1.35418 15.2419 1.6744 15.7622 2.61375 15.5272C2.63072 15.5586 2.64959 15.5949 2.67062 15.6354C2.94744 16.1677 3.59734 17.4175 5.19622 17.7344C6.62972 18.0186 7.70777 18.0267 9.18268 18.0379C9.35254 18.0391 9.52767 18.0405 9.7092 18.0422C9.73065 18.0458 9.75229 18.0474 9.7741 18.0471C9.83217 18.0463 9.88957 18.0455 9.94633 18.0448C10.0041 18.0455 10.0626 18.0463 10.1217 18.0471C10.1437 18.0474 10.1655 18.0458 10.1871 18.0422C10.3685 18.0404 10.5434 18.0391 10.7131 18.0378C12.188 18.0267 13.2661 18.0186 14.6996 17.7344C16.2985 17.4174 16.9484 16.1677 17.2252 15.6353C17.2462 15.5949 17.2651 15.5586 17.2821 15.5272C18.2214 15.7622 18.5416 15.2419 18.8188 14.7916C18.8404 14.7564 18.8617 14.7217 18.8831 14.6878C19.1784 14.2196 19.6973 9.75056 17.656 6.3861Z" fill="#FEC101"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M9.95144 1.5394L9.97483 1.53871L9.98447 1.53857C13.1928 1.53857 16.0349 3.04991 17.9507 6.20749C18.8916 7.75825 19.3811 9.6414 19.49 11.6041C19.5705 13.0565 19.415 14.4908 19.1747 14.8718L19.0511 15.0712L19.0221 15.117C18.8285 15.4189 18.6574 15.6111 18.4096 15.7534C18.1469 15.9043 17.8401 15.96 17.4827 15.9155L17.4686 15.9136L17.4462 15.9557C17.415 16.0137 17.385 16.0679 17.3537 16.1225L17.3347 16.1552C17.1957 16.3939 17.045 16.6137 16.8691 16.8228C16.3364 17.4562 15.6497 17.8976 14.7667 18.0726C14.1094 18.2029 13.5008 18.2817 12.8497 18.3258C12.3904 18.3568 12.0009 18.3695 11.2941 18.3774L10.2104 18.3868L10.1933 18.3888C10.1764 18.3904 10.1594 18.3914 10.1424 18.3918L10.1169 18.3919L9.9479 18.3896L9.77904 18.3919C9.75442 18.3922 9.72985 18.3913 9.70539 18.3891L9.68699 18.3871L8.78541 18.3795C7.9915 18.3718 7.57655 18.3604 7.10389 18.3296L6.96492 18.3201C6.3442 18.2751 5.75901 18.1975 5.12921 18.0726C4.24625 17.8976 3.5595 17.4562 3.02678 16.8228C2.85092 16.6137 2.70025 16.3939 2.56118 16.1552C2.52289 16.0895 2.4871 16.0253 2.44973 15.9557L2.42729 15.9136L2.41316 15.9155C2.06416 15.9589 1.76335 15.9069 1.50473 15.7638L1.48632 15.7534C1.23165 15.6071 1.05791 15.4082 0.857632 15.0916L0.714005 14.8601C0.477839 14.4621 0.326208 13.042 0.405958 11.6041C0.514818 9.6414 1.00434 7.75825 1.94521 6.20749C3.86096 3.04991 6.70309 1.53857 9.91144 1.53857L9.93008 1.53875L9.95144 1.5394ZM10.1266 17.7027L10.1399 17.7008C10.1537 17.6989 10.1677 17.6979 10.1816 17.6978L10.7943 17.6928C11.7844 17.6851 12.2333 17.6752 12.7472 17.6418L12.8841 17.6324C13.476 17.5894 14.0323 17.5155 14.6327 17.3965C15.352 17.2539 15.9046 16.8987 16.3416 16.3792C16.49 16.2028 16.6188 16.0149 16.7392 15.8082C16.7846 15.7302 16.8267 15.6535 16.8743 15.5631C16.8757 15.5604 16.8809 15.5505 16.8882 15.5365C16.9108 15.4932 16.9542 15.4099 16.9736 15.3735L16.985 15.3528C17.0621 15.2214 17.217 15.1558 17.3658 15.193C17.6831 15.2724 17.9003 15.2511 18.0662 15.1558C18.2007 15.0785 18.3104 14.9529 18.4557 14.7232L18.4593 14.7176L18.5937 14.5007C18.6352 14.4277 18.7118 14.0781 18.7605 13.6293L18.7657 13.5792C18.8245 13.0084 18.8403 12.3378 18.8017 11.6423C18.6987 9.78413 18.237 8.00831 17.3614 6.56506C15.5751 3.62078 12.961 2.22954 9.98976 2.22789L9.98981 2.22789H9.98447C9.98623 2.22789 9.98799 2.22789 9.98976 2.22789L9.95785 2.22877L9.94349 2.22887L9.92033 2.22801L9.91144 2.22789C6.93801 2.22789 4.32191 3.61903 2.53451 6.56506C1.65886 8.00831 1.19724 9.78413 1.09418 11.6423C1.05448 12.3582 1.0724 13.0478 1.13545 13.6293L1.13791 13.6517C1.18748 14.0971 1.26396 14.4403 1.30422 14.5042L1.41659 14.6854L1.45327 14.7438C1.59217 14.9605 1.69928 15.0809 1.82967 15.1558C1.99558 15.2511 2.21281 15.2724 2.5301 15.193C2.6829 15.1548 2.84217 15.225 2.91701 15.3636L3.03729 15.5927C3.07859 15.6706 3.11632 15.7389 3.15674 15.8082C3.27714 16.0149 3.40593 16.2028 3.55429 16.3792C3.99129 16.8987 4.54391 17.2539 5.26325 17.3965C5.89087 17.5209 6.47031 17.596 7.09265 17.6381C7.54264 17.6686 7.92747 17.6808 8.64163 17.6887L9.7144 17.6981C9.73143 17.6983 9.74843 17.6997 9.76525 17.7024L9.76731 17.7026L9.76931 17.7027L9.94375 17.7004H9.95211L10.1266 17.7027Z" fill="#AB7234"></path>
+						<path d="M10.4348 11.7393V15.2175H9.56519V11.7393H10.4348Z" fill="black"></path>
+						<ellipse cx="8.4781" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+						<ellipse cx="11.5216" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+						<path d="M15.2173 15.6523L5.21729 15.6523L5.21729 14.7827L15.2173 14.7827L15.2173 15.6523Z" fill="black"></path>
+						<path d="M2.57021 8.11194C2.03303 10.9839 1.99583 13.4643 2.46083 15.5549C2.49839 15.7238 2.66576 15.8303 2.83465 15.7927C3.00355 15.7552 3.18476 16.0275 3.14719 15.8586C2.70171 13.8556 2.66409 11.018 3.18609 8.22714C3.2179 8.05706 3.10582 7.89341 2.93575 7.8616C2.76568 7.82979 2.60202 7.94187 2.57021 8.11194Z" fill="#AB7234"></path>
+						<path d="M17.3421 8.11194C17.8793 10.9839 17.9165 13.4643 17.4515 15.5549C17.414 15.7238 17.386 16.0172 17.2171 15.9796C17.0482 15.9421 16.8038 15.8368 16.8414 15.6679C17.2869 13.6649 17.2483 11.018 16.7263 8.22714C16.6945 8.05706 16.8065 7.89341 16.9766 7.8616C17.1467 7.82979 17.3103 7.94187 17.3421 8.11194Z" fill="#AB7234"></path>
+						<path d="M2.29464 12.9978C2.29464 12.9978 2.34198 15.3184 1.91694 15.2044C1.49191 15.0905 2.7083 15.5476 2.7083 15.5476L2.29464 12.9978Z" fill="#AB7234"></path>
+						<path d="M17.6316 12.9978C17.6316 12.9978 17.5843 15.3184 18.0093 15.2044C18.4344 15.0905 17.218 15.5476 17.218 15.5476L17.6316 12.9978Z" fill="#AB7234"></path>
+						<path d="M10.0488 9.33422C9.23061 9.33422 8.2368 9.29294 7.89898 9.53441C7.56116 9.77588 7.5512 9.90966 7.46912 10.3102C7.38704 10.7108 7.82516 11.404 8.43106 11.6177C9.03697 11.8313 9.84683 12.0401 11.092 11.7623C12.3372 11.4846 12.4582 10.3541 12.4104 10.0474C12.3627 9.74061 12.2082 9.43977 11.7767 9.40867C11.3452 9.37757 10.8669 9.33422 10.0488 9.33422Z" fill="#6D3411"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.54036 9.60454C7.60317 9.53202 7.68345 9.46243 7.79204 9.38482C8.05711 9.19534 8.5066 9.14747 9.42311 9.14771L9.51529 9.14788L9.76645 9.14924L10.16 9.15059C10.597 9.15253 10.9426 9.1661 11.3421 9.19288L11.4948 9.20354L11.8085 9.22677C12.2726 9.26762 12.5221 9.56979 12.592 10.019C12.6312 10.2713 12.5697 10.6631 12.4 10.9986C12.1631 11.4669 11.744 11.8051 11.132 11.9417C10.0446 12.1842 9.25806 12.1041 8.36988 11.7909C7.71475 11.5599 7.18149 10.7979 7.289 10.2733L7.32021 10.1202L7.334 10.0565C7.38063 9.85003 7.43199 9.72964 7.54036 9.60454ZM10.0486 9.51803L9.57268 9.5158L9.39741 9.51543C8.59987 9.51662 8.17695 9.56155 8.00571 9.68395C7.9189 9.746 7.85962 9.79738 7.81813 9.84528C7.75384 9.91951 7.7243 9.99141 7.68825 10.1566L7.67986 10.1959L7.64699 10.358C7.59089 10.6885 8.00319 11.2719 8.49203 11.4443C9.31941 11.736 10.0376 11.8092 11.0518 11.5829C11.554 11.4709 11.8836 11.205 12.0719 10.8328C12.2068 10.5661 12.2561 10.252 12.2286 10.0756C12.1817 9.77408 12.0461 9.61238 11.7633 9.59201L11.4174 9.56662C10.9476 9.53337 10.568 9.51803 10.0486 9.51803Z" fill="black"></path>
+						<path d="M8.86448 11.6668C8.86448 11.6668 8.83962 11.2627 8.86448 10.9514C8.88934 10.64 9.07405 10.5929 9.19629 10.6135C9.31853 10.6341 9.40496 10.7666 9.38059 10.9514C9.35622 11.1361 9.34173 11.555 9.38059 11.8282C9.41945 12.1014 8.86448 11.6668 8.86448 11.6668Z" fill="black"></path>
+						<path d="M10.6769 11.7522C10.6769 11.7522 10.7124 11.3978 10.6769 11.1602C10.6414 10.9226 10.5071 10.5952 10.8194 10.5429C11.1317 10.4906 11.1883 11.4274 11.1538 11.6367C11.1192 11.8461 10.6769 11.7522 10.6769 11.7522Z" fill="black"></path>
+					</svg> 
+					<span class="state">훈훈해요</span>
+					<span class="cnt">0</span>
+				</button>
+			</li>
+					<li id="emoticon_3">
+				<button aria-pressed="false">
+                  <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M17.656 6.3861C15.6147 3.02163 12.677 1.88306 9.98439 1.88306C9.97204 1.88306 9.95977 1.8834 9.94756 1.88407C9.93558 1.88342 9.92354 1.88309 9.91143 1.88309C7.21883 1.88309 4.28113 3.02167 2.23985 6.38613C0.198566 9.7506 0.717412 14.2196 1.01269 14.6879C1.03407 14.7218 1.05543 14.7565 1.07706 14.7916C1.35418 15.2419 1.6744 15.7622 2.61375 15.5272C2.63072 15.5586 2.64959 15.5949 2.67062 15.6354C2.94744 16.1677 3.59734 17.4175 5.19622 17.7344C6.62972 18.0186 7.70777 18.0267 9.18268 18.0379C9.35254 18.0391 9.52767 18.0405 9.7092 18.0422C9.73065 18.0458 9.75229 18.0474 9.7741 18.0471C9.83217 18.0463 9.88957 18.0455 9.94633 18.0448C10.0041 18.0455 10.0626 18.0463 10.1217 18.0471C10.1437 18.0474 10.1655 18.0458 10.1871 18.0422C10.3685 18.0404 10.5434 18.0391 10.7131 18.0378C12.188 18.0267 13.2661 18.0186 14.6996 17.7344C16.2985 17.4174 16.9484 16.1677 17.2252 15.6353C17.2462 15.5949 17.2651 15.5586 17.2821 15.5272C18.2214 15.7622 18.5416 15.2419 18.8188 14.7916C18.8404 14.7564 18.8617 14.7217 18.8831 14.6878C19.1784 14.2196 19.6973 9.75056 17.656 6.3861Z" fill="#FEC101"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M9.95144 1.5394L9.97483 1.53871L9.98447 1.53857C13.1928 1.53857 16.0349 3.04991 17.9507 6.20749C18.8916 7.75825 19.3811 9.6414 19.49 11.6041C19.5705 13.0565 19.415 14.4908 19.1747 14.8718L19.0511 15.0712L19.0221 15.117C18.8285 15.4189 18.6574 15.6111 18.4096 15.7534C18.1469 15.9043 17.8401 15.96 17.4827 15.9155L17.4686 15.9136L17.4462 15.9557C17.415 16.0137 17.385 16.0679 17.3537 16.1225L17.3347 16.1552C17.1957 16.3939 17.045 16.6137 16.8691 16.8228C16.3364 17.4562 15.6497 17.8976 14.7667 18.0726C14.1094 18.2029 13.5008 18.2817 12.8497 18.3258C12.3904 18.3568 12.0009 18.3695 11.2941 18.3774L10.2104 18.3868L10.1933 18.3888C10.1764 18.3904 10.1594 18.3914 10.1424 18.3918L10.1169 18.3919L9.9479 18.3896L9.77904 18.3919C9.75442 18.3922 9.72985 18.3913 9.70539 18.3891L9.68699 18.3871L8.78541 18.3795C7.9915 18.3718 7.57655 18.3604 7.10389 18.3296L6.96492 18.3201C6.3442 18.2751 5.75901 18.1975 5.12921 18.0726C4.24625 17.8976 3.5595 17.4562 3.02678 16.8228C2.85092 16.6137 2.70025 16.3939 2.56118 16.1552C2.52289 16.0895 2.4871 16.0253 2.44973 15.9557L2.42729 15.9136L2.41316 15.9155C2.06416 15.9589 1.76335 15.9069 1.50473 15.7638L1.48632 15.7534C1.23165 15.6071 1.05791 15.4082 0.857632 15.0916L0.714005 14.8601C0.477839 14.4621 0.326208 13.042 0.405958 11.6041C0.514818 9.6414 1.00434 7.75825 1.94521 6.20749C3.86096 3.04991 6.70309 1.53857 9.91144 1.53857L9.93008 1.53875L9.95144 1.5394ZM10.1266 17.7027L10.1399 17.7008C10.1537 17.6989 10.1677 17.6979 10.1816 17.6978L10.7943 17.6928C11.7844 17.6851 12.2333 17.6752 12.7472 17.6418L12.8841 17.6324C13.476 17.5894 14.0323 17.5155 14.6327 17.3965C15.352 17.2539 15.9046 16.8987 16.3416 16.3792C16.49 16.2028 16.6188 16.0149 16.7392 15.8082C16.7846 15.7302 16.8267 15.6535 16.8743 15.5631C16.8757 15.5604 16.8809 15.5505 16.8882 15.5365C16.9108 15.4932 16.9542 15.4099 16.9736 15.3735L16.985 15.3528C17.0621 15.2214 17.217 15.1558 17.3658 15.193C17.6831 15.2724 17.9003 15.2511 18.0662 15.1558C18.2007 15.0785 18.3104 14.9529 18.4557 14.7232L18.4593 14.7176L18.5937 14.5007C18.6352 14.4277 18.7118 14.0781 18.7605 13.6293L18.7657 13.5792C18.8245 13.0084 18.8403 12.3378 18.8017 11.6423C18.6987 9.78413 18.237 8.00831 17.3614 6.56506C15.5751 3.62078 12.961 2.22954 9.98976 2.22789L9.98981 2.22789H9.98447C9.98623 2.22789 9.98799 2.22789 9.98976 2.22789L9.95785 2.22877L9.94349 2.22887L9.92033 2.22801L9.91144 2.22789C6.93801 2.22789 4.32191 3.61903 2.53451 6.56506C1.65886 8.00831 1.19724 9.78413 1.09418 11.6423C1.05448 12.3582 1.0724 13.0478 1.13545 13.6293L1.13791 13.6517C1.18748 14.0971 1.26396 14.4403 1.30422 14.5042L1.41659 14.6854L1.45327 14.7438C1.59217 14.9605 1.69928 15.0809 1.82967 15.1558C1.99558 15.2511 2.21281 15.2724 2.5301 15.193C2.6829 15.1548 2.84217 15.225 2.91701 15.3636L3.03729 15.5927C3.07859 15.6706 3.11632 15.7389 3.15674 15.8082C3.27714 16.0149 3.40593 16.2028 3.55429 16.3792C3.99129 16.8987 4.54391 17.2539 5.26325 17.3965C5.89087 17.5209 6.47031 17.596 7.09265 17.6381C7.54264 17.6686 7.92747 17.6808 8.64163 17.6887L9.7144 17.6981C9.73143 17.6983 9.74843 17.6997 9.76525 17.7024L9.76731 17.7026L9.76931 17.7027L9.94375 17.7004H9.95211L10.1266 17.7027Z" fill="#AB7234"></path>
+						<path d="M10.4348 11.7393V15.2175H9.56519V11.7393H10.4348Z" fill="black"></path>
+						<ellipse cx="8.4781" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+						<ellipse cx="11.5216" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+						<path d="M15.2173 15.6523L5.21729 15.6523L5.21729 14.7827L15.2173 14.7827L15.2173 15.6523Z" fill="black"></path>
+						<path d="M2.57021 8.11194C2.03303 10.9839 1.99583 13.4643 2.46083 15.5549C2.49839 15.7238 2.66576 15.8303 2.83465 15.7927C3.00355 15.7552 3.18476 16.0275 3.14719 15.8586C2.70171 13.8556 2.66409 11.018 3.18609 8.22714C3.2179 8.05706 3.10582 7.89341 2.93575 7.8616C2.76568 7.82979 2.60202 7.94187 2.57021 8.11194Z" fill="#AB7234"></path>
+						<path d="M17.3421 8.11194C17.8793 10.9839 17.9165 13.4643 17.4515 15.5549C17.414 15.7238 17.386 16.0172 17.2171 15.9796C17.0482 15.9421 16.8038 15.8368 16.8414 15.6679C17.2869 13.6649 17.2483 11.018 16.7263 8.22714C16.6945 8.05706 16.8065 7.89341 16.9766 7.8616C17.1467 7.82979 17.3103 7.94187 17.3421 8.11194Z" fill="#AB7234"></path>
+						<path d="M2.29464 12.9978C2.29464 12.9978 2.34198 15.3184 1.91694 15.2044C1.49191 15.0905 2.7083 15.5476 2.7083 15.5476L2.29464 12.9978Z" fill="#AB7234"></path>
+						<path d="M17.6316 12.9978C17.6316 12.9978 17.5843 15.3184 18.0093 15.2044C18.4344 15.0905 17.218 15.5476 17.218 15.5476L17.6316 12.9978Z" fill="#AB7234"></path>
+						<path d="M10.0488 9.33422C9.23061 9.33422 8.2368 9.29294 7.89898 9.53441C7.56116 9.77588 7.5512 9.90966 7.46912 10.3102C7.38704 10.7108 7.82516 11.404 8.43106 11.6177C9.03697 11.8313 9.84683 12.0401 11.092 11.7623C12.3372 11.4846 12.4582 10.3541 12.4104 10.0474C12.3627 9.74061 12.2082 9.43977 11.7767 9.40867C11.3452 9.37757 10.8669 9.33422 10.0488 9.33422Z" fill="#6D3411"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.54036 9.60454C7.60317 9.53202 7.68345 9.46243 7.79204 9.38482C8.05711 9.19534 8.5066 9.14747 9.42311 9.14771L9.51529 9.14788L9.76645 9.14924L10.16 9.15059C10.597 9.15253 10.9426 9.1661 11.3421 9.19288L11.4948 9.20354L11.8085 9.22677C12.2726 9.26762 12.5221 9.56979 12.592 10.019C12.6312 10.2713 12.5697 10.6631 12.4 10.9986C12.1631 11.4669 11.744 11.8051 11.132 11.9417C10.0446 12.1842 9.25806 12.1041 8.36988 11.7909C7.71475 11.5599 7.18149 10.7979 7.289 10.2733L7.32021 10.1202L7.334 10.0565C7.38063 9.85003 7.43199 9.72964 7.54036 9.60454ZM10.0486 9.51803L9.57268 9.5158L9.39741 9.51543C8.59987 9.51662 8.17695 9.56155 8.00571 9.68395C7.9189 9.746 7.85962 9.79738 7.81813 9.84528C7.75384 9.91951 7.7243 9.99141 7.68825 10.1566L7.67986 10.1959L7.64699 10.358C7.59089 10.6885 8.00319 11.2719 8.49203 11.4443C9.31941 11.736 10.0376 11.8092 11.0518 11.5829C11.554 11.4709 11.8836 11.205 12.0719 10.8328C12.2068 10.5661 12.2561 10.252 12.2286 10.0756C12.1817 9.77408 12.0461 9.61238 11.7633 9.59201L11.4174 9.56662C10.9476 9.53337 10.568 9.51803 10.0486 9.51803Z" fill="black"></path>
+						<path d="M8.86448 11.6668C8.86448 11.6668 8.83962 11.2627 8.86448 10.9514C8.88934 10.64 9.07405 10.5929 9.19629 10.6135C9.31853 10.6341 9.40496 10.7666 9.38059 10.9514C9.35622 11.1361 9.34173 11.555 9.38059 11.8282C9.41945 12.1014 8.86448 11.6668 8.86448 11.6668Z" fill="black"></path>
+						<path d="M10.6769 11.7522C10.6769 11.7522 10.7124 11.3978 10.6769 11.1602C10.6414 10.9226 10.5071 10.5952 10.8194 10.5429C11.1317 10.4906 11.1883 11.4274 11.1538 11.6367C11.1192 11.8461 10.6769 11.7522 10.6769 11.7522Z" fill="black"></path>
+					</svg> 
+					<span class="state">어이없어요</span>
+					<span class="cnt">0</span>
+				</button>
+			</li>
+					<li id="emoticon_4">
+				<button aria-pressed="false">
+                  <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M17.656 6.3861C15.6147 3.02163 12.677 1.88306 9.98439 1.88306C9.97204 1.88306 9.95977 1.8834 9.94756 1.88407C9.93558 1.88342 9.92354 1.88309 9.91143 1.88309C7.21883 1.88309 4.28113 3.02167 2.23985 6.38613C0.198566 9.7506 0.717412 14.2196 1.01269 14.6879C1.03407 14.7218 1.05543 14.7565 1.07706 14.7916C1.35418 15.2419 1.6744 15.7622 2.61375 15.5272C2.63072 15.5586 2.64959 15.5949 2.67062 15.6354C2.94744 16.1677 3.59734 17.4175 5.19622 17.7344C6.62972 18.0186 7.70777 18.0267 9.18268 18.0379C9.35254 18.0391 9.52767 18.0405 9.7092 18.0422C9.73065 18.0458 9.75229 18.0474 9.7741 18.0471C9.83217 18.0463 9.88957 18.0455 9.94633 18.0448C10.0041 18.0455 10.0626 18.0463 10.1217 18.0471C10.1437 18.0474 10.1655 18.0458 10.1871 18.0422C10.3685 18.0404 10.5434 18.0391 10.7131 18.0378C12.188 18.0267 13.2661 18.0186 14.6996 17.7344C16.2985 17.4174 16.9484 16.1677 17.2252 15.6353C17.2462 15.5949 17.2651 15.5586 17.2821 15.5272C18.2214 15.7622 18.5416 15.2419 18.8188 14.7916C18.8404 14.7564 18.8617 14.7217 18.8831 14.6878C19.1784 14.2196 19.6973 9.75056 17.656 6.3861Z" fill="#FEC101"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M9.95144 1.5394L9.97483 1.53871L9.98447 1.53857C13.1928 1.53857 16.0349 3.04991 17.9507 6.20749C18.8916 7.75825 19.3811 9.6414 19.49 11.6041C19.5705 13.0565 19.415 14.4908 19.1747 14.8718L19.0511 15.0712L19.0221 15.117C18.8285 15.4189 18.6574 15.6111 18.4096 15.7534C18.1469 15.9043 17.8401 15.96 17.4827 15.9155L17.4686 15.9136L17.4462 15.9557C17.415 16.0137 17.385 16.0679 17.3537 16.1225L17.3347 16.1552C17.1957 16.3939 17.045 16.6137 16.8691 16.8228C16.3364 17.4562 15.6497 17.8976 14.7667 18.0726C14.1094 18.2029 13.5008 18.2817 12.8497 18.3258C12.3904 18.3568 12.0009 18.3695 11.2941 18.3774L10.2104 18.3868L10.1933 18.3888C10.1764 18.3904 10.1594 18.3914 10.1424 18.3918L10.1169 18.3919L9.9479 18.3896L9.77904 18.3919C9.75442 18.3922 9.72985 18.3913 9.70539 18.3891L9.68699 18.3871L8.78541 18.3795C7.9915 18.3718 7.57655 18.3604 7.10389 18.3296L6.96492 18.3201C6.3442 18.2751 5.75901 18.1975 5.12921 18.0726C4.24625 17.8976 3.5595 17.4562 3.02678 16.8228C2.85092 16.6137 2.70025 16.3939 2.56118 16.1552C2.52289 16.0895 2.4871 16.0253 2.44973 15.9557L2.42729 15.9136L2.41316 15.9155C2.06416 15.9589 1.76335 15.9069 1.50473 15.7638L1.48632 15.7534C1.23165 15.6071 1.05791 15.4082 0.857632 15.0916L0.714005 14.8601C0.477839 14.4621 0.326208 13.042 0.405958 11.6041C0.514818 9.6414 1.00434 7.75825 1.94521 6.20749C3.86096 3.04991 6.70309 1.53857 9.91144 1.53857L9.93008 1.53875L9.95144 1.5394ZM10.1266 17.7027L10.1399 17.7008C10.1537 17.6989 10.1677 17.6979 10.1816 17.6978L10.7943 17.6928C11.7844 17.6851 12.2333 17.6752 12.7472 17.6418L12.8841 17.6324C13.476 17.5894 14.0323 17.5155 14.6327 17.3965C15.352 17.2539 15.9046 16.8987 16.3416 16.3792C16.49 16.2028 16.6188 16.0149 16.7392 15.8082C16.7846 15.7302 16.8267 15.6535 16.8743 15.5631C16.8757 15.5604 16.8809 15.5505 16.8882 15.5365C16.9108 15.4932 16.9542 15.4099 16.9736 15.3735L16.985 15.3528C17.0621 15.2214 17.217 15.1558 17.3658 15.193C17.6831 15.2724 17.9003 15.2511 18.0662 15.1558C18.2007 15.0785 18.3104 14.9529 18.4557 14.7232L18.4593 14.7176L18.5937 14.5007C18.6352 14.4277 18.7118 14.0781 18.7605 13.6293L18.7657 13.5792C18.8245 13.0084 18.8403 12.3378 18.8017 11.6423C18.6987 9.78413 18.237 8.00831 17.3614 6.56506C15.5751 3.62078 12.961 2.22954 9.98976 2.22789L9.98981 2.22789H9.98447C9.98623 2.22789 9.98799 2.22789 9.98976 2.22789L9.95785 2.22877L9.94349 2.22887L9.92033 2.22801L9.91144 2.22789C6.93801 2.22789 4.32191 3.61903 2.53451 6.56506C1.65886 8.00831 1.19724 9.78413 1.09418 11.6423C1.05448 12.3582 1.0724 13.0478 1.13545 13.6293L1.13791 13.6517C1.18748 14.0971 1.26396 14.4403 1.30422 14.5042L1.41659 14.6854L1.45327 14.7438C1.59217 14.9605 1.69928 15.0809 1.82967 15.1558C1.99558 15.2511 2.21281 15.2724 2.5301 15.193C2.6829 15.1548 2.84217 15.225 2.91701 15.3636L3.03729 15.5927C3.07859 15.6706 3.11632 15.7389 3.15674 15.8082C3.27714 16.0149 3.40593 16.2028 3.55429 16.3792C3.99129 16.8987 4.54391 17.2539 5.26325 17.3965C5.89087 17.5209 6.47031 17.596 7.09265 17.6381C7.54264 17.6686 7.92747 17.6808 8.64163 17.6887L9.7144 17.6981C9.73143 17.6983 9.74843 17.6997 9.76525 17.7024L9.76731 17.7026L9.76931 17.7027L9.94375 17.7004H9.95211L10.1266 17.7027Z" fill="#AB7234"></path>
+						<path d="M10.4348 11.7393V15.2175H9.56519V11.7393H10.4348Z" fill="black"></path>
+						<ellipse cx="8.4781" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+						<ellipse cx="11.5216" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+						<path d="M15.2173 15.6523L5.21729 15.6523L5.21729 14.7827L15.2173 14.7827L15.2173 15.6523Z" fill="black"></path>
+						<path d="M2.57021 8.11194C2.03303 10.9839 1.99583 13.4643 2.46083 15.5549C2.49839 15.7238 2.66576 15.8303 2.83465 15.7927C3.00355 15.7552 3.18476 16.0275 3.14719 15.8586C2.70171 13.8556 2.66409 11.018 3.18609 8.22714C3.2179 8.05706 3.10582 7.89341 2.93575 7.8616C2.76568 7.82979 2.60202 7.94187 2.57021 8.11194Z" fill="#AB7234"></path>
+						<path d="M17.3421 8.11194C17.8793 10.9839 17.9165 13.4643 17.4515 15.5549C17.414 15.7238 17.386 16.0172 17.2171 15.9796C17.0482 15.9421 16.8038 15.8368 16.8414 15.6679C17.2869 13.6649 17.2483 11.018 16.7263 8.22714C16.6945 8.05706 16.8065 7.89341 16.9766 7.8616C17.1467 7.82979 17.3103 7.94187 17.3421 8.11194Z" fill="#AB7234"></path>
+						<path d="M2.29464 12.9978C2.29464 12.9978 2.34198 15.3184 1.91694 15.2044C1.49191 15.0905 2.7083 15.5476 2.7083 15.5476L2.29464 12.9978Z" fill="#AB7234"></path>
+						<path d="M17.6316 12.9978C17.6316 12.9978 17.5843 15.3184 18.0093 15.2044C18.4344 15.0905 17.218 15.5476 17.218 15.5476L17.6316 12.9978Z" fill="#AB7234"></path>
+						<path d="M10.0488 9.33422C9.23061 9.33422 8.2368 9.29294 7.89898 9.53441C7.56116 9.77588 7.5512 9.90966 7.46912 10.3102C7.38704 10.7108 7.82516 11.404 8.43106 11.6177C9.03697 11.8313 9.84683 12.0401 11.092 11.7623C12.3372 11.4846 12.4582 10.3541 12.4104 10.0474C12.3627 9.74061 12.2082 9.43977 11.7767 9.40867C11.3452 9.37757 10.8669 9.33422 10.0488 9.33422Z" fill="#6D3411"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.54036 9.60454C7.60317 9.53202 7.68345 9.46243 7.79204 9.38482C8.05711 9.19534 8.5066 9.14747 9.42311 9.14771L9.51529 9.14788L9.76645 9.14924L10.16 9.15059C10.597 9.15253 10.9426 9.1661 11.3421 9.19288L11.4948 9.20354L11.8085 9.22677C12.2726 9.26762 12.5221 9.56979 12.592 10.019C12.6312 10.2713 12.5697 10.6631 12.4 10.9986C12.1631 11.4669 11.744 11.8051 11.132 11.9417C10.0446 12.1842 9.25806 12.1041 8.36988 11.7909C7.71475 11.5599 7.18149 10.7979 7.289 10.2733L7.32021 10.1202L7.334 10.0565C7.38063 9.85003 7.43199 9.72964 7.54036 9.60454ZM10.0486 9.51803L9.57268 9.5158L9.39741 9.51543C8.59987 9.51662 8.17695 9.56155 8.00571 9.68395C7.9189 9.746 7.85962 9.79738 7.81813 9.84528C7.75384 9.91951 7.7243 9.99141 7.68825 10.1566L7.67986 10.1959L7.64699 10.358C7.59089 10.6885 8.00319 11.2719 8.49203 11.4443C9.31941 11.736 10.0376 11.8092 11.0518 11.5829C11.554 11.4709 11.8836 11.205 12.0719 10.8328C12.2068 10.5661 12.2561 10.252 12.2286 10.0756C12.1817 9.77408 12.0461 9.61238 11.7633 9.59201L11.4174 9.56662C10.9476 9.53337 10.568 9.51803 10.0486 9.51803Z" fill="black"></path>
+						<path d="M8.86448 11.6668C8.86448 11.6668 8.83962 11.2627 8.86448 10.9514C8.88934 10.64 9.07405 10.5929 9.19629 10.6135C9.31853 10.6341 9.40496 10.7666 9.38059 10.9514C9.35622 11.1361 9.34173 11.555 9.38059 11.8282C9.41945 12.1014 8.86448 11.6668 8.86448 11.6668Z" fill="black"></path>
+						<path d="M10.6769 11.7522C10.6769 11.7522 10.7124 11.3978 10.6769 11.1602C10.6414 10.9226 10.5071 10.5952 10.8194 10.5429C11.1317 10.4906 11.1883 11.4274 11.1538 11.6367C11.1192 11.8461 10.6769 11.7522 10.6769 11.7522Z" fill="black"></path>
+					</svg> 
+					<span class="state">속상해요</span>
+					<span class="cnt">0</span>
+				</button>
+			</li>
+					<li id="emoticon_5">
+				<button aria-pressed="false">
+                  <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M17.656 6.3861C15.6147 3.02163 12.677 1.88306 9.98439 1.88306C9.97204 1.88306 9.95977 1.8834 9.94756 1.88407C9.93558 1.88342 9.92354 1.88309 9.91143 1.88309C7.21883 1.88309 4.28113 3.02167 2.23985 6.38613C0.198566 9.7506 0.717412 14.2196 1.01269 14.6879C1.03407 14.7218 1.05543 14.7565 1.07706 14.7916C1.35418 15.2419 1.6744 15.7622 2.61375 15.5272C2.63072 15.5586 2.64959 15.5949 2.67062 15.6354C2.94744 16.1677 3.59734 17.4175 5.19622 17.7344C6.62972 18.0186 7.70777 18.0267 9.18268 18.0379C9.35254 18.0391 9.52767 18.0405 9.7092 18.0422C9.73065 18.0458 9.75229 18.0474 9.7741 18.0471C9.83217 18.0463 9.88957 18.0455 9.94633 18.0448C10.0041 18.0455 10.0626 18.0463 10.1217 18.0471C10.1437 18.0474 10.1655 18.0458 10.1871 18.0422C10.3685 18.0404 10.5434 18.0391 10.7131 18.0378C12.188 18.0267 13.2661 18.0186 14.6996 17.7344C16.2985 17.4174 16.9484 16.1677 17.2252 15.6353C17.2462 15.5949 17.2651 15.5586 17.2821 15.5272C18.2214 15.7622 18.5416 15.2419 18.8188 14.7916C18.8404 14.7564 18.8617 14.7217 18.8831 14.6878C19.1784 14.2196 19.6973 9.75056 17.656 6.3861Z" fill="#FEC101"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M9.95144 1.5394L9.97483 1.53871L9.98447 1.53857C13.1928 1.53857 16.0349 3.04991 17.9507 6.20749C18.8916 7.75825 19.3811 9.6414 19.49 11.6041C19.5705 13.0565 19.415 14.4908 19.1747 14.8718L19.0511 15.0712L19.0221 15.117C18.8285 15.4189 18.6574 15.6111 18.4096 15.7534C18.1469 15.9043 17.8401 15.96 17.4827 15.9155L17.4686 15.9136L17.4462 15.9557C17.415 16.0137 17.385 16.0679 17.3537 16.1225L17.3347 16.1552C17.1957 16.3939 17.045 16.6137 16.8691 16.8228C16.3364 17.4562 15.6497 17.8976 14.7667 18.0726C14.1094 18.2029 13.5008 18.2817 12.8497 18.3258C12.3904 18.3568 12.0009 18.3695 11.2941 18.3774L10.2104 18.3868L10.1933 18.3888C10.1764 18.3904 10.1594 18.3914 10.1424 18.3918L10.1169 18.3919L9.9479 18.3896L9.77904 18.3919C9.75442 18.3922 9.72985 18.3913 9.70539 18.3891L9.68699 18.3871L8.78541 18.3795C7.9915 18.3718 7.57655 18.3604 7.10389 18.3296L6.96492 18.3201C6.3442 18.2751 5.75901 18.1975 5.12921 18.0726C4.24625 17.8976 3.5595 17.4562 3.02678 16.8228C2.85092 16.6137 2.70025 16.3939 2.56118 16.1552C2.52289 16.0895 2.4871 16.0253 2.44973 15.9557L2.42729 15.9136L2.41316 15.9155C2.06416 15.9589 1.76335 15.9069 1.50473 15.7638L1.48632 15.7534C1.23165 15.6071 1.05791 15.4082 0.857632 15.0916L0.714005 14.8601C0.477839 14.4621 0.326208 13.042 0.405958 11.6041C0.514818 9.6414 1.00434 7.75825 1.94521 6.20749C3.86096 3.04991 6.70309 1.53857 9.91144 1.53857L9.93008 1.53875L9.95144 1.5394ZM10.1266 17.7027L10.1399 17.7008C10.1537 17.6989 10.1677 17.6979 10.1816 17.6978L10.7943 17.6928C11.7844 17.6851 12.2333 17.6752 12.7472 17.6418L12.8841 17.6324C13.476 17.5894 14.0323 17.5155 14.6327 17.3965C15.352 17.2539 15.9046 16.8987 16.3416 16.3792C16.49 16.2028 16.6188 16.0149 16.7392 15.8082C16.7846 15.7302 16.8267 15.6535 16.8743 15.5631C16.8757 15.5604 16.8809 15.5505 16.8882 15.5365C16.9108 15.4932 16.9542 15.4099 16.9736 15.3735L16.985 15.3528C17.0621 15.2214 17.217 15.1558 17.3658 15.193C17.6831 15.2724 17.9003 15.2511 18.0662 15.1558C18.2007 15.0785 18.3104 14.9529 18.4557 14.7232L18.4593 14.7176L18.5937 14.5007C18.6352 14.4277 18.7118 14.0781 18.7605 13.6293L18.7657 13.5792C18.8245 13.0084 18.8403 12.3378 18.8017 11.6423C18.6987 9.78413 18.237 8.00831 17.3614 6.56506C15.5751 3.62078 12.961 2.22954 9.98976 2.22789L9.98981 2.22789H9.98447C9.98623 2.22789 9.98799 2.22789 9.98976 2.22789L9.95785 2.22877L9.94349 2.22887L9.92033 2.22801L9.91144 2.22789C6.93801 2.22789 4.32191 3.61903 2.53451 6.56506C1.65886 8.00831 1.19724 9.78413 1.09418 11.6423C1.05448 12.3582 1.0724 13.0478 1.13545 13.6293L1.13791 13.6517C1.18748 14.0971 1.26396 14.4403 1.30422 14.5042L1.41659 14.6854L1.45327 14.7438C1.59217 14.9605 1.69928 15.0809 1.82967 15.1558C1.99558 15.2511 2.21281 15.2724 2.5301 15.193C2.6829 15.1548 2.84217 15.225 2.91701 15.3636L3.03729 15.5927C3.07859 15.6706 3.11632 15.7389 3.15674 15.8082C3.27714 16.0149 3.40593 16.2028 3.55429 16.3792C3.99129 16.8987 4.54391 17.2539 5.26325 17.3965C5.89087 17.5209 6.47031 17.596 7.09265 17.6381C7.54264 17.6686 7.92747 17.6808 8.64163 17.6887L9.7144 17.6981C9.73143 17.6983 9.74843 17.6997 9.76525 17.7024L9.76731 17.7026L9.76931 17.7027L9.94375 17.7004H9.95211L10.1266 17.7027Z" fill="#AB7234"></path>
+						<path d="M10.4348 11.7393V15.2175H9.56519V11.7393H10.4348Z" fill="black"></path>
+						<ellipse cx="8.4781" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+						<ellipse cx="11.5216" cy="8.0435" rx="0.652174" ry="1.08696" fill="black"></ellipse>
+						<path d="M15.2173 15.6523L5.21729 15.6523L5.21729 14.7827L15.2173 14.7827L15.2173 15.6523Z" fill="black"></path>
+						<path d="M2.57021 8.11194C2.03303 10.9839 1.99583 13.4643 2.46083 15.5549C2.49839 15.7238 2.66576 15.8303 2.83465 15.7927C3.00355 15.7552 3.18476 16.0275 3.14719 15.8586C2.70171 13.8556 2.66409 11.018 3.18609 8.22714C3.2179 8.05706 3.10582 7.89341 2.93575 7.8616C2.76568 7.82979 2.60202 7.94187 2.57021 8.11194Z" fill="#AB7234"></path>
+						<path d="M17.3421 8.11194C17.8793 10.9839 17.9165 13.4643 17.4515 15.5549C17.414 15.7238 17.386 16.0172 17.2171 15.9796C17.0482 15.9421 16.8038 15.8368 16.8414 15.6679C17.2869 13.6649 17.2483 11.018 16.7263 8.22714C16.6945 8.05706 16.8065 7.89341 16.9766 7.8616C17.1467 7.82979 17.3103 7.94187 17.3421 8.11194Z" fill="#AB7234"></path>
+						<path d="M2.29464 12.9978C2.29464 12.9978 2.34198 15.3184 1.91694 15.2044C1.49191 15.0905 2.7083 15.5476 2.7083 15.5476L2.29464 12.9978Z" fill="#AB7234"></path>
+						<path d="M17.6316 12.9978C17.6316 12.9978 17.5843 15.3184 18.0093 15.2044C18.4344 15.0905 17.218 15.5476 17.218 15.5476L17.6316 12.9978Z" fill="#AB7234"></path>
+						<path d="M10.0488 9.33422C9.23061 9.33422 8.2368 9.29294 7.89898 9.53441C7.56116 9.77588 7.5512 9.90966 7.46912 10.3102C7.38704 10.7108 7.82516 11.404 8.43106 11.6177C9.03697 11.8313 9.84683 12.0401 11.092 11.7623C12.3372 11.4846 12.4582 10.3541 12.4104 10.0474C12.3627 9.74061 12.2082 9.43977 11.7767 9.40867C11.3452 9.37757 10.8669 9.33422 10.0488 9.33422Z" fill="#6D3411"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.54036 9.60454C7.60317 9.53202 7.68345 9.46243 7.79204 9.38482C8.05711 9.19534 8.5066 9.14747 9.42311 9.14771L9.51529 9.14788L9.76645 9.14924L10.16 9.15059C10.597 9.15253 10.9426 9.1661 11.3421 9.19288L11.4948 9.20354L11.8085 9.22677C12.2726 9.26762 12.5221 9.56979 12.592 10.019C12.6312 10.2713 12.5697 10.6631 12.4 10.9986C12.1631 11.4669 11.744 11.8051 11.132 11.9417C10.0446 12.1842 9.25806 12.1041 8.36988 11.7909C7.71475 11.5599 7.18149 10.7979 7.289 10.2733L7.32021 10.1202L7.334 10.0565C7.38063 9.85003 7.43199 9.72964 7.54036 9.60454ZM10.0486 9.51803L9.57268 9.5158L9.39741 9.51543C8.59987 9.51662 8.17695 9.56155 8.00571 9.68395C7.9189 9.746 7.85962 9.79738 7.81813 9.84528C7.75384 9.91951 7.7243 9.99141 7.68825 10.1566L7.67986 10.1959L7.64699 10.358C7.59089 10.6885 8.00319 11.2719 8.49203 11.4443C9.31941 11.736 10.0376 11.8092 11.0518 11.5829C11.554 11.4709 11.8836 11.205 12.0719 10.8328C12.2068 10.5661 12.2561 10.252 12.2286 10.0756C12.1817 9.77408 12.0461 9.61238 11.7633 9.59201L11.4174 9.56662C10.9476 9.53337 10.568 9.51803 10.0486 9.51803Z" fill="black"></path>
+						<path d="M8.86448 11.6668C8.86448 11.6668 8.83962 11.2627 8.86448 10.9514C8.88934 10.64 9.07405 10.5929 9.19629 10.6135C9.31853 10.6341 9.40496 10.7666 9.38059 10.9514C9.35622 11.1361 9.34173 11.555 9.38059 11.8282C9.41945 12.1014 8.86448 11.6668 8.86448 11.6668Z" fill="black"></path>
+						<path d="M10.6769 11.7522C10.6769 11.7522 10.7124 11.3978 10.6769 11.1602C10.6414 10.9226 10.5071 10.5952 10.8194 10.5429C11.1317 10.4906 11.1883 11.4274 11.1538 11.6367C11.1192 11.8461 10.6769 11.7522 10.6769 11.7522Z" fill="black"></path>
+					</svg> 
+					<span class="state">화나요</span>
+					<span class="cnt">0</span>
+				</button>
+			</li>
+			</ul>
+<script type="text/javascript">
+	// 감정 이모티콘
+	jQuery("#md-emotion-view .md-emotion").css({ 'pointer-events': 'none' });
+	
+	(function(){
+		jQuery("#md-emotion-view .md-emotion").on( "click", function(e) {
+			e.preventDefault();
+			ndrclick('NEWRE23');
+			jQuery("#md-emotion-view .md-emotion").css({ 'pointer-events': 'none' }); //액션금지
+		  
+			var no = jQuery(e.target).closest( "li" ).attr("id");
+			if (typeof no === 'string') {
+				no = no.substring(no.length-1);
+			
+				// 선택인지 선택해제인지 체크
+				if (jQuery(e.target).closest( "li" ).hasClass("active")) {
+					no = 0;
+				}
+				
+				var url = "//m.comm.news.nate.com"+"/comment/articleEmoticonComment/Write?artc_sq=20200309n34198&mid=m05&emoticon_no="+no;
+				var url2 = "//m.comm.news.nate.com"+"/comment/articleEmoticonComment/ArticleEmoticonList?artc_sq=20200309n34198&mid=m05"
+				writeArticleEmoticon(url, url2);
+			} else {
+				jQuery("#md-emotion-view .md-emotion").css({ 'pointer-events': '' });
+			}
+		});
+	})();
+</script>
+</div>				
+				<!-- 올려내려 -->
+				<div class="upDown">
+					<ul>
+						<li id="up_cnt">
+							<a href="#">
+								<span class="up img"></span>
+								<div class="count_wrap">
+									<span class="count_txt">올려</span>
+									<span class="count up"><em>올려수</em>
+									-</span>
+								</div>
+							</a>
+						</li>
+						<li id="down_cnt">
+							<a href="#">
+								<span class="down img"></span>
+								<div class="count_wrap">
+									<span class="count_txt">내려</span>
+									<span class="count down"><em>내려수</em>
+									-</span>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<!-- SNS 공유바 -->
+				<script type="text/javascript">
+//<![CDATA[
+	$(function() {
+		var thimg = "//news.nateimg.co.kr/orgImg/cb/2020/03/09/20200309154935861148_6_710_473.jpg";
+		var title = "SK컴즈, 재택근무로 네이트온 사용량 올해 최고치 | IT : 네이트 뉴스"; 
+		var desc = "IT 뉴스: SK커뮤니케이션즈(이하 SK컴즈)는 메신저 서비스 \'네이트온\'이 코로나19로 주요 기업들...";
+		var srclink = "//m.news.nate.com/view/20200309n34198?mid=m05";
+		var memo = "", ver = "1.0";
+		var appList = [], appname = "네이트";
+
+		// SNS 공유용 url 을 정제한다. 
+		thimg = refineSnsShareUrl(thimg);
+		srclink = refineSnsShareUrl(srclink);
+
+		var list1 = {os:"ios", devicetype:"phone", installurl:"", executeurl:""};
+		var list2 = {os:"android", devicetype:"none", installurl:"", executeurl:""};
+
+		appList.push(list1);
+		appList.push(list2);
+
+		var applist = new AppList(appList);
+		var link = new com.nateon.talk.NateonShare(title, desc, thimg, srclink, srclink, memo, ver, applist, appname);
+
+		$("#nateon").click(function() {
+			ndrclick('RAM76');
+			if (!isMobileAgent()) {
+				alert('네이트온 쪽지 보내기는 모바일에서만 사용 가능합니다.');
+				return false;
+			}
+			link.execute();
+		});
+
+		$("#kakao").click(function() {
+			ndrclick('RAM002');
+			if (!isMobileAgent()) {
+				alert('카카오톡 보내기는 모바일에서만 사용 가능합니다.');
+				return false;
+			}
+			
+			var sKakaoUrl	= srclink;
+			var sKakaoTitle	= title;
+			var sKakaoThimg	= thimg;
+
+			sKakaoUrl = refineSnsShareUrl(sKakaoUrl); // SNS 공유용 url 을 정제한다. 
+			sendSNSURL( sKakaoUrl, "kt" , sKakaoTitle, sKakaoThimg );
+		});
+		
+		$("#facebook").click(function() {
+			ndrclick('RAM77');
+			sendSNSURL( srclink, "fb", title );
+		});
+		
+		$("#twitter").click(function() {
+			ndrclick('RAM78');
+			sendSNSURL( srclink, "tw", title );
+		});
+		
+		$("#copyURL").click(function() {
+			var clipboard = new ClipboardJS(".copyURL",{
+                text: function() {
+                    return srclink;
+                }
+            });
+			clipboard.on("success", function() {
+                alert("URL이 복사되었습니다.");
+                ndrclick('RAM006');
+                clipboard.destroy();
+            });
+			clipboard.on("error", function() {
+                alert("지원하지 않는 브라우저입니다.");
+                clipboard.destroy();
+            })
+		});
+	});
+//]]>
+</script>
+<div class="social_plugin">
+	<div class="snsBtn">
+		<a href="javascript:;" id="nateon" class="nateon" title="네이트온쪽지"><span class="hide">네이트온쪽지</span></a>
+		<a href="javascript:;" id="kakao" class="kakao" title="카카오톡"><span class="hide">카카오톡</span></a>
+		<a href="javascript:;" id="facebook" class="facebook" title="페이스북"><span class="hide">페이스북</span></a>
+		<a href="javascript:;" id="twitter" class="twitter" title="엑스"><span class="hide">엑스</span></a>
+		<a href="javascript:;" id="copyURL" class="copyURL" title="URL 복사"><span class="hide">URL 복사</span></a>
+	</div>
+</div>								
+				<!-- 중간 띠배너 광고 -->
+				<div class="main_banner"></div>
+				
+								<!-- 댓글 안내 원칙:S -->
+				<div class="reply-guide-popup" id="notes" role="alert" aria-hidden="false" aria-labelledby="alert_label" aria-describedby="alert_desc">
+	<div id="alert_label" class="tit"><strong>댓글 운영 원칙</strong></div>
+	<button type="button" aria-controls="notes" id="notes_confirm"><span>안내 가이드 닫기</span></button>
+	<article class="context">
+		<div id="alert_desc">
+			<p class="parag">
+				네이트 뉴스 댓글은 기사에 대한 자신의 생각을 말하고 남의 생각을 들으며 서로 다양한 의견을 나누는 공간입니다.
+				건전한 인터넷 문화 정착을 위해 아래와 같은 댓글 운영원칙을 적용합니다.
+			</p>
+			<h2 class="s-tit">1. 댓글 삭제</h2>
+			<p class="parag">네티즌들의 신고 또는 자체 모니터링을 통해 아래에 해당하는 내용이 포함된 댓글은 별도의 예고 없이 삭제&#183;노출 제한될 수 있습니다.</p>
+			<ol class="num-list">
+				<li>타인에 대한 욕설 또는 비방</li>
+				<li>인신공격 또는 명예훼손</li>
+				<li>개인정보 유출 또는 사생활 침해</li>
+				<li>음란성 내용 또는 음란물 링크</li>
+				<li>상업적 광고 또는 사이트/홈페이지 홍보</li>
+				<li>불법정보 유출</li>
+				<li>같은 내용의 반복 (도배)</li>
+				<li>지역감정 조장</li>
+				<li>폭력 또는 사행심 조장</li>
+				<li>언론보도 형식의 허위 게시물</li>
+				<li>자살유발정보</li>
+				<li>혐오표현 또는 특정 속성을 이유로 특정 집단이나 그 구성원에 대한 비하&#183;조롱 표현(이와 관련한 사항은 한국인터넷자율정책기구의 관련 가이드라인을 준수합니다)</li>
+				<li>기타 기사 내용과 관계없거나 부적절한 내용</li>
+			</ol>
+			<h2 class="s-tit">2. 권한 제한</h2>
+			<p class="parag">
+				불건전한 댓글이 발견되는 경우 별도의 통보 없이 즉시 삭제하며, 상습적이거나 위반 정도가 심한 댓글을 게시하는 분에 대해서는 일정 기간 댓글 작성에 대한 권한을 제한할 수 있습니다.
+			</p>
+			<p class="parag">또한 비정상적인 패턴으로 댓글 작성, 추천, 반대 등이 발생하는 것으로 관리자 또는 시스템이 판단하는 경우 부정 클릭여부를 확인하여 해당 IP나 ID를 제재할 수 있습니다.</p>
+			<p class="parag">댓글에 비속어 및 상대방의 불쾌감을 주는 단어를 사용하거나, 유명인이나 특정 일반인 또는 단체나 기관을 사칭하는 경우 제재될 수 있습니다.</p>
+			<p class="parag">명예훼손, 개인정보 유출, 욕설 등 법률에 위반되는 댓글은 관계 법령에 의거 민형사상의 불이익을 받을 수 있으니 이용에 주의를 부탁드립니다.</p>
+		</div>
+	</article>
+</div>				<!-- 댓글 안내 원칙:E -->
+				
+				<div class="news_cmt">
+									</div>								
+				<script type="text/javascript">
+				// 성능개선_0324  : 초기 로딩 속도에 필요 없는 자원 나중에 로딩
+				window.addEventListener('load', function(){
+					var big_banner = document.querySelector('.main_banner');
+					if(big_banner){
+						big_banner.innerHTML = '<iframe src="//m.news.nate.com/etc/AdTop?mid=m05&pos=view" name="ad_big" id="ad_big" width="100%" height="200" title="광고배너" frameborder="0" scrolling="no"></iframe>';
+					}
+
+											var CmtUrl = "//m.comm.news.nate.com/view/CommentList?aid=20200309n34198&mid=m05";
+						var ArtcCate = "its";
+						if(ArtcCate == "pol") { CmtUrl += '&best=0'; }
+
+						var comment =  document.querySelector('.news_cmt');
+						comment.innerHTML = '<iframe src="' + CmtUrl + '" title="댓글영역" id="ifr_reple" name="ifr_reple" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" width="100%" height="0"></iframe>';
+					
+				});
+				</script>
+				
+				
+			</article>
+		</div>
+	</section>
+	<!-- //Responsive_left -->
+
+	<!-- Responsive_right -->
+	<section class="rwd_right">
+		<aside class="news_point">
+						
+							<div class="mlt01 ssul" id="module_ssul" style="display:none">
+	<div class="contents1">
+		<div class="ssul_title cluster_title">
+			<h3 class="title_txt"><em>썰</em> 커뮤니티에서 이 기사의 반응은?</h3>
+			<button data-info="info" onclick="olapclick('NEWRE73');ssulInfo(this)" class="ssul_info" title="자세히 보기"></button>
+			<div class="ssul_info_pop" data-info="info">
+				<button onclick="ssulInfoClose(this)" class="close">
+					<span class="hide">자세히 보기 닫기</span>
+				</button>
+				<p class="txt" data-info="info">게시글의 내용은 '썰'커뮤니티 사용자들의 자유로운 의견으로 네이트 뉴스와는 무관하며, '인기많은' 게시글 순으로 노출됩니다.</p>
+			</div>
+		</div>
+		<a class="rangking_more" href="#" title="더보기" onclick="olapclick('NEWRE72')" id="moreSsul"></a> 
+		<hr class="ssul_hr" />
+		
+		<div id="ssul_comment"></div>
+      
+		<a href="https://m.ssul.nate.com/write?auto=1&amp;link=https://m.news.nate.com/view/20200309n34198" onclick="olapclick('NEWRE79');" class="ssul_contents blank" aria-label="네이트썰 작성하러 가기 링크" id="nodata_link" style="display:none"> 
+			<div class="ssul_txt">
+				<span class="hide">
+					이 기사에 대해 이야기를 나누고 싶다면?
+					링크로 이야기하는 네이트썰에 참여하세요!               
+				</span>
+			</div>    
+			<div class="ssul_write_btn" id="ssul_write_btn2">
+				<span class="hide">썰 작성하러 가기</span>
+			</div>
+		</a>
+                                    
+  </div>
+</div>
+<div id="adview_ssul" class="main_banner" style="display:none">
+	<iframe src="about:blank" name="adtive_box_ssul" id="adtive_box_ssul" width="100%" height="200" title="광고배너" scrolling="0" style="height:200px; border:0;"></iframe>
+</div>
+<script type="text/javascript">
+	var ssulPop = document.querySelector('.ssul_info_pop');
+	var ssulCommentBtn = document.querySelectorAll('.ssul_comment .comment_count');
+	function ssulInfo(e){
+      ssulPop.classList.add('active');
+	}
+	function ssulInfoClose(e){
+		ssulPop.classList.remove('active');
+	}
+
+	function ssulOpenComment(e){
+		var ssulList = e.parentNode.parentNode;
+		if(e.textContent.trim() === '0'){
+			return false;
+		} else {
+			olapclick('NEWRE75');
+			ssulList.classList.toggle('active');
+		}
+	}
+	ssulCommentBtn.forEach((items, idx) => {
+		if(items.textContent.trim() === '0'){
+			items.classList.add('default');
+		}
+	})
+</script>
+
+<script>
+	var ssulCategory = 'its'; // ad on/off
+
+	window.addEventListener('load', function(){
+		if(navigator.userAgent.match(/Googlebot/i)) {
+           return false;
+        }
+
+		var topCtgrCd = 'its';
+		var listcount = 5;
+		if (topCtgrCd != 'ent') {
+			listcount = 2;
+		}
+		jQuery.ajax({
+			type: "GET", 
+			dataType: "json", 
+			url: "https://extra-api.ssul.nate.com/v1/nate/posts/nate-link/hot?commentSize=3&natePostId=20200309n34198&size="+listcount,
+			dataType: 'json', 
+			success: function(ssul){
+				if (ssul['code']=='SUCCESS') {
+					jQuery("#moreSsul").attr('href', ssul.data.moreUrl);
+	
+					var postListCount = ssul.data.postList.length;
+					if (postListCount == 0) {
+						jQuery("#ssul_write_btn2").attr('href', ssul.data.moreUrl);
+						jQuery("#nodata_link").show();
+						jQuery("#adtive_box_ssul").attr('src', 'about:blank');
+						jQuery("#adview_ssul").hide();
+					} else {
+						jQuery("#nodata_link").hide();
+						if(ssulCategory == 'ent'){
+							jQuery("#adtive_box_ssul").attr('src', '//m.news.nate.com/etc/AdViewSsul');
+							jQuery("#adview_ssul").show();
+						}
+						var postListData = '';
+						
+						jQuery.each (ssul.data.postList, function (index, el) {
+							var postId = el.postId;
+
+							// 댓글이 0개일 경우 class 추가
+							var countClass = ' default';
+							if (el.commentCount > 0 ) {
+								countClass = '';
+							}
+
+							// 댓글카운트
+							var commentCount = el.commentCount;
+							var showCount = 0;
+							if (commentCount > 9999) {
+								showCount = '9,999+'
+							} else {
+								showCount = commentCount.toLocaleString();
+							}
+	
+							postListData +='<li>';
+							postListData +='<a href="'+el.url+'" onclick="olapclick(\'NEWRE74\')"><dl class="comment_txt">';
+							postListData +='<dt><p>'+el.nickName+'</p><span>'+el.createDate.substr(5)+'</span></dt>';
+							postListData +='<dd>'+el.content+'</dd>';
+							postListData +='</dl></a>';
+							postListData +='<div class="comment_btns">';
+							postListData +='<button onclick="ssulOpenComment(this);" class="comment_count' + countClass + '">'+showCount+'</button>';
+							postListData +='<a href="'+el.url+'" class="comment_up_down" onclick="olapclick(\'NEWRE90\')">';
+							postListData +='<ul><li><div class="up">'+el.upCount+'</div></li><li><div class="down">'+el.downCount+'</div></li></ul></a>';
+							postListData +='</div>';
+	
+							// 댓글이 있을경우
+							if (el.commentList.length>0) {
+								postListData +='<ul class="comment_reply">';
+								
+								jQuery.each (el.commentList, function (index2, el2) {
+									var addBepleClass = '';
+									if (el2.commentType=='Best') {
+										addBepleClass += 'class="best"';
+									}
+									postListData +='<li><a href="'+el2.commentTargetUrl+'" onclick="olapclick(\'NEWRE76\');">';
+									postListData +='<dl class="comment_txt">';
+									postListData +='<dt ' +addBepleClass+ '><p>'+el2.nickName+'</p><span>'+el2.createDate.substr(5)+'</span></dt>';
+									postListData +='<dd>'+el2.content+'</dd>';
+									postListData +='</dl>';
+									postListData +='</a></li>';
+								});
+								
+								postListData +='<li class="ssul_more_btn">';
+								postListData +='<a href="'+el.commentViewUrl+'" class="" onclick="olapclick(\'NEWRE77\');">댓글 전체보기</a>';
+								postListData +='</li>';
+								postListData +=' </ul>';
+							}
+							// -- 댓글이 있을경우
+							postListData +='</li>';
+						});
+	
+						var listMore = '';
+						listMore += '<a href="https://m.ssul.nate.com/write?auto=1&link=https://m.news.nate.com/view/20200309n34198" class="ssul_contents" aria-label="네이트썰 작성하러 가기 링크" onclick="olapclick(\'NEWRE78\');">';
+						listMore += '<div class="ssul_txt"><span class="hide"> 이 기사에 대해 이야기를 나누고 싶다면? 링크로 이야기하는 네이트썰에 참여하세요! </span></div>';
+						listMore += '<div class="ssul_write_btn"><span class="hide">썰 작성하러 가기</span></div>';
+						listMore += '</div>';
+	
+						var appendData = '';
+						appendData += '<ul class="ssul_comment">';
+						appendData += postListData;
+						appendData += '</ul>';
+						appendData += listMore;
+						
+						jQuery("#ssul_comment").append(appendData);
+					}
+					
+					jQuery("#module_ssul").show();
+				} else {
+					jQuery("#module_ssul").hide();
+				}
+				
+			},
+			error: function(e){
+			}
+		});
+
+	});
+
+</script>						
+			<div class="sa_ad_banner">
+				<iframe src="//m.news.nate.com/etc/AdSaBanner" name="ad_sabanner" id="ad_sabanner" style="width:100%;height:140px;border: 0" title="광고 배너"></iframe>			
+			</div>
+
+			
+			<!--  시사POLL -->
+				<article class="natesisaq">
+		<header>
+			<h3 class="cluster_title">네이트Q</h3>
+			<a href="//m.comm.news.nate.com/natesisaq/list" onclick="olapclick('NAQ12');"><span class="goList"></span></a>
+		</header>
+		<section class="natesisaq_contents">
+			<section class="natesisaq_status progress"></section>
+			<section class="contents_header">
+				<a href="//m.comm.news.nate.com/natesisaq/view?poll_sq=50" onclick="olapclick('NAQ11');">
+					<h3>"우리 결혼해요" 날아온 문자 하나…'모바일 청첩장'에 결혼식 갈까? 말까?</h3>
+				</a>
+				<p>
+					<span>2024.04.29~2024.05.07</span>
+	            </p>
+			</section>
+			<section class="contents_body">
+				<span class="img_warpper">
+					<img src="//news.nateimg.co.kr/etc/cms/2024/04/26/1714113551_387.png" alt="네이트Q 이미지" />
+				</span>			</section>
+			<section class="contents_footer">
+				<a class="vote" href="//m.comm.news.nate.com/natesisaq/view?poll_sq=50" onclick="olapclick('NAQ13');">투표하기</a>
+				<a href="//m.comm.news.nate.com/natesisaq/result?poll_sq=50" onclick="olapclick('NAQ14');">결과보기</a>
+			</section>
+		</section>
+	</article>
+	<hr class="comonentDivision" />
+			
+						<!-- 랭킹뉴스 -->
+				<div class="ranking_list2 " data-fwrapper="y">
+					<h3 class="cluster_title">IT 랭킹</h3>
+					<div data-fcover="y">
+													<ol >
+																																						<li><a href="//m.news.nate.com/view/20240502n01451" onclick="olapclick('RAN78');"><span class="num">1</span>'초통령' 유튜버 도티, 철도 선로서 사진 촬영 '논란'…결국 사과</a></li>
+																																																<li><a href="//m.news.nate.com/view/20240501n21128" onclick="olapclick('RAN78');"><span class="num">2</span>&quot;이렇게 무너질 줄이야&quot; 아무도 몰랐다…넷플릭스발 파산 위기</a></li>
+																																																<li><a href="//m.news.nate.com/view/20240502n23987" onclick="olapclick('RAN78');"><span class="num">3</span>일본, '라인' 포기 강요하더니…&quot;네이버 조사&quot; 한국 정부도 압박</a></li>
+																																																<li><a href="//m.news.nate.com/view/20240502n24790" onclick="olapclick('RAN78');"><span class="num">4</span>동아쏘시오·동아에스티 1Q 매출 전년대비 증가</a></li>
+																																																<li><a href="//m.news.nate.com/view/20240502n24305" onclick="olapclick('RAN78');"><span class="num">5</span>넥슨, 게이머-축구팬 잇는 'FC 온라인 브랜드데이' 개최</a></li>
+																									</ol>
+													<ol style="display:none;">
+																																						<li><a href="//m.news.nate.com/view/20240502n24651" onclick="olapclick('RAN78');"><span class="num">6</span>엔씨소프트, 6년 연속 '인디크래프트' 후원</a></li>
+																																																<li><a href="//m.news.nate.com/view/20240502n23514" onclick="olapclick('RAN78');"><span class="num">7</span>기자간담회 중인 곽노정 SK하이닉스 대표이사</a></li>
+																																																<li><a href="//m.news.nate.com/view/20240501n18243" onclick="olapclick('RAN78');"><span class="num">8</span>&quot;1만원엔 점심도 못 사먹어&quot; 난 1600원에 해결했다…이 종이팩의 정체</a></li>
+																																																<li><a href="//m.news.nate.com/view/20240502n24769" onclick="olapclick('RAN78');"><span class="num">9</span>하나된 게임 유저-축구팬…넥슨 'FC 온라인 브랜드데이', 특별 경험 선사 [엑's 이슈]</a></li>
+																																																<li><a href="//m.news.nate.com/view/20240502n01982" onclick="olapclick('RAN78');"><span class="num">10</span>네이버가 키운 '라인', 일본 손에 넘어가나…&quot;지분 넘겨&quot; 선 넘은 압박</a></li>
+																									</ol>
+											</div>
+					<div class="pageNav" data-findicator="y">
+						<button type="button" class="arrow prev"><em class="prev">이전</em></button>
+						<span id="nwpage" class="pagenum">
+							<span class="num select">1</span><span class="num">2</span>						</span>
+						<button type="button" class="arrow next"><em class="next">다음</em></button>
+					</div>
+					<a class="more" href="//m.news.nate.com/rank/list?mid=m2001&amp;section=its&amp;rmode=interest" onclick="olapclick('RNK135');">더보기</a>
+				</div>
+						
+			
+			<div class="mlt01" data-fwrapper="y">
+	<h3 class="cluster_title">포토 뉴스</h3>
+	<div data-fcover="y">
+					<div class="photoListB" >
+				<ul class="photoType2 mpt1">
+											<li class="pt1">
+							<a href="//m.news.nate.com/view/20240502n30553" onclick="olapclick('RAN79');">
+								<span class="iBox">
+									<img width="90" height="67" alt="" src="" data-image="//news.nateimg.co.kr/etc/cms/2024/05/02/1714635495_954.jpg" />
+								</span>
+								<span>"하루 9000보, '건강수명'에 충분…더 걸어도 효과 無"</span>
+							</a>
+						</li>
+											<li class="pt1">
+							<a href="//m.news.nate.com/view/20240502n22744" onclick="olapclick('RAN79');">
+								<span class="iBox">
+									<img width="90" height="67" alt="" src="" data-image="//news.nateimg.co.kr/etc/cms/2024/05/02/1714630029_606.jpg" />
+								</span>
+								<span>수현 '실루엣까지 완벽한 몸매'</span>
+							</a>
+						</li>
+											<li class="pt1">
+							<a href="//m.news.nate.com/view/20240502n16735" onclick="olapclick('RAN79');">
+								<span class="iBox">
+									<img width="90" height="67" alt="" src="" data-image="//news.nateimg.co.kr/etc/cms/2024/05/02/1714625536_551.jpg" />
+								</span>
+								<span>게임 신규 캐릭터로 등장한 홀란드</span>
+							</a>
+						</li>
+									</ul>
+			</div>
+					<div class="photoListB" style="display:none;">
+				<ul class="photoType2 mpt1">
+											<li class="pt1">
+							<a href="//m.news.nate.com/view/20240502n19593" onclick="olapclick('RAN79');">
+								<span class="iBox">
+									<img width="90" height="67" alt="" src="" data-image="//news.nateimg.co.kr/etc/cms/2024/05/02/1714629913_931.jpg" />
+								</span>
+								<span>이은주, 앤디 또 반할 단아함…화보 같은 일상</span>
+							</a>
+						</li>
+											<li class="pt1">
+							<a href="//m.news.nate.com/view/20240502n14573" onclick="olapclick('RAN79');">
+								<span class="iBox">
+									<img width="90" height="67" alt="" src="" data-image="//news.nateimg.co.kr/etc/cms/2024/05/02/1714625512_080.jpg" />
+								</span>
+								<span>이찬원, 야구 캐스터로 깜짝 변신…"완전 프로같다"</span>
+							</a>
+						</li>
+											<li class="pt1">
+							<a href="//m.news.nate.com/view/20240502n19133" onclick="olapclick('RAN79');">
+								<span class="iBox">
+									<img width="90" height="67" alt="" src="" data-image="//news.nateimg.co.kr/etc/cms/2024/05/02/1714635151_189.jpg" />
+								</span>
+								<span>"낮에 여성 웃음소리 자제해달라" 아파트에 붙은 '황당 공지문'</span>
+							</a>
+						</li>
+									</ul>
+			</div>
+					<div class="photoListB" style="display:none;">
+				<ul class="photoType2 mpt1">
+											<li class="pt1">
+							<a href="//m.news.nate.com/view/20240502n14995" onclick="olapclick('RAN79');">
+								<span class="iBox">
+									<img width="90" height="67" alt="" src="" data-image="//news.nateimg.co.kr/etc/cms/2024/05/02/1714626152_629.jpg" />
+								</span>
+								<span>'훈남' 케빈 러브 "은퇴하고 싶지 않아···계속 뛸 것"</span>
+							</a>
+						</li>
+											<li class="pt1">
+							<a href="//m.news.nate.com/view/20240502n14783" onclick="olapclick('RAN79');">
+								<span class="iBox">
+									<img width="90" height="67" alt="" src="" data-image="//news.nateimg.co.kr/etc/cms/2024/05/02/1714620604_247.jpg" />
+								</span>
+								<span>안현모, 베네치아 들썩인 한복 드레스 자태</span>
+							</a>
+						</li>
+											<li class="pt1">
+							<a href="//m.news.nate.com/view/20240502n19447" onclick="olapclick('RAN79');">
+								<span class="iBox">
+									<img width="90" height="67" alt="" src="" data-image="//news.nateimg.co.kr/etc/cms/2024/05/02/1714634378_141.jpg" />
+								</span>
+								<span>"마요네즈도?"…많이 먹으면 염증 유발하는 식품 5가지</span>
+							</a>
+						</li>
+									</ul>
+			</div>
+			</div>
+	<div class="pageNav" data-findicator="y">
+		<button type="button" class="arrow prev"><em class="prev">이전</em></button>
+		<span id="nwpage" class="pagenum">
+			<span class="num select">1</span><span class="num">2</span><span class="num">3</span>		</span>
+		<button type="button" class="arrow next"><em class="next">다음</em></button>
+	</div>
+</div>
+			<hr class="vt-space" />
+			<!-- 텍스트 광고 -->
+			<div class="mlt01 adbox">
+			</div>
+			<script type="text/javascript">
+				// 성능개선_0324  : 초기 로딩 속도에 필요 없는 자원 나중에 로딩
+				window.addEventListener('load', function(){
+					var adbox = document.querySelector('.mlt01.adbox');
+					if(adbox){
+						adbox.innerHTML = '<iframe src="//m.news.nate.com/etc/AdViewBottom" width="100%" height="150" title="광고배너" frameborder="0" scrolling="no"></iframe>';
+					}
+				});
+			</script>
+			<hr class="vt-space" />
+			
+			<!-- 이모티콘 랭킹 -->
+			<!-- 공감 많은 뉴스 모듈  -->
+			<div class="emotion-list sisa">
+				<h3 class="cluster_title">공감많은 뉴스</h3>
+				<div class="tablist" role="tablist" aria-label="분류">
+					<button role="tab" aria-selected="true" aria-controls="module_emo_tab_content_1" id="module_emo_tab1" class="category" onclick="olapclick('NEWRE39');">시사</button>
+					<button role="tab" aria-selected="false" aria-controls="module_emo_tab_content_2" id="module_emo_tab2" onclick="olapclick('NEWRE39');">공감별</button>
+				</div>
+				<div class="contents" tabindex="0" role="tabpanel" id="module_emo_tab_content_1" aria-labelledby="module_emo_tab1">
+					<ul class="emotion-article">
+								<li>
+		<a href="//m.news.nate.com/view/20240502n01294" onclick="olapclick('NEWRE42');">
+						<span class="rank">1</span>
+			<div class="tBox">
+				<span class="txt">[단독] 윤 정부 '국가 비상금'…1순위는 용산 이전과 해외 순방이었다</span>				<span class="subinfo">
+					<span class="emBox"><em class="emo">공감수</em>3,062</span>
+				</span>
+			</div>
+			<div class="iBox">
+				<img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/hi/2024/05/02/ae787271-5247-4363-96c7-79b8371a89a2.jpg" width="94" height="70" alt="" />
+			</div>		</a>
+	</li>
+		<li>
+		<a href="//m.news.nate.com/view/20240502n02368" onclick="olapclick('NEWRE42');">
+						<span class="rank">2</span>
+			<div class="tBox">
+				<span class="txt">"제주 '비계 삼겹살' 식당, 상한 고기 팔았다" 전 직원의 폭로</span>				<span class="subinfo">
+					<span class="emBox"><em class="emo">공감수</em>1,335</span>
+				</span>
+			</div>
+			<div class="iBox">
+				<img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/ed/2024/05/02/PS24050200075.jpg" width="94" height="70" alt="" />
+			</div>		</a>
+	</li>
+		<li>
+		<a href="//m.news.nate.com/view/20240502n03154" onclick="olapclick('NEWRE42');">
+						<span class="rank">3</span>
+			<div class="tBox">
+				<span class="txt">"예약환자 1900명, 죄송"…서울대병원 교수 4명 떠났다</span>				<span class="subinfo">
+					<span class="emBox"><em class="emo">공감수</em>947</span>
+				</span>
+			</div>
+			<div class="iBox">
+				<img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/kx/2024/05/02/2024050207054034855_1714601142_0020057849.jpg" width="94" height="70" alt="" />
+			</div>		</a>
+	</li>
+		<li>
+		<a href="//m.news.nate.com/view/20240502n03539" onclick="olapclick('NEWRE42');">
+						<span class="rank">4</span>
+			<div class="tBox">
+				<span class="txt">국내 첫 '딸 출산' 레즈비언 부부 "혈연만이 가족이라 생각 안 해요"</span>				<span class="subinfo">
+					<span class="emBox"><em class="emo">공감수</em>753</span>
+				</span>
+			</div>
+			<div class="iBox">
+				<img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/no/2024/05/02/SSC_20240502073807_V.jpg" width="94" height="70" alt="" />
+			</div>		</a>
+	</li>
+		<li>
+		<a href="//m.news.nate.com/view/20240502n14058" onclick="olapclick('NEWRE42');">
+						<span class="rank">5</span>
+			<div class="tBox">
+				<span class="txt">대구 시민단체 "박정희 동상 건립 반대"</span>				<span class="subinfo">
+					<span class="emBox"><em class="emo">공감수</em>635</span>
+				</span>
+			</div>
+			<div class="iBox">
+				<img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/na/2024/05/02/6628647_high.jpg" width="94" height="70" alt="" />
+			</div>		</a>
+	</li>
+						</ul>
+					<a class="more" href="/rank/Emoticon?mid=m2012&amp;row=5&amp;cate=sisa" onclick="olapclick('NEWRE38');">더 보기</a>
+				</div>
+				<div class="contents" tabindex="-1" role="tabpanel" id="module_emo_tab_content_2" aria-labelledby="module_emo_tab2" hidden="hidden">
+					<!-- 공감  탭  -->
+					<ul class="emotion-tab" id="emorank_tab">
+						<li><button id="btn-emo1" class="active" onclick="olapclick('NEWRE40');activeEmotionRank(1);"><span class="img em-type1"></span><span class="state">최고예요</span></button></li>
+						<li><button id="btn-emo2" class="" onclick="olapclick('NEWRE40');activeEmotionRank(2);"><span class="img em-type2"></span><span class="state">훈훈해요</span></button></li>
+						<li><button id="btn-emo3" class="" onclick="olapclick('NEWRE40');activeEmotionRank(3);"><span class="img em-type3"></span><span class="state">어이없어요</span></button></li>
+						<li><button id="btn-emo4" class="" onclick="olapclick('NEWRE40');activeEmotionRank(4);"><span class="img em-type4"></span><span class="state">속상해요</span></button></li>
+						<li><button id="btn-emo5" class="" onclick="olapclick('NEWRE40');activeEmotionRank(5);"><span class="img em-type5"></span><span class="state">화나요</span></button></li>
+					</ul>
+					<ul class="emotion-article" id="emorank_block">
+								<li>
+		<a href="//m.news.nate.com/view/20240502n05609" onclick="olapclick('NEWRE41');">
+						<span class="rank">1</span>
+			<div class="tBox">
+				<span class="txt">어도어 민희진 측 "하이브 무속인 프레임 씌우기 한심, 스톡옵션으로 기망당해"[공식]</span>				<span class="subinfo">
+					<span class="emBox"><em class="em-type1">최고예요</em><span class="hide">공감수</span>511</span>
+				</span>
+			</div>
+			<div class="iBox">
+				<img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/nn/2024/05/02/202405020839120410_1.jpg" width="94" height="70" alt="" />
+			</div>		</a>
+	</li>
+		<li>
+		<a href="//m.news.nate.com/view/20240502n14058" onclick="olapclick('NEWRE41');">
+						<span class="rank">2</span>
+			<div class="tBox">
+				<span class="txt">대구 시민단체 "박정희 동상 건립 반대"</span>				<span class="subinfo">
+					<span class="emBox"><em class="em-type1">최고예요</em><span class="hide">공감수</span>509</span>
+				</span>
+			</div>
+			<div class="iBox">
+				<img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/na/2024/05/02/6628647_high.jpg" width="94" height="70" alt="" />
+			</div>		</a>
+	</li>
+		<li>
+		<a href="//m.news.nate.com/view/20240501n25573" onclick="olapclick('NEWRE41');">
+						<span class="rank">3</span>
+			<div class="tBox">
+				<span class="txt">'유퀴즈' 박성훈 "'장고래' 역으로 잘 나갈 때 배달 일하던 父 쓰러져" 눈물[종합]</span>				<span class="subinfo">
+					<span class="emBox"><em class="em-type1">최고예요</em><span class="hide">공감수</span>302</span>
+				</span>
+			</div>
+			<div class="iBox">
+				<img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/tr/2024/05/01/f13741e7-9bc5-4012-bc07-19e38510a793.jpg" width="94" height="70" alt="" />
+			</div>		</a>
+	</li>
+		<li>
+		<a href="//m.news.nate.com/view/20240502n03250" onclick="olapclick('NEWRE41');">
+						<span class="rank">4</span>
+			<div class="tBox">
+				<span class="txt">정국 'Seven', 전 세계 200여 지역서 '가장 사랑 받은 곡'</span>				<span class="subinfo">
+					<span class="emBox"><em class="em-type1">최고예요</em><span class="hide">공감수</span>231</span>
+				</span>
+			</div>
+			<div class="iBox">
+				<img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/mh/2024/05/02/2024050201039912069002_b.jpg" width="94" height="70" alt="" />
+			</div>		</a>
+	</li>
+		<li>
+		<a href="//m.news.nate.com/view/20240501n22047" onclick="olapclick('NEWRE41');">
+						<span class="rank">5</span>
+			<div class="tBox">
+				<span class="txt">"전교생 계좌에 100만원씩 쏜다"…고교 선배들의 '통큰 결단'</span>				<span class="subinfo">
+					<span class="emBox"><em class="em-type1">최고예요</em><span class="hide">공감수</span>159</span>
+				</span>
+			</div>
+			<div class="iBox">
+				<img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/jo/2024/05/01/8556e13f-a0d1-47de-a1e2-b0163b114aea.jpg" width="94" height="70" alt="" />
+			</div>		</a>
+	</li>
+						</ul>
+					<a class="more" href="/rank/Emoticon?mid=m2012&amp;type=emoticon&amp;no=1" onclick="olapclick('NEWRE38');">더 보기</a>
+				</div>
+			</div>
+			<script>
+			function activeEmotionRank(id){
+				var selectec_btn = document.querySelector('#emorank_tab button[class="active"]');
+				if(selectec_btn.id == ("btn-emo"+id)){
+					return;
+				}
+				
+				var emorank_tab = document.querySelector('#emorank_tab');
+				var emorank_tab_list = emorank_tab.querySelectorAll('li > button');
+				for (i = 0; i < emorank_tab_list.length; i++) {
+					if(i == id-1) {
+						emorank_tab_list[i].setAttribute('class', 'active');
+					}else {
+						emorank_tab_list[i].setAttribute('class', '');
+					}
+				};
+				
+				var btn_tab2_more = document.querySelector('#module_emo_tab_content_2 a[class="more"]');
+				btn_tab2_more.setAttribute('href', '/rank/Emoticon?mid=m2012&type=emoticon&row=5&no='+id);
+				
+				var url = "//m.news.nate.com/rank/EmoticonMore?type=emoticon&row=5&no="+id;
+				
+				jQuery(".emotion-tab").css({ 'pointer-events': 'none' });
+				jQuery.ajax({
+					type: "POST",
+					url: url,
+					dataType : "html",
+					success: function(data){
+						jQuery("#emorank_block")[0].innerHTML = data;
+						
+						// 세팅완료후 링크 풀어주기
+						jQuery(".emotion-tab").css({ 'pointer-events': '' });
+					},
+					error:function(request,status,error){
+						// 세팅완료후 링크 풀어주기
+						jQuery(".emotion-tab").css({ 'pointer-events': '' });
+					}
+				});
+			}
+			</script>
+			<script type="text/javascript">
+				/*
+			*   This content is licensed according to the W3C Software License at
+			*   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+			*/
+				(function () {
+					var tablist = document.querySelectorAll('[role="tablist"]')[0];
+					var tabs;
+					var panels;
+			
+					generateArrays();
+			
+					function generateArrays () {
+						tabs = document.querySelectorAll('[role="tab"]');
+						panels = document.querySelectorAll('[role="tabpanel"]');
+					};
+			
+					// Bind listeners
+					for (i = 0; i < tabs.length; ++i) {
+						addListeners(i);
+					};
+			
+					function addListeners (index) {
+						tabs[index].addEventListener('click', clickEventListener);
+			
+						// Build an array with all tabs (<button>s) in it
+						tabs[index].index = index;
+					};
+			
+					// When a tab is clicked, activateTab is fired to activate it
+					function clickEventListener (event) {
+						var tab = event.target;
+						activateTab(tab, false);
+					};
+					// Activates any given tab panel
+					function activateTab (tab, setFocus) {
+						setFocus = setFocus || true;
+						// Deactivate all other tabs
+						deactivateTabs();
+			
+						// Remove tabindex attribute
+						tab.removeAttribute('tabindex');
+			
+						// Set the tab as selected
+						tab.setAttribute('aria-selected', 'true');
+			
+						// Get the value of aria-controls (which is an ID)
+						var controls = tab.getAttribute('aria-controls');
+			
+						// Remove hidden attribute from tab panel to make it visible
+						document.getElementById(controls).removeAttribute('hidden');
+			
+						// Set focus when required
+						if (setFocus) {
+							tab.focus();
+						};
+					};
+			
+					// Deactivate all tabs and tab panels
+					function deactivateTabs () {
+						for (t = 0; t < tabs.length; t++) {
+							tabs[t].setAttribute('aria-selected', 'false');
+						};
+			
+						for (p = 0; p < panels.length; p++) {
+							panels[p].setAttribute('hidden', 'hidden');
+						};
+					};
+			
+				}());
+			</script>
+			<!-- 공감순 -->
+			
+											<div class="mlt01 reply_list " data-fwrapper="y">
+					<h3 class="cluster_title">댓글많은 뉴스</h3>
+					<div data-fcover="y">
+													<ol >
+																											<li><a href="//m.news.nate.com/view/20240502n01294" onclick="olapclick('RAN80');"><span class="num">1</span>
+											<span class="tBox">
+																									<strong>윤 정부 '국가 비상금'…1순위는 용산 이전과 해외 순방이었다</strong>
+																							</span><span class="rcnt">1,672</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n14058" onclick="olapclick('RAN80');"><span class="num">2</span>
+											<span class="tBox">
+																									대구 시민단체 &quot;박정희 동상 건립 반대&quot;																							</span><span class="rcnt">647</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n03154" onclick="olapclick('RAN80');"><span class="num">3</span>
+											<span class="tBox">
+																									&quot;예약환자 1900명, 죄송&quot;…서울대병원 교수 4명 떠났다																							</span><span class="rcnt">637</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n03539" onclick="olapclick('RAN80');"><span class="num">4</span>
+											<span class="tBox">
+																									국내 첫 '딸 출산' 레즈비언 부부 &quot;혈연만이 가족이라 생각 안 해요&quot;																							</span><span class="rcnt">613</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n02310" onclick="olapclick('RAN80');"><span class="num">5</span>
+											<span class="tBox">
+																									트럼프 &quot;韓, 美 제대로 대우하라&quot;…동맹국을 철저한 '거래 관계'로																							</span><span class="rcnt">603</span></a></li>
+															</ol>
+													<ol style="display:none;">
+																											<li><a href="//m.news.nate.com/view/20240502n11666" onclick="olapclick('RAN80');"><span class="num">6</span>
+											<span class="tBox">
+																									<strong>'만취+졸음+시속 136㎞' 스파크 운전자 숨지게 한 서른살…징역 2년</strong>
+																							</span><span class="rcnt">538</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n03434" onclick="olapclick('RAN80');"><span class="num">7</span>
+											<span class="tBox">
+																									&quot;큰 웃음소리 자제해달라&quot;…아파트에 붙은 '황당 민원'																							</span><span class="rcnt">429</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n02368" onclick="olapclick('RAN80');"><span class="num">8</span>
+											<span class="tBox">
+																									&quot;제주 '비계 삼겹살' 식당, 상한 고기 팔았다&quot; 전 직원의 폭로																							</span><span class="rcnt">359</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n10802" onclick="olapclick('RAN80');"><span class="num">9</span>
+											<span class="tBox">
+																									'채상병 특검법' 尹 거부권 시험대…김 의장 손에 달렸다																							</span><span class="rcnt">326</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n26552" onclick="olapclick('RAN80');"><span class="num">10</span>
+											<span class="tBox">
+																									채상병 특검법, 野 단독 국회 본회의 통과…국힘 표결 불참																							</span><span class="rcnt">298</span></a></li>
+															</ol>
+													<ol style="display:none;">
+																											<li><a href="//m.news.nate.com/view/20240502n04136" onclick="olapclick('RAN80');"><span class="num">11</span>
+											<span class="tBox">
+																									<strong>경기북도 새 이름 '평화누리'…반대 청원까지 나온 이유 [소셜픽]</strong>
+																							</span><span class="rcnt">289</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n18965" onclick="olapclick('RAN80');"><span class="num">12</span>
+											<span class="tBox">
+																									주차 여성 폭행한 보디빌더 &quot;체육관 폐업…애 덕분에 버틴다&quot; 호소[영상]																							</span><span class="rcnt">288</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n19168" onclick="olapclick('RAN80');"><span class="num">13</span>
+											<span class="tBox">
+																									&quot;2002년 월드컵 스타들 예능할 때 아냐&quot;···김흥국의 '쓴소리' 대체 왜?																							</span><span class="rcnt">287</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n00606" onclick="olapclick('RAN80');"><span class="num">14</span>
+											<span class="tBox">
+																									네이버 옥죄는 日….2차례 행정지도 이어 한국 정부에 조사 요구																							</span><span class="rcnt">287</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n01515" onclick="olapclick('RAN80');"><span class="num">15</span>
+											<span class="tBox">
+																									'잔소리' 누나 살해 후 농수로에 버린 남동생…발인 때 영정 들고 시치미																							</span><span class="rcnt">284</span></a></li>
+															</ol>
+													<ol style="display:none;">
+																											<li><a href="//m.news.nate.com/view/20240502n17623" onclick="olapclick('RAN80');"><span class="num">16</span>
+											<span class="tBox">
+																									<strong>14년 전 허경영이 띄웠던 결혼·출산 1억원…그땐 '황당' 지금은 '고심'</strong>
+																							</span><span class="rcnt">275</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n03122" onclick="olapclick('RAN80');"><span class="num">17</span>
+											<span class="tBox">
+																									김흥국 &quot;전화 한통 없다 했더니 누가 지시했는지 권영세 배현진 등 막 전화&quot;																							</span><span class="rcnt">264</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n24674" onclick="olapclick('RAN80');"><span class="num">18</span>
+											<span class="tBox">
+																									이태원특별법 본회의 통과…유가족 &quot;이렇게 쉽게 할 수 있는 일을…&quot;																							</span><span class="rcnt">263</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n07027" onclick="olapclick('RAN80');"><span class="num">19</span>
+											<span class="tBox">
+																									박지원 &quot;욕설 진심으로 사과…앞으로 언행에 신중하겠다&quot;																							</span><span class="rcnt">256</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n02949" onclick="olapclick('RAN80');"><span class="num">20</span>
+											<span class="tBox">
+																									김동연 추진 '평화누리자치도' 발표되자마자…반대 청원 1만명 돌파																							</span><span class="rcnt">225</span></a></li>
+															</ol>
+													<ol style="display:none;">
+																											<li><a href="//m.news.nate.com/view/20240502n07844" onclick="olapclick('RAN80');"><span class="num">21</span>
+											<span class="tBox">
+																									<strong>대국민 소통 늘리는 尹…민생토론회도 이달 재개 [용산실록]</strong>
+																							</span><span class="rcnt">186</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n01560" onclick="olapclick('RAN80');"><span class="num">22</span>
+											<span class="tBox">
+																									&quot;1억 공탁금 거절&quot;…보디빌더 폭행 피해女 엄벌 촉구																							</span><span class="rcnt">156</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n01688" onclick="olapclick('RAN80');"><span class="num">23</span>
+											<span class="tBox">
+																									尹 '정치하는 대통령' 행보…&quot;국민 눈물, 협치 통해 해결&quot;																							</span><span class="rcnt">141</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n02313" onclick="olapclick('RAN80');"><span class="num">24</span>
+											<span class="tBox">
+																									여야, '이태원 특별법' 오늘 본회의 처리…관심은 채상병 특검법																							</span><span class="rcnt">128</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n09333" onclick="olapclick('RAN80');"><span class="num">25</span>
+											<span class="tBox">
+																									민주 &quot;채상병 특검법, 어떤 수단을 써서라도 통과시키겠다&quot;																							</span><span class="rcnt">124</span></a></li>
+															</ol>
+													<ol style="display:none;">
+																											<li><a href="//m.news.nate.com/view/20240502n03160" onclick="olapclick('RAN80');"><span class="num">26</span>
+											<span class="tBox">
+																									<strong>갑자기 '쾅', 피 냄새 진동…&quot;대리기사가 로드킬&quot;</strong>
+																							</span><span class="rcnt">119</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n02305" onclick="olapclick('RAN80');"><span class="num">27</span>
+											<span class="tBox">
+																									&quot;한국 '방위비' 거의 안 내&quot;…트럼프 주장 사실일까																							</span><span class="rcnt">115</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n06327" onclick="olapclick('RAN80');"><span class="num">28</span>
+											<span class="tBox">
+																									입 굳게 다문 채																							</span><span class="rcnt">109</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n10822" onclick="olapclick('RAN80');"><span class="num">29</span>
+											<span class="tBox">
+																									'이태원참사특별법 여야 합의안' 행안위 통과…법사위로																							</span><span class="rcnt">107</span></a></li>
+																											<li><a href="//m.news.nate.com/view/20240502n15591" onclick="olapclick('RAN80');"><span class="num">30</span>
+											<span class="tBox">
+																									이태원특별법, 여야 합의로 국회 법사위 통과…오후 본회의 표결																							</span><span class="rcnt">107</span></a></li>
+															</ol>
+											</div>
+					<div class="pageNav" data-findicator="y">
+						<button type="button" class="arrow prev"><em class="prev">이전</em></button>
+						<span id="nwpage" class="pagenum">
+							<span class="num">1</span><span class="num">2</span><span class="num">3</span><span class="num">4</span><span class="num">5</span><span class="num">6</span>						</span>
+						<button type="button" class="arrow next"><em class="next">다음</em></button>
+					</div>
+					<a class="more" href="//m.news.nate.com/rank/list?mid=m2002&amp;section=cmt&amp;rmode=cmt">더보기</a>
+				</div>
+			
+			
+<!-- 인기 많은 썰 모듈 -->
+<div class="view_bottom_list mlt01 nate_ssul" id="nate_ssul">
+    <h3 class="cluster_title">인기많은 썰</h3>
+    <div class="ssul-list" data-fwrapper="y" data-autoresize="y">
+        <div class="flickCover" data-fcover="y">
+                        <ul >
+				                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345956" onclick="olapclick('NEWRE54');"><span class="tit">&ldquo; &#52828;&#44396;&#46308;&#51060; &#54660;&#48260;&#44144;&#47484; &#47673;&#51088;&#44256; &#54616;&#45908;&#46972;. &#51200;&#45716; &#47673;&#51012; &#46024;&#51060; &#50630;&#45716; &#44144;&#45796;. &#44536;&#47000;&#49436; &#44228;&#45800;&#50640; &#50505;&#50500;&#49436; &#44592;&#45796;&#47160;&#45796;&rdquo; -&gt; &#45796;&#46308; &#47803;&#46096;&#45796; &#51221;&#47568;. &#44048;&#51088;&#53888;&#44608;&#51060;&#46972;&#46020; &#49324;&#51460;&#49688; &#51080;&#50632;&#51094;&#50500;. &#52828;&#44396;&#44032; &#44228;&#45800;&#50640;&#49436; &#44592;&#45796;&#47532;&#45716;&#45936;&hellip; &#44536;&#44172; &#47785;&#51004;&#47196; &#45336;&#50612;&#44032;&#46356;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345786" onclick="olapclick('NEWRE54');"><span class="tit">5&#45380; &#44540;&#49549; &#47803; &#52292;&#50864;&#47732; &#54411;&#50741;&#49496; &#54665;&#49324;&#54624; &#49688; &#50630;&#44172; &#47564;&#46308;&#50612; &#45480;&#50612;&#50836; &#44536;&#47000;&#49436; &#48124;&#55148;&#51652;&#51060; &#44032;&#47564;&#55176; &#51080;&#51004;&#47732;&#x28;&#44540;&#49549;5&#45380; &#52292;&#50864;&#47732;&#x29;&#52572;&#49548; 1000&#50613; &#48264;&#45796;&#45716; &#47568;&#51008; &#54620;&#44144;&#50640;&#50836; 18%&#51473; 5%&#45716; &#54616;&#51060;&#48652; &#46041;&#51032; &#50630;&#51060; &#54036;&#51648;&#46020; &#47803;&#54616;&#44172; &#46021;&#49548;&#51312;&#54637; &#45347;&#44256; &#44536;&#47532;&#44256; &#53440; &#47112;&#51060;&#48660; &#50500;&#51068;&#47551;&#51032; &#48716;&#47532;&#54532;&#47017;&#51008; 27&#48176;&#51076; 30&#48176; &#50836;&#44396;&#45716; 5% &#54400;&#50612;&#51460;&#44172; &#44228;&#50557; &#45908; &#50672;&#51109;&#54616;&#51088; &#44536;&#47100; &#54693;&#54980; &#44032;&#52824; &#49373;&#44033;&#54644;&#49436; 30&#48176;&#47196; &#48320;&#44221;&#54616;&#51088;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345357" onclick="olapclick('NEWRE54');"><span class="tit">&#51652;&#51676; &#52636;&#50672;&#51088; &#49828;&#54057;&#51008; &#54616;&#45208;&#46020;&#50504;&#48736;&#51648;&#44256; &#50669;&#45824;&#44553;&#51060;&#45348; &#50620;&#47560;&#45208; &#54617;&#52285;&#49884;&#51208;&#51012;&#50676;&#49900;&#55176; &#44277;&#48512;&#47564;&#54616;&#47728; &#49332;&#50520;&#51012;&#44620;.. &#51648;&#44552; &#45572;&#47532;&#44256;&#51080;&#45716; &#47784;&#46304;&#44163;&#46308;&#51012; &#51064;&#51221;&#54624;&#49688;&#48150;&#50640;.. &#50500;&#46308;&#46308;&#50500; &#50676;&#49900;&#55176; &#44277;&#48512;&#54616;&#51088; &#51228;&#48156; &#12636;&#12636;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345714" onclick="olapclick('NEWRE54');"><span class="tit">&#54616;&#51060;&#48652;&#45716; &#51648;&#44552; &#45824;&#51025;&#54616;&#45716;&#44144; &#48372;&#47732; &#45320;&#47924; &#50976;&#52824;&#54632;.. &#44536;&#45285; &#48124;&#55148;&#51652;&#51060;&#46993; &#45684;&#51652;&#49828;&#46993; &#45796; &#44228;&#50557;&#54644;&#51648;&#54644;&#51452;&#44256; &#45149;&#45236;&#44600;, &#45684;&#51652;&#49828;&#47564; &#45936;&#47532;&#44256;&#51080;&#45716;&#45796;&#44256; &#54644;&#46020; &#51060;&#48120; &#51060;&#47111;&#44172;&#46108; &#47560;&#45817;&#50640; &#50668;&#47200;&#51032;&#49885;&#54644;&#49436; &#52376;&#51020;&#47564; &#51096;&#54644;&#51452;&#44256; &#45208;&#51473;&#50640; &#54848;&#45824;&#54624;&#44172; &#48852;&#54632;.</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345114" onclick="olapclick('NEWRE54');"><span class="tit">&#51652;&#51676; &#51060;&#49345;&#54644;... &#45208;&#50689;&#49437;&#51060; &#44256;&#51320;&#51060;&#46972;&#44256; &#47924;&#49884;&#54616;&#44600; &#54664;&#45264; &#47960;&#54664;&#45264; &#44536;&#45285; &#48149;&#49436;&#51456;&#51060;&#46993; &#44057;&#51060; &#45734;&#44172; &#45936;&#48596;&#54620;&#44144; &#50584;&#44592;&#54616;&#45796;&#44032; &#47924;&#47749;&#49884;&#51208; &#50584;&#44592;&#54616;&#45796;&#48372;&#45768; &#47568; &#45208;&#50728;&#44144;&#44256; &#45208;&#50689;&#49437;&#51060; &#50584;&#44592;&#54620;&#44172; &#44208;&#44397; &#48376;&#51064;&#51060; &#45936;&#48596;&#52488;&#50640; &#51109;&#46020;&#50672;&#51060;&#46993; &#50584;&#44592;&#54620;&#44144; &#44536;&#45824;&#47196;&#51094;&#50500;? &#48176;&#50864;&#54616;&#44256; &#49910;&#50612;&#49436; &#49436;&#50872;&#50772;&#45716;&#45936; &#55192;&#46308;&#50632;&#45796;&#47728;? &#44540;&#45936; &#46892;&#44552;&#50630;&#51060; &#50896;&#47000;&#45716; &#54532;&#46993;&#49828; &#54617;&#44368; &#48537;&#50612;&#49436; &#44305;&#44256; &#47751;&#44060; &#45908; &#52237;&#44256; 6&#52380; &#47784;&#50500;&#49436; &#50976;&#54617; &#44032;&#47140;&#44256; &#54664;&#45796;&#45712;&#45768;.. &#45824;&#54364;&#44032; &#50672;</span></a>
+                </li>
+                            </ul>
+                        <ul style="display: none;">
+				                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345153" onclick="olapclick('NEWRE54');"><span class="tit">&#47751; &#52264;&#47168;&#45208; &#45817;&#54624; &#46041;&#50504; &#50780; &#44536; &#51665;&#50640; &#51088;&#44984; &#48169;&#47928; &#54620;&#44144;&#51076;? &#49345;&#49324; &#48512;&#54616;&#51649;&#50896; &#49324;&#51060;&#46020; &#50500;&#45768;&#44256; &#45800;&#51648; &#48165;&#54644;&#51452;&#47084; &#44032;&#45716; &#49345;&#54889;&#50640; &#49457;&#52628;&#54665;&#51012; &#45817;&#54664;&#45716;&#45936; &#54620;&#48264; &#45817;&#54616;&#44256; &#45796;&#49888; &#50504;&#44032;&#50556;&#51648; &#44144;&#51667;&#47568;&#51012; &#54620;&#45796;&#44256; &#51032;&#49900;&#54616;&#45716;&#44172; &#50500;&#45768;&#47532; &#44536;&#45285; &#45320;&#47924; &#48148;&#48372;&#44057;&#44256; &#51060;&#54644;&#44032; &#50504;&#44032;&#49436;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345959" onclick="olapclick('NEWRE54');"><span class="tit">&#48169;&#49569; &#47803;&#48420;&#45716;&#45936; &#53412;&#44032; &#50620;&#47560;&#45208; &#51089;&#44600;&#47000;...&#49373;&#44596;&#44163;&#46020; &#44628;&#45140;&#54616;&#44256; &#44316;&#52270;&#50500; &#48372;&#51060;&#45716;&#45936;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345421" onclick="olapclick('NEWRE54');"><span class="tit">&#54620;&#44397;&#54532;&#47196;&#50556;&#44396; &#44048;&#46021;&#51008; &#54532;&#47200;&#53944; &#44396;&#45800; &#47568; &#51096;&#46307;&#45716; &#49324;&#46988;&#47564; &#48977;&#51020;. &#53945;&#55176; &#50577;&#51456;&#54785;&#51008; &#49440;&#49688;&#54801;&#51004;&#47196; &#49440;&#49688;&#46308; &#48373;&#51648; &#44060;&#49440;&#54620; &#49324;&#46988;&#51060;&#46972; &#44396;&#45800;&#46308;&#51060; &#48120;&#50892; &#54624;&#49688; &#48150;&#50640; &#44540;&#45936; &#44536; &#54812;&#53469;&#48376; &#54980;&#48176;&#46308;&#51060; &#50577;&#51456;&#54785; &#46356;&#49828; &#54616;&#45716;&#44144; &#48372;&#44256; &#50612;&#51060;&#50630;&#50632;&#51648; &#46041;&#49345; &#49464;&#50892;&#51480;&#46020; &#47784;&#51088;&#47484;&#54032;&#50640;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345577" onclick="olapclick('NEWRE54');"><span class="tit">&#51060;&#47088; &#51613;&#44144; &#51080;&#45716; &#44592;&#49324;&#50640;&#45716; &#48124;&#55148;&#51652; &#49884;&#45376;&#46308; &#50504;&#50724;&#45264;? &#12619;&#12619; &#47568;&#44057;&#51648;&#46020; &#50506;&#51008; &#50836;&#44396;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345145" onclick="olapclick('NEWRE54');"><span class="tit">&#44053;&#50500;&#51648;&#47484; &#53412;&#50892;&#48372;&#45768; &#49324;&#46988; &#50500;&#44592;&#52376;&#47100; &#53440;&#44256;&#45212; &#44592;&#51656;, &#49457;&#54693;&#51060; &#51080;&#50612;&#50836;. &#44536;&#47000;&#49436; &#49692;&#54620; &#44053;&#50500;&#51648;&#47484; &#53412;&#50864;&#45716;&#44163;&#46020; &#48373;&#51060;&#46972;&#44256; &#54616;&#45908;&#46972;&#44396;&#50836;. &#51723;&#46304; &#49800;&#54140;&#46020; &#53440;&#44256;&#45212;&#44172; &#49692;&#54644;&#48372;&#50688;&#44256; &#50628;&#51221;&#54868;&#50472; &#45909;&#48516;&#50640; &#45908; &#49457;&#54693;&#51060; &#51339;&#51008; &#51901;&#51004;&#47196; &#44403;&#54784;&#51652;&#44163; &#44057;&#50500;&#50836;. &#44053;&#51536;&#50752; &#50628;&#51221;&#54868;&#50472;&#46020; &#51648;&#44552;&#52376;&#47100; &#54665;&#48373;&#54616;&#44600; &#48148;&#46989;&#45768;&#45796;&#129392;</span></a>
+                </li>
+                            </ul>
+                        <ul style="display: none;">
+				                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345613" onclick="olapclick('NEWRE54');"><span class="tit">&#55136; &#45796;&#49884; &#54620;&#48264; &#48124;&#55148;&#51652; &#51064;&#53552;&#48624; &#45208;&#50724;&#47732; &#46244;&#51665;&#50612;&#51656;&#44144; &#44057;&#51008; &#49324;&#54637;&#51064;&#46319;. &#54644;&#51648;&#44428;&#47564; &#48372;&#44256; &#49548;&#49444;&#51012; &#50024;&#48372;&#51088;&#47732; &#50500;&#47924;&#47000;&#46020; &#51088;&#44592;&#47484; &#51922;&#50500;&#45244;&#47140;&#44256; &#54616;&#45768; &#45684;&#51652;&#49828;&#47564; &#45224;&#51004;&#47732; &#51228; 2&#51032; &#50668;&#51088; &#52828;&#44396;&#52376;&#47100; &#46112;&#44620;&#48400; &#44536;&#47088;&#44144; &#50500;&#45776;&#44620; ..</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345168" onclick="olapclick('NEWRE54');"><span class="tit">&#50628;&#51221;&#54868; &#54200; &#48420;&#45716;&#45936; &#49800;&#54140; &#53440;&#44256;&#45212; &#49457;&#54693; &#51088;&#52404;&#44032; &#50628;&#52397; &#50728;&#49692;&#54616;&#44256; &#51312;&#50857;&#54632;. &#48372;&#54840;&#51088;&#46020; &#51096; &#46384;&#47476;&#45716;&#45936; &#50628;&#51221;&#54868;&#44032; &#50892;&#45209; &#52265;&#54616;&#44172; &#51096;&#54644;&#51480;&#49436; &#44536;&#47088;&#51648; &#48372;&#54840;&#51088;&#50752; &#44053;&#50500;&#51648; &#44288;&#44228;&#44032; &#50504;&#51221;&#51201;&#51060;&#45908;&#46972;. &#49436;&#47196;&#50640;&#44172; &#48373;&#51076;.</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345715" onclick="olapclick('NEWRE54');"><span class="tit">&#44144;&#51667;&#47568;&#47196; &#50616;&#54540; &#54616;&#45716; &#51901;&#51008; &#54616;&#51060;&#48652;. &#48124;&#55148;&#51652; &#47568;&#50640; &#45908; &#49888;&#47280;&#44032; &#44036;&#45796;. &#51221;&#47568; &#49892;&#51201; &#51096;&#45236;&#45716; &#51088;&#54924;&#49324; &#49324;&#51109;&#54620;&#53580; &#51200;&#47111;&#44172; &#44620;&#51648; &#54616;&#45716; &#51060;&#50976;&#44032; &#47960;&#44620;? &#51652;&#51676; &#44312;&#50488;&#51396;&#46972;&#47732; &#51060;&#48264;&#50640; &#48124;&#55148;&#51652;&#51060; &#51060;&#44592;&#44600; &#48148;&#46988;.</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345128" onclick="olapclick('NEWRE54');"><span class="tit">&#45208;&#51060; &#54872;&#44049; &#51204;&#54980;. 70&#45796; &#46108; &#51064;&#44036;&#46308;. &#51221;&#47568; &#50669;&#44217;&#49845;&#45768;&#45796;. &#51200;&#44592; &#49483; &#45796;&#12641;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345388" onclick="olapclick('NEWRE54');"><span class="tit">&#47784;&#53468;&#49556;&#47196;, &#54841;&#51008; &#50672;&#50528;&#45208; &#44208;&#54844;&#51060; &#51096; &#50504; &#54400;&#47532;&#45716; &#45784;&#46308;&#50500;! &#45208;&#46020; &#54624; &#49688; &#51080;&#45796;&#45716; &#55148;&#47581;&#51012; &#51328; &#44032;&#51256;&#48400;&#46972;! &#45224;&#51088;&#47196;&#49436; &#53412;&#44032; 150cm &#51221;&#46020; &#48150;&#50640; &#50504; &#46104;&#45716; &#51473;&#44256;&#46321;&#54617;&#44368; &#44368;&#49324;&#46020; &#47785;&#49704;&#51012; &#49828;&#49828;&#47196; &#45130;&#44144;&#45208; &#51088;&#54644;&#47484; &#54616;&#51648;&#50506;&#44256; &#44208;&#54844;&#54644;&#49436; &#52376;&#51088;&#49885;&#44620;&#51648; &#46160;&#44256; &#49373;&#51012; &#51060;&#50612;&#44032;&#45908;&#46972;? &#49457;&#51064;&#51060;&#46972; &#51032;&#54617;&#51201;&#51004;&#47196; &#51208;&#45824; &#53412;&#44032; &#49457;&#51109;&#54616;&#51648; &#47803;&#54624;&#53584;&#45936;&#46972;&#47728; &#50500;&#51060;&#46308;&#51060; &#46263;&#45812;&#54868;&#47484; &#54616;&#44256; &#51080;&#50632;&#45912; &#44163;&#46020; &#47784;&#47476;&#44256;, &#47588;&#45804; &#54617;&#49373;&#46308;&#51060; &#46024; &#51648;&#48520;&#54644;</span></a>
+                </li>
+                            </ul>
+                        <ul style="display: none;">
+				                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345130" onclick="olapclick('NEWRE54');"><span class="tit">&#48324;&#47196;&#51064;&#44172;.. &#52376;&#51020; &#49457;&#52628;&#54665; &#45817;&#54616;&#44256;&#45716; &#50780; &#49888;&#44256;&#47484; &#50504;&#54664;&#51012;&#44620;&#50836;? &#44536;&#47532;&#44256; &#45224;&#45376;&#47928;&#51228;&#47484; &#45320;&#47924; &#50616;&#47200;&#54540;&#47112;&#51060;&#54616;&#45716; &#51088;&#49464;&#44032; &#48324;&#47196;&#51077;&#45768;&#45796;. &#49324;&#46993;, &#51060;&#54844; &#49912;&#50880;&#51008; &#46168;&#51060;&#49436; &#51312;&#50857;&#55176; &#54616;&#49464;&#50836; &#50504;&#44536;&#47000;&#46020; &#49464;&#49345;&#51060; &#49884;&#45124;&#47084;&#50868;&#45936;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345588" onclick="olapclick('NEWRE54');"><span class="tit">&#45684;&#51652;&#49828; &#50628;&#47560;&#44032; &#50500;&#45768;&#46972; &#45684;&#51652;&#49828; &#51452;&#51064;&#51060; &#46104;&#44256; &#49910;&#50632;&#45348;.</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345794" onclick="olapclick('NEWRE54');"><span class="tit">&#54616;&#51060;&#48652; &#47568;&#51109;&#45212; __ &#51096; &#52824;&#45348;&#12619;&#12619;&#12619;&#12619;&#12619; &apos;&#50808;&#48512;&#50857;&#50669;&#49324; &#49440;&#51221;&#44284; &#51204;&#49549;&#44228;&#50557;&#51012; &#54252;&#54632;&#54620; &#51473;&#50836;&#44228;&#50557; &#52404;&#44208;&#50640; &#44288;&#54620; &#49324;&#54637;&#51012; &#45824;&#54364;&#51060;&#49324; &#44428;&#54620;&#51004;&#47196; &#54624; &#44163;&#51012; &#50836;&#44396;&apos; &#51060;&#44152; &#45684;&#51652;&#49828; &#44228;&#50557;&#54644;&#51648;&#44428;&#51004;&#47196; &#46164;&#44049;&#51012; &#49884;&#53412;&#45348; &#51060;&#50556;~</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345677" onclick="olapclick('NEWRE54');"><span class="tit">&#51060;&#44144; &#48124;&#55148;&#51652;&#50472; &#44592;&#51088;&#54924;&#44204;&#50640;&#49436; &#49913;&#45796; &#48157;&#55180;&#44144;&#50640;&#50836;. &#52392;&#50644; &#54616;&#51060;&#48652; &#49548;&#49549; &#52395; &#44152;&#44536;&#47353; &#45236;&#51088;- &#54644;&#49436; &#50528;&#46308; &#48977;&#50520;&#45716;&#45936; &#44049;&#51088;&#44592; &#48120;&#47336;&#51088;- &#51060;&#47084;&#47732;&#49436; &#44608;&#52292;&#50896; &#49324;&#53216;&#46972; &#54596;&#46160;&#47196; &#12619;&#12619;&#12619; &#54620; &#44152;&#44536;&#47353; &#47676;&#51200; &#45236;&#51088;- &#51060;&#47084;&#44256;. &#46160;&#48264;&#51704;&#47196;&#45716;, &#51088;&#44984; &#45684;&#51652;&#49828; &#49436;&#54252;&#53944; &#50504;&#54644;&#51452;&#44256; &#50724;&#55176;&#47140; &#54861;&#48372; &#45208;&#51473;&#51004;&#47196; &#48120;&#47336;&#46972;&#44256; &#44536;&#47084;&#44256; &#x28;-&gt; &#51060;&#50640; &#45824;&#54620; &#51613;&#44144;&#45716; &#48124;&#55148;&#51652;&#50472;&#44032; &#52852;&#53665; &#51204;&#47928; &#49913;&#45796; &#52897;&#52432;&#54632;&#x29; &#48124;&#55148;&#51652;&#50472;&#44032;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345381" onclick="olapclick('NEWRE54');"><span class="tit">&#51060;&#48264; &#44592;&#49688; &#49828;&#54169;&#51060; &#45796;&#46308; &#45336;&#49324;&#48317;&#51060;&#46972; &#54000;&#48708;&#48372;&#45716; &#45236;&#47784;&#49845;&#51060; &#45320;&#47924; &#54620;&#49900;&#54644;&#49436; &#44340;&#47532;&#44048;&#45712;&#44807;&#51020; &#12636;&#12636;</span></a>
+                </li>
+                            </ul>
+                        <ul style="display: none;">
+				                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345799" onclick="olapclick('NEWRE54');"><span class="tit">&#46021;&#47549;&#47112;&#51060;&#48660;&#51060; &#50500;&#45768;&#50632;&#45912;&#44172; &#52649;&#44201;.. &#50612;&#46020;&#50612;&#44032; &#47112;&#51060;&#48660;&#52404;&#51228;&#50640;&#49436; &#44221;&#51137;&#54616;&#45716;&#44144;&#47732; &#44204;&#51228;&#48155;&#45716;&#44163;&#46020; &#51060;&#54644;&#44032;&#51648; &#44208;&#51221;&#44428;&#54620;&#51060; &#51200;&#47111;&#44172; &#52629;&#49548;&#46104;&#50612;&#51080;&#45716;&#45936;&#46020; &#48169;&#54644;&#44620;&#51648;&#54620;&#44144;&#50556;?</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/344986" onclick="olapclick('NEWRE54');"><span class="tit">&#51456;&#48708;&#44032; &#50504;&#46108;&#51088; &#50613;&#50872;&#54644;&#54616;&#51648; &#47560;&#46972;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345046" onclick="olapclick('NEWRE54');"><span class="tit">&#49324;&#46993;&#51012; &#45224;&#54200;&#51088;&#49885;&#46020; &#50630;&#50612; &#50724;&#47215;&#51060; &#44060;&#54620;&#53580;&#47564; &#50143;&#50500; &#48519;&#51012; &#49688; &#51080;&#51004;&#45768; &#51200;&#44163;&#46020; &#44032;&#45733;&#54616;&#44164;&#51424;</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345584" onclick="olapclick('NEWRE54');"><span class="tit">&#54616;&#51060;&#48652; &#50616;&#54540; &#51109;&#45212; &#50500;&#45768;&#45348;~&#45796; &#52852;&#45908;&#46972; &#49548;&#49885;&#44284; &#49440;&#46041;~</span></a>
+                </li>
+                                <li class="lt2_2">
+                    <a href="https://m.ssul.nate.com/view/345621" onclick="olapclick('NEWRE54');"><span class="tit">&#54616;&#51060;&#48652;&#44032; &#50500;&#45772; &#45800;&#50900;&#46300;&#44032; &#51077;&#51109;&#51012; &#48157;&#55176;&#45348;? &#47784;&#54632;&#51060;&#46972;&#44256; &#54616;&#47732; &#45572;&#44032;&#48400;&#46020; &#54616;&#51060;&#48652;&#47484; &#47784;&#54632;&#54616;&#45716;&#44144;&#51648; &#45800;&#50900;&#46300;&#47484; &#47784;&#54632;&#54616;&#45716;&#44148;&#44032;? ^^;;</span></a>
+                </li>
+                            </ul>
+                    </div>
+        <div class="pageNav" data-findicator="y">
+	<button type="button" class="arrow prev" onclick="olapclick('NEWRE55');"><em>이전</em></button>
+	<span class="pagenum">
+        <span class="num">1</span><span class="num">2</span><span class="num">3</span><span class="num">4</span><span class="num">5</span>	</span>
+	<button type="button" class="arrow next" onclick="olapclick('NEWRE55');"><em>다음</em></button>
+</div>
+    </div>
+    <a href="https://m.ssul.nate.com/?aroundSort=H" class="more" onclick="olapclick('NEWRE53');">더보기</a>
+</div>
+<!-- //인기 많은 썰 -->
+
+<!-- 톡커들의 선택 판 모듈 -->
+<div class="mlt01 pann_list " data-fwrapper="y">
+	<h3 class="cluster_title">톡커들의 선택 </h3>
+	<div data-fcover="y">
+				<div >
+			<ol>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372492385?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">1</span>
+						<span class="tBox">&#51064;&#52380; &#52488;&#46327;&#54617;&#49373; &#49332;&#51064;&#48276; &#44540;&#54889; &#52649;&#44201;&#51076;</span>
+						<span class="rcnt">(116)</span>
+						<p class="sub">
+						<span>조회 109,820</span>
+						<span>추천 812</span>
+						</p>
+					</a>
+				</li>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372489184?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">2</span>
+						<span class="tBox">&#54217;&#54868;&#45572;&#47532;&#53945;&#48324;&#51088;&#52824;&#46020; &#45320;&#47924; &#46892;&#44552;&#50630;&#45348;&#50836;</span>
+						<span class="rcnt">(123)</span>
+						<p class="sub">
+						<span>조회 39,683</span>
+						<span>추천 191</span>
+						</p>
+					</a>
+				</li>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372490693?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">3</span>
+						<span class="tBox">&#52636;&#44540; 3&#51068;&#52264;&#51064;&#45936; &#45796;&#46308; &#51060;&#47111;&#44172; &#49332;&#50500;?</span>
+						<span class="rcnt">(286)</span>
+						<p class="sub">
+						<span>조회 159,713</span>
+						<span>추천 568</span>
+						</p>
+					</a>
+				</li>
+							</ol>
+		</div>
+				<div style="display: none;">
+			<ol>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372489808?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">4</span>
+						<span class="tBox">&#47476;&#49464;&#46972;&#54604; &#50668;&#47200; &#51652;&#51676; &#45208;&#48736;&#51276;&#44396;&#45208;</span>
+						<span class="rcnt">(226)</span>
+						<p class="sub">
+						<span>조회 140,064</span>
+						<span>추천 878</span>
+						</p>
+					</a>
+				</li>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372489072?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">5</span>
+						<span class="tBox">&#48712;&#47568;&#47196;&#46020; &#50612;&#48260;&#51060;&#45216; &#50504;&#52313;&#44200;&#46020; &#46108;&#45796;&#44256; &#47568;&#54644;&#51452;&#51648;&#50506;&#45716; &#48512;&#47784;&#45784;&#44760; &#49436;&#50868;&#54644;&#50836;</span>
+						<span class="rcnt">(222)</span>
+						<p class="sub">
+						<span>조회 95,325</span>
+						<span>추천 393</span>
+						</p>
+					</a>
+				</li>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372489578?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">6</span>
+						<span class="tBox">&#51648;&#53076;&#50556;.. &#47672;&#54644;..?</span>
+						<span class="rcnt">(104)</span>
+						<p class="sub">
+						<span>조회 177,273</span>
+						<span>추천 537</span>
+						</p>
+					</a>
+				</li>
+							</ol>
+		</div>
+				<div style="display: none;">
+			<ol>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372491166?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">7</span>
+						<span class="tBox">&#50640;&#49828;&#54028; &#45824;&#44592;&#50629; &#53252;&#47532;&#54000;&#12609;&#12618;&#45348;&#12628;</span>
+						<span class="rcnt">(84)</span>
+						<p class="sub">
+						<span>조회 91,207</span>
+						<span>추천 295</span>
+						</p>
+					</a>
+				</li>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372489060?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">8</span>
+						<span class="tBox">&#54788;&#51116; &#51088;&#46041; &#49324;&#45285;&#51473;&#51060;&#46972;&#45716; YG&#50577;&#54788;&#49437;</span>
+						<span class="rcnt">(68)</span>
+						<p class="sub">
+						<span>조회 148,997</span>
+						<span>추천 596</span>
+						</p>
+					</a>
+				</li>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372492250?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">9</span>
+						<span class="tBox">&#48124;&#55148;&#51652; &#48152;&#55148;&#49688;&#46993; &#50672;&#44208;&#46108; &#48152;&#51648;&#50672; &#52292;&#45328; &#44845; &#48400;&#48400;!! (&#48164;&#50640; &#48372;&#47732; &#47924;&#49436;&#50880;) + &#45843;&#44544;&#48152;&#51025;&#52628;&#44032;</span>
+						<span class="rcnt">(64)</span>
+						<p class="sub">
+						<span>조회 37,202</span>
+						<span>추천 302</span>
+						</p>
+					</a>
+				</li>
+							</ol>
+		</div>
+				<div style="display: none;">
+			<ol>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372491034?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">10</span>
+						<span class="tBox">&#49884;&#45825;&#44032;&#47732; &#49884;&#45572;&#51060;&#44032; &#51208; &#53804;&#47749;&#51064;&#44036;&#52712;&#44553;&#54616;&#45716;&#45936;&#50836;</span>
+						<span class="rcnt">(55)</span>
+						<p class="sub">
+						<span>조회 39,742</span>
+						<span>추천 104</span>
+						</p>
+					</a>
+				</li>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372488875?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">11</span>
+						<span class="tBox">&#53461;&#54980;&#47336; &#49324;&#44148; &#51060;&#54980; &#51652;&#51088;&#47548; &#44540;&#54889;</span>
+						<span class="rcnt">(57)</span>
+						<p class="sub">
+						<span>조회 193,592</span>
+						<span>추천 359</span>
+						</p>
+					</a>
+				</li>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372488558?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">12</span>
+						<span class="tBox">&#51025;&#44032; &#49920; &#46412; &#54273;&#45817; &#53888;&#45716; &#49548;&#47532; &#49899;&#44144;&#45208; &#50633;&#45929;&#51060;&#50640; &#47932; &#53888;&#45716;&#44144; &#49899;&#50612;&#54616;&#45716; &#49324;&#46988;&#54620;&#53580; &#44992;&#54017; &#51456;&#45796;</span>
+						<span class="rcnt">(50)</span>
+						<p class="sub">
+						<span>조회 56,045</span>
+						<span>추천 102</span>
+						</p>
+					</a>
+				</li>
+							</ol>
+		</div>
+				<div style="display: none;">
+			<ol>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372489241?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">13</span>
+						<span class="tBox">&#47532;&#49324; &#45936;&#51060;&#53944; &#47785;&#44201;&#45812; &#44592;&#49324; &#48372;&#45716;&#45936;</span>
+						<span class="rcnt">(40)</span>
+						<p class="sub">
+						<span>조회 119,741</span>
+						<span>추천 229</span>
+						</p>
+					</a>
+				</li>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372488788?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">14</span>
+						<span class="tBox">&#50752; &#50864;&#47532; &#46021;&#49436;&#49892; &#44148;&#47932;&#50640; &#45800;&#50900;&#46300; &#51080;&#50632;&#51020;</span>
+						<span class="rcnt">(33)</span>
+						<p class="sub">
+						<span>조회 78,270</span>
+						<span>추천 225</span>
+						</p>
+					</a>
+				</li>
+												<li>
+					<a href="https://m.pann.nate.com/talk/372489697?currMenu=talker" onclick="olapclick('NEWRE46');">
+						<span class="num">15</span>
+						<span class="tBox">&#44540;&#45936; &#48372;&#47732; f&#46308;&#51060; &#45908; &#47803;&#46108;&#46319;</span>
+						<span class="rcnt">(54)</span>
+						<p class="sub">
+						<span>조회 27,257</span>
+						<span>추천 152</span>
+						</p>
+					</a>
+				</li>
+							</ol>
+		</div>
+			</div>
+	<div class="pageNav" data-findicator="y">
+	<button type="button" class="arrow prev"><em>이전</em></button>
+	<span class="pagenum">
+				<span class="num">1</span>
+				<span class="num">2</span>
+				<span class="num">3</span>
+				<span class="num">4</span>
+				<span class="num">5</span>
+			</span>
+	<button type="button" class="arrow next"><em>다음</em></button>
+	</div>
+	<a class="more" href="//m.pann.nate.com/talk/talker?order=RAN" onclick="olapclick('NEWRE45');">더보기</a>	
+</div>
+<hr class="vt-space" />
+
+
+
+<!-- HOT PHOTO -->
+
+<!-- 인기 많은 썰 모듈 -->
+<!-- //인기 많은 썰 -->			
+			<div class="sa_ad_banner">
+				<iframe src="//m.news.nate.com/etc/AdSaTextBanner" name="ad_SaTextbanner" id="ad_SaTextbanner" style="width:100%;height:120px;border: 0" title="광고 배너"></iframe>
+			</div>
+			
+			<div class="etc_footer">
+		<div class="fontSize">
+		<button type="button" data-btn="f1" onclick="olapclick('RAM101');changeFontSize(event)" title="보통 글씨" class="">가</button>
+		<button type="button" data-btn="f2" onclick="olapclick('RAM102');changeFontSize(event);" title="큰 글씨">가</button>
+		<button type="button" data-btn="f3" onclick="olapclick('RAM103');changeFontSize(event);" title="가장 큰 글씨" class="">가</button>
+	</div>
+		<div class="scroll_up_v2"><a href="#header" onclick="olapclick('RAM51');">맨위로</a></div></div>		</aside>
+
+		<div class="bt_banner">
+			<iframe title="쇼핑박스 광고 프레임" id="ifr_ad_shopbox" name="ifr_ad_shopbox" src="about:blank" data-src="//m.news.nate.com/etc/adShopBox" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" width="100%" height="0"></iframe>
+		</div>
+		
+		<!-- SA 광고 -->
+	<div class="shopBox">
+	    <div class="mallBox">
+	        <div class="ml">
+	        		            <a href="https://mdirect.hi.co.kr/service.do?m=b5eef5f9a4&amp;src=nate_da&amp;kw=003956&amp;HDMS1=cpc&amp;HDMS2=nate&amp;HDMS3=brandsearch&amp;HDMS4=%EC%9E%90%EB%8F%99%EC%B0%A8%5F%EA%B8%B0%EB%B3%B8%5F%EB%A9%94%EC%9D%B8%EC%9D%B4%EB%AF%B8%EC%A7%80&amp;utm_source=nate&amp;utm_medium=brandsearch&amp;utm_campaign=%EC%9E%90%EB%8F%99%EC%B0%A8%EB%B3%B4%ED%97%98&amp;utm_term=%EC%9E%90%EB%8F%99%EC%B0%A8%5F%EA%B8%B0%EB%B3%B8%5F%EB%A9%94%EC%9D%B8%EC%9D%B4%EB%AF%B8%EC%A7%80" target="_blank" onclick="olapclick('SAT01');">현대해상</a>
+	            	            <a href="https://mdirect.kbinsure.co.kr/websquare/mobilePromotion.jsp?pid=1090040&amp;code=0002&amp;page=m_step1&amp;utm_source=Nate&amp;utm_medium=Nate_BS&amp;utm_campaign=0517_1231_nate_bs&amp;utm_term=%7Bkeyword%7D&amp;utm_content=10900400002&amp;_AT=0426143D01A803430876" target="_blank" onclick="olapclick('SAT02');">KB손해보험</a>
+	            	            <a href="https://m.directdb.co.kr/at/prd/atarc/step1/formStepPreView.do?src=nate_da&amp;kw=03F01B&amp;partner_code=C559&amp;keyword=MTZ100015&amp;utm_source=nate_m&amp;utm_medium=cpc&amp;utm_campaign=nhnad&amp;utm_term=DB%EB%8B%A4%EC%9D%B4%EB%A0%89%ED%8A%B8%EC%9E%90%EB%8F%99%EC%B0%A8%EB%B3%B4%ED%97%98" target="_blank" onclick="olapclick('SAT03');">DB손해보험</a>
+	            	        </div>
+	        <div class="ml">
+	        		            <a href="https://m.dbinsure.co.kr/driver?JEHUSA_CD=C5204&amp;utm_medium=cpc&amp;utm_source=nate_mobile&amp;utm_campaign=biz&amp;utm_content=driver&amp;utm_term=%EC%9A%B4%EC%A0%84%EC%9E%90%EB%B3%B4%ED%97%98" target="_blank" onclick="olapclick('SAT04');">운전자보험</a>
+	            	            <a href="https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&amp;tid=1001647852" target="_blank" onclick="olapclick('SAT05');">11번가</a>
+	            	            <a href="https://m.axa.co.kr/indexm_email_relay.jsp?sm_flag=N&amp;site_acq_src=0813001&amp;cmpid=sa_nate_pre_bs_M-image&amp;relay_lang_type=ko&amp;go_url=/mobdblcms/html/dmai/cal/dmai_cal_11_m.html&amp;utm_source=nate&amp;utm_medium=cpm&amp;utm_campaign=BRAND-SEARCH&amp;utm_content=image" target="_blank" onclick="olapclick('SAT06');">AXA손해보험</a>
+	            	        </div>
+	    </div>
+	</div>
+		
+	</section>
+	<!-- //Responsive_right -->
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	var Reward = {
+        isLoad : false,
+        view : function() {
+            
+            jQuery.ajax({
+                type: "POST", dataType: "jsonp", url: "//m.comm.news.nate.com/reward",
+                success: function(data){
+                    var reward_login = data.login || "false";
+                    var reward_point = data.point || 0;
+                    
+                    if (!Reward.isLoad) {
+                        var reward_script = document.createElement("script");
+                        reward_script.src = "https://reward.nate.com/detail_motion_module/dist/rewardView.min.js?202405021617";
+                        document.body.appendChild(reward_script);
+                    }
+
+                    var reward_before_ele = document.querySelector('nate-reward-view');
+                    if (reward_before_ele) {
+                        reward_before_ele.remove()
+                    }
+                    
+                    var reward_ele = document.createElement("nate-reward-view");
+                    reward_ele.setAttribute("service","news");
+                    reward_ele.setAttribute("login",reward_login);
+                    reward_ele.setAttribute("point",reward_point);
+                    reward_ele.setAttribute("position","fixed");
+                    reward_ele.setAttribute("right","0");
+                    reward_ele.setAttribute("bottom","0");
+                    reward_ele.setAttribute("zindex","101");
+                    document.body.appendChild(reward_ele);
+
+                    isLoad = true;
+                },
+                error: function(e){ }
+            });
+        }
+    };
+    
+    window.onpageshow = function () {
+        Reward.view();
+    }
+
+//]]>
+</script><img id="RankCall" src="//nimg.nate.com/ui/uidev/images/common/blank.gif" onerror="blankImg(this,0,0)" style="display:none;" alt="랭킹이미지" />
+<img id="RankCall_1" src="//nimg.nate.com/ui/uidev/images/common/blank.gif" onerror="blankImg(this,0,0)" style="display:none;" alt="랭킹이미지" />
+<iframe id="sns_hidden" src="about:blank" name="sns_hidden" style="display:none"></iframe>
+<script language="javascript" src="//cyad1.nate.com/js.kti/dmp/news@data_x32" news_title="SK컴즈, 재택근무로 네이트온 사용량 올해 최고치" news_cate1="IT/과학" news_cate2="IT/과학일반" news_cate3="" defer="defer"></script>
+<script type="text/javascript">
+//<![CDATA[
+	try {
+		draw_mndr('m_ndr.nate.com/news/press/cb', gUserJS_sAppFrom, 'view', gUserJS_sAppSkai, gUserJS_sAppNdruk);
+	} catch(e) {
+		draw_mndr('m_ndr.nate.com/news/press/cb', '', 'view', '', '');
+	}
+//]]>
+</script>
+
+		</section>
+		<hr />
+			<script type="text/javascript">
+		try {
+			function holdPCVersion() {
+				var domain = '.news.nate.com';
+				var exp_time = new Date(); exp_time.setTime(exp_time.getTime() + 5*1000 );
+				setCookie('HOLDPC', '1', exp_time, '/', domain);
+			}
+		} catch(e) {}
+	</script>
+    <!-- footer -->
+    <footer id="footer" role="contentinfo">
+        <!-- 로그인 전 -->
+        <div class="footer">
+            <!-- a태그 줄바꿈 금지 -->
+            <div class="svcBtn">
+                <a href="//m.nate.com" onclick="ndrclick('RAM56');">네이트홈</a><a href="#" onclick="ndrclick('RAM56');loginout(encodeURIComponent(document.location.href));"><span id="loginbtnmsg">로그인</span></a><a href="//news.nate.com/view/20200309n34198" onclick="ndrclick('RAM56');holdPCVersion();">PC버전</a><a href="//m.nate.com/sitemap.html" onclick="ndrclick('RAM56');">전체서비스</a>
+            </div>            <ul class="sitemap">
+            	<li><a href="//news.nate.com/enews/editguide" onclick="ndrclick('RAM56');">기사배열기본방침(책임:김경옥)</a></li>
+            	<li><span>청소년보호책임:조유형</span></li>
+            	<li><a href="//m.news.nate.com/newssitemap" onclick="ndrclick('RAM56');">뉴스 전체서비스</a></li>
+            </ul>                        <div class="copyright"><span>&copy; SK Communications</span><a class="cscenter" href="//m.helpdesk.nate.com" onclick="ndrclick('RAM56');">고객센터</a></div>
+        </div>
+    </footer>
+    <!-- // footer -->		<!-- 최상단으로 이동 / NateAppViewBanner -->
+		<!-- 앱 이벤트 배너 설정 -->
+<div class="viewAppEvent ssul" style="display: none">
+	<img src="//news.nateimg.co.kr/etc/cms/2024/04/29/1714380904_256.png" alt="프로모션 배너" class="img" />
+	<a href="javascript:executePromotionLink();" class="rink_area"></a> <a href="javascript:denyNateApp();" class="close_area"></a>
+</div>
+
+<script type="text/javascript">
+
+	var appBannerCookie = "APPVIEW_24043001";
+
+	var visitedAt = +new Date;
+
+	function checkNateApp(retry_num) {
+		
+		var top_button_id = '';
+		var body_class = 'view_pg';
+		var service_snb = '';
+		
+		if ( typeof gUserJS_sAppFrom == 'undefined' ) {
+			retry_num -= 1;
+			if ( retry_num > 0 ) {
+				setTimeout(checkNateApp(retry_num), 1000);
+			}
+		} else {
+			// TOP 이동 버튼
+			if ( gUserJS_sAppFrom == 'nate_app' && top_button_id != '' ) {
+				$("#").hide();
+			} 
+			
+			// 네이트앱으로 보기 버튼
+			if ( gUserJS_sAppFrom != 'nate_app' && body_class == 'view_pg' && navigator.userAgent.indexOf("nateon_app") === -1 ) {
+				var nateapp_view = GetCookie(appBannerCookie);
+
+				if (nateapp_view != 'no') {
+					if( gUserJS_sOs == 'android' || gUserJS_sOs == 'osx' || (navigator.userAgent.match('Macintosh') && navigator.maxTouchPoints > 1) ){
+	 					if($(".viewAppPOP")){
+	 						$(".viewAppPOP").show();
+	 	 				}
+	 	 				if($(".viewAppEvent")){
+	 	 					$(".viewAppEvent").show();
+	 	 	 			}
+					}
+					if($(".viewAppPop_2023")){
+						$(".viewAppPop_2023").show();
+					}
+				}
+			}
+		}
+	}
+
+	function denyNewsBanner(){
+
+		if(document.querySelector('.viewAppPop_2023')){
+			olapclick('RAX92');
+			document.querySelector('.viewAppPop_2023').style.display='none';
+		}
+
+		setBannerCookie();
+
+		return false;
+	}
+	
+	
+	function denyNateApp() {
+		
+		if(document.querySelector('.viewAppPOP')){
+			document.querySelector('.viewAppPOP').style.display='none';
+		}
+
+		if(document.querySelector('.viewAppEvent')){
+			document.querySelector('.viewAppEvent').style.display='none';
+		}
+
+		if (gUserJS_sOs == 'android') {
+			olapclick('RAX89');
+		} else if (gUserJS_sOs == 'osx') {
+			olapclick('RAX86');
+		}
+		
+		setBannerCookie();
+
+		return false;
+	}
+
+	function setBannerCookie(){
+		var domain = '.news.nate.com';
+		var exp_time = new Date(); 
+		exp_time.setTime(exp_time.getTime() + 1000*60*60*24*1 );
+		setCookie(appBannerCookie, 'no', exp_time, '/', domain);
+	}
+
+	function executeNewsLink(artcSq){
+		olapclick('RAX91');
+		var url = "https://m.news.nate.com/view/"+artcSq;
+		document.location.href = url;
+		
+	}
+
+	function executePromotionLink(){
+		
+				var url = "https://reward.nate.com/";
+		useNateApp(url);
+			}
+
+	function executeAppLink(){
+
+		var url = document.location.href
+		useNateApp(url);
+	}
+
+	function useNateApp(link_url) {
+
+		nateapp_custom_scheme = 'nate://newslink?url=' + encodeURIComponent(link_url);
+
+		aos_nateapp_appstore_url = 'https://play.google.com/store/apps/details?id=com.nate.android.portalmini';
+		ios_nateapp_appstore_url = 'https://apps.apple.com/kr/app/id402681762?mt=8';
+
+		aos_intent_url = 'intent://newslink?url=' + encodeURIComponent(link_url) + '#Intent;scheme=nate;package=com.nate.android.portalmini;end';
+		ios_universal_link_url = 'https://m.nate.com/scheme/news/newslink/?' + encodeURIComponent(link_url);
+		
+		var visitedAt = +new Date;
+		
+		if (gUserJS_sOs == 'android') {
+			// AOS execute
+			olapclick('RAX88');
+			document.location = aos_intent_url;
+		} else if (gUserJS_sOs == 'osx') {
+			if ( navigator.userAgent.match('iPhone') != null || navigator.userAgent.match('iPod') != null || navigator.userAgent.match('iPad') != null ) {
+				// IOS execute
+				olapclick('RAX85');
+				document.location = ios_universal_link_url;
+			}
+		} else if (navigator.userAgent.match('Macintosh') && navigator.maxTouchPoints > 1){ //ipad
+			olapclick('RAX85');
+			document.location = ios_universal_link_url;
+		}
+		return false;
+	}
+
+	checkNateApp(10);
+
+	</script>		<!--// 최상단으로 이동 / NateAppViewBanner -->
+	</div>
+
+		
+	<!-- ndr code -->
+	<script type="text/javascript">
+	//<![CDATA[
+		var sRef2 = "";
+				try {
+			draw_mndr('m_ndr.nate.com/news/its', gUserJS_sAppFrom, '', gUserJS_sAppSkai, gUserJS_sAppNdruk, sRef2);
+		} catch(e) {
+			draw_mndr('m_ndr.nate.com/news/its', '', '', '', '', sRef2);
+		}
+		
+				draw_ndr('news_ndr.nate.com/mnate/its');
+			//]]>
+	</script>
+
+
+	
+	<!-- //ndr code -->
+</body> 
+</html>
