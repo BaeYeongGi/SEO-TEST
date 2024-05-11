@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEXT TO SPEECH</title>
+</head>
+<body class="body">
+  <style>
+    * {
+      margin:0;
+      padding:0;
+    }
+    .text_to_speech_layer {
+      position:fixed;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      border:4px solid #ccc;
+      padding:20px;
+      box-sizing:border-box;
+      width:90%;
+      background-color:#eee;
+    }
+  </style>
+
+  <button class="text_to_speech_layer_button">음성변환</button>
+  <p class="article">멀어져 가는 꿈의 잔상처럼
+    지난 내 하루의 표정이 기억이 안 나
+    멋대로 밀려오는 생각이
+    날 괴롭혀 또 다그쳐 우우
+    
+    어린 날 훔쳐본 어른의 모습은
+    내게 환상이라 말하고
+    무감각해진 시곗바늘 난 그대로인 듯이
+    어린애로 남아 있나 봐
+    
+    하늘이 무겁다 해도
+    까진 무릎이 아팠던 것도 모른 채
+    온 세상을 날아 모든 걸 놀이하듯이
+    지금도 똑같아 다를 거 없어
+    
+    많은 사람들 사이를 안 닿고 지나기
+    남모르게 은밀히 자리에 앉기
+    맨 먼저 퇴근한 사람이 술래인 거야
+    꼭 말해줘 다시 만나 또 놀자고
+    
+    환하게 웃으며 얘기하는 사람
+    뒤돌아 떠나도 미소를 머금고 있기를 바라도
+    스치는 혜성처럼
+    찰나인 듯한 아름다움
+    
+    하늘이 무겁다 해도
+    까진 무릎이 아팠던 것도 모른 채
+    온 세상을 날아 모든 걸 놀이하듯이
+    지금도 똑같아 다를 거 없어
+    
+    많은 사람들 사이를 안 닿고 지나기
+    남모르게 은밀히 자리에 앉기
+    맨 먼저 퇴근한 사람이 술래인 거야
+    꼭 말해줘 다시 만나
+    
+    무궁화에 (무궁화에) 꽃이 피고 (꽃이 피고)
+    돌아보면 (돌아보면) 다 그대로 멈춰라
+    더 이상은 (더 이상은)
+    떠나가지 말아 줘 멈춰서 줘
+    
+    (나나나나 나나나 나나나 나나나)
+    (나나나나 나나나 나나나 나나나)
+    
+    다시 찾을게 우리가 떠나온 그날들을
+    넌 웃어줘 함께 놀던 그날처럼</p>
+  <script>
+    const textToSpeechButton = document.querySelector('.text_to_speech_layer_button');
+    const bodyEl = document.querySelector('.body');
+    let isTextToSpeechLayer;
+
+    const textToSpeechLayer = `
+    <dl>
+      <dt>성별</dt>
+      <dd>
+        <input type="radio" id="male" name="gender" checked>
+        <label for="male">남성</label>
+      </dd>
+      <dd>
+        <input type="radio" id="female" name="gender">
+        <label for="female">여성</label>
+      </dd>      
+    </dl>
+    <dl>
+      <dt>말하기 속도</dt>
+      <dd>
+        <input type="radio" id="slow" name="speed">
+        <label for="slow">느림</label>
+      </dd>
+      <dd>
+        <input type="radio" id="normal" name="speed" checked>
+        <label for="normal">보통</label>
+      </dd>
+      <dd>
+        <input type="radio" id="fast" name="speed">
+        <label for="fast">빠름</label>
+      </dd>       
+    </dl>
+    <button class="text_to_speech_start_button">본문듣기 시작</button>
+    `;
+
+    textToSpeechButton.addEventListener('click', function(e){
+      isTextToSpeechLayer = !isTextToSpeechLayer;
+      if(isTextToSpeechLayer){
+        console.log('true')
+        const createLayer = document.createElement('DIV');
+        createLayer.className = 'text_to_speech_layer';
+        createLayer.innerHTML = textToSpeechLayer;
+        bodyEl.appendChild(createLayer);
+      } else {
+        console.log('false')
+        document.querySelector('.text_to_speech_layer').remove();
+      }
+    })
+
+
+
+  </script>
+</body>
