@@ -146,11 +146,11 @@
 				setData: function(choice, cnt) {
 					if ( choice == "up" ) {
 						var inner = $("#up_cnt").html = "";
-						inner += "<a href=\"javascript:UpDown.vote(\'up\', '" + cnt + "')\" aria-selected=\"false\"><span class=\'up img\'></span><div class='\count_wrap'\><span class='\count_txt'\>올려</span><span class='\count up'\><em>올려수</em>\n" + cnt  + "</span></div></a>";
+						inner += "<a href=\"javascript:UpDown.vote(\'up\', '" + cnt + "')\" aria-selected=\"false\" role="tab"><span class=\'up img\'></span><div class='\count_wrap'\><span class='\count_txt'\>올려</span><span class='\count up'\><em>올려수</em>\n" + cnt  + "</span></div></a>";
 						$("#up_cnt").html(inner);
 					} else if ( choice == "down" ) {
 						var inner = $("#down_cnt").html = "";
-						inner += "<a href=\"javascript:UpDown.vote(\'down\', '" + cnt + "')\" aria-selected=\"false\"><span class=\'down img\'></span><div class='\count_wrap'\><span class='\count_txt'\>내려</span><span class='\count down'\><em>내려수</em>\n" + cnt  + "</span></div></a>";
+						inner += "<a href=\"javascript:UpDown.vote(\'down\', '" + cnt + "')\" aria-selected=\"false\" role="tab"><span class=\'down img\'></span><div class='\count_wrap'\><span class='\count_txt'\>내려</span><span class='\count down'\><em>내려수</em>\n" + cnt  + "</span></div></a>";
 						$("#down_cnt").html(inner);
 					}
 				},
@@ -913,8 +913,8 @@ SK컴즈, 네이트온 사용량 최대 10% 이상 증가<br><br><div id="conten
 </div>				
 				<!-- 올려내려 -->
 				<div class="upDown">
-					<ul>
-						<li id="up_cnt">
+					<ul role="tablist">
+						<li id="up_cnt" role="presentation">
 							<a href="#">
 								<span class="up img"></span>
 								<div class="count_wrap">
@@ -924,7 +924,7 @@ SK컴즈, 네이트온 사용량 최대 10% 이상 증가<br><br><div id="conten
 								</div>
 							</a>
 						</li>
-						<li id="down_cnt">
+						<li id="down_cnt" role="presentation">
 							<a href="#">
 								<span class="down img"></span>
 								<div class="count_wrap">
