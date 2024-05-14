@@ -146,11 +146,11 @@
 				setData: function(choice, cnt) {
 					if ( choice == "up" ) {
 						var inner = $("#up_cnt").html = "";
-						inner += "<a href=\"javascript:UpDown.vote(\'up\', '" + cnt + "')\" aria-selected=\"false\" role=\"button\"><span class=\'up img\'></span><div class='\count_wrap'\><span class='\count_txt'\>올려</span><span class='\count up'\><em>올려수</em>\n" + cnt  + "</span></div></a>";
+						inner += "<a href=\"javascript:UpDown.vote(\'up\', '" + cnt + "')\" aria-selected=\"false\"><span class=\'up img\'></span><div class='\count_wrap'\><span class='\count_txt'\>올려</span><span class='\count up'\><em>올려수</em>\n" + cnt  + "</span></div></a>";
 						$("#up_cnt").html(inner);
 					} else if ( choice == "down" ) {
 						var inner = $("#down_cnt").html = "";
-						inner += "<a href=\"javascript:UpDown.vote(\'down\', '" + cnt + "')\" aria-selected=\"false\" role=\"button\"><span class=\'down img\'></span><div class='\count_wrap'\><span class='\count_txt'\>내려</span><span class='\count down'\><em>내려수</em>\n" + cnt  + "</span></div></a>";
+						inner += "<a href=\"javascript:UpDown.vote(\'down\', '" + cnt + "')\" aria-selected=\"false\"><span class=\'down img\'></span><div class='\count_wrap'\><span class='\count_txt'\>내려</span><span class='\count down'\><em>내려수</em>\n" + cnt  + "</span></div></a>";
 						$("#down_cnt").html(inner);
 					}
 				},
