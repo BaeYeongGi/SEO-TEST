@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="euc-kr" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, width=device-width" />
+        
+    <title>홈 : 네이트 스포츠</title>
+	<link rel="canonical" href="https://testdb-sports.news.nate.com/" /> 
+	<link rel="shortcut icon" href="//testdb-m.news.nate.com/icon/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="//test-nimg.nate.com/ui/uidev/images/mnews/common/nate_news_114.png?v=20140911" />
+	<link type="text/css" rel="stylesheet" href="//test-nimg.nate.com/ui/uidev/m/release/css/common.css?202406241030" />    	
+    <script type="text/javascript" src="//testdb-m-comm.news.nate.com/userJS?oj=1&amp;r=349717115"></script>    <script type="text/javascript" src="//testdb-m.news.nate.com/js/jquery-3.7.1.min.js"></script>    <script type="text/javascript" src="//testdb-m.news.nate.com/js/common.js?202406251020"></script>    <script type="text/javascript" src="//testdb-m.news.nate.com/js/mobile.js?202406251020"></script>    <script type="text/javascript" src="//testdb-m.news.nate.com/js/stat.js?202406251020"></script>	<script type="text/javascript" src="//testdb-m.news.nate.com/js/flickLib/plast-low-min.js?202406251020"></script>    <script type="text/javascript" src="//testdb-m.news.nate.com/js/media.js?202406251020"></script>	<script type="text/javascript" src="//testdb-m.news.nate.com/js/menu.js?202406251020"></script>		    <script type="text/javascript" src="//testdb-m.news.nate.com/js/clipboard.min.js?202406251020" defer="defer"></script>    <script type="text/javascript" src="//testdb-m.news.nate.com/js/cross-origin-message.min.js?v=202406251020"></script>
+<script type="text/javascript">
+//<!CDATA[
+	jQuery(document).ready(function() {
+		// CrossOrigin 초기 세팅
+		crsMsg.init({
+		   	path: '*.news.nate.com', // m.comm.news.nate.com 자식 정보 세팅 (* 하위 도메인 포함)
+			type: 'parent',
+			func: null
+		});
+	});
+
+	function callFnct (parmas) { 
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+
+		if (target == 'move_login') { // params 규격 {target: '실행구분', url: '이동 페이지 주소', params: '로그인 파라미터'}
+		// 로그인 페이지 이동
+
+			var url = (typeof parmas.url === 'undefined') ? '' : parmas.url;
+			var params = (typeof parmas.params === 'undefined') ? '' : parmas.params;
+			
+			if(url != ''){
+				location.href=url+encodeURIComponent(document.location.href)+params;
+			}
+		} else if (target == 'move_report') { // params 규격 {target: '실행구분', url: '이동 페이지 주소'}
+		// 페이지 이동
+
+			var url = (typeof parmas.url === 'undefined') ? '' : parmas.url;
+			
+			if(url != ''){
+				location.href='//testdb-m-comm.news.nate.com'+url+'&return_url='+encodeURIComponent(document.location.href);
+			}
+		} else if (target == 'youtube_resize_iframe') { // params 규격 {target: '실행구분', elementClass: 'dom.php에서 youtube를 iframe으로 감싼 클래스명', height: '높이값', idx: 'youtube iframe 순번'}
+		// 기사 내 youtube 플레이 셋팅
+
+			var elementClass = (typeof parmas.elementClass === 'undefined') ? '' : parmas.elementClass;
+			var height = (typeof parmas.height === 'undefined') ? '' : parmas.height;
+			var idx = (typeof parmas.idx === 'undefined') ? '' : parseInt(parmas.idx);
+			
+			if(elementId != '' && height != ''){
+
+				var _elementClassAll = document.querySelectorAll(elementClass);
+				if(_elementClassAll){			
+					if(typeof _elementClassAll[idx] !== 'undefined'){
+						_elementClassAll[idx].style.height = height +'px';
+					}
+				}
+			}
+		} else if (target == 'close_btn'){
+		// 댓글 닫기 버튼 기능
+			
+			var replyPOP = document.querySelector('.reply-guide-popup');
+		    var closeBtn = document.querySelector('#notes_confirm');
+	
+		    closeBtn.addEventListener('click', function(e) {
+		    	e.preventDefault();
+		    	replyPOP.setAttribute('aria-hidden', false);
+		    	document.body.style.overflow = 'visible';
+		    });
+		} else if (target == 'reply_btn') {
+		// 위치 정렬 스크롤 이동
+
+			var replyPOP = document.querySelector('.reply-guide-popup');
+
+		    replyPOP.setAttribute('aria-hidden', true)
+	        replyPOP.querySelector('.context').scrollTop = 0;
+	        document.body.style.overflow = 'hidden';
+		} else if (target == 'move_news_cmt') {
+		// 스크롤 이동
+
+			var elementClass = (typeof parmas.elementClass === 'undefined') ? '' : parmas.elementClass;
+			if(elementClass != ''){
+				window.scrollTo(0, document.querySelector('.'+elementClass).offsetTop);
+			}
+		}
+	}
+
+	function callBackFnct (parmas) {
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+	}
+	
+	// 뉴스 페이지의 광고 통합 처리 함수
+	// 넘어온 광고 target 코드값으로 분기 처리한다. height은 자식 iframe의 도큐먼트 높이 값
+	function callCrossOriginAd (parmas) {
+
+		var target = (typeof parmas.target === 'undefined') ? '' : parmas.target;
+		var height = (typeof parmas.height === 'undefined') ? '' : parmas.height;
+
+		if(target == 'ad_big' && height != '') {
+		// ad_big 광고 리사이징
+			
+			resizeIfr2({el: '#ad_big', height: height});
+		}
+	}
+
+//]]>
+</script>    	<script type="text/javascript" src="//testdb-m.news.nate.com/js/flickLib/MNComponent.js?202406251020"></script>
+	
+
+
+
+
+<!-- SEO Meta Tag -->
+<meta name="description" content="한눈에 보는 오늘 : 스포츠 홈 | 전재목 전 쇼트트랙 대표팀 코치, 투병 중 별세. 야구, 축구, 농구, 배구 등 최신 뉴스와 랭킹별 뉴스 제공" />
+
+<!-- Open Graph Meta Tag -->
+<meta property="og:url" content="http://testdb-m.news.nate.com/spo?sq=472825&amp;sq=472825" />
+<meta property="og:title" content="홈 : 네이트 스포츠" />
+<meta property="og:description" content="한눈에 보는 오늘 : 스포츠 홈 | 전재목 전 쇼트트랙 대표팀 코치, 투병 중 별세. 야구, 축구, 농구, 배구 등 최신 뉴스와 랭킹별 뉴스 제공" />
+<meta property="og:image" content="http://test-nimg.nate.com/ui/uidev/images/common/sns-og-fb-logo2.gif" />
+<meta property="og:site_name" content="모바일 네이트 뉴스" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ko_KR" />
+	
+<!-- Twitter Meta Tag -->
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- 네이트썰 Meta Tag -->
+<meta name="ssul:category" content="" /></head><body class="spo" >
+			<div id="wrap">
+		<!-- header -->
+		<header id="header"  role="banner">
+
+				<div class="gnbWrap">
+				<h1 class="gnb">			<a href="//m.nate.com" onclick="statClick('RAX82');" class="nate"><span class="hd-img">네이트</span></a>
+							<a href="//testdb-m.news.nate.com/spo" onclick="statClick('RAN31');" class="service">스포츠</a>
+					</h1>				<div class="relsvc">
+							<a href="//testdb-m.news.nate.com" onclick="statClick('RAM91');">뉴스</a>
+				<a href="//testdb-m.news.nate.com/ent" onclick="statClick('RAN30');">연예</a>
+					</div>
+		<div class="banner">
+			<a href="//testdb-m.news.nate.com/todayq" onclick="olapclick('RAX90');">
+				<div class="todayq_logo">
+					<img class="todayq_logo_1" alt="오늘의 퀴즈 - 로고 이미지" />
+					<div class="todayq_logo_3"></div>
+					<div class="todayq_logo_2"></div>
+				</div>
+			</a>
+		</div>		
+				<div class="searchWrap">
+			 <form id="search-field" name="search-field" role="search" aria-labelledby="search-keyword" method="get" accept-charset="utf-8">
+		        <fieldset>
+		            <legend id="search-keyword">뉴스 기사 검색</legend>
+		            <input type="search" name="q"  aria-labelledby="search-keyword" />
+		           	<button class="delete hd-img"  type="button"><span class="hd-img">검색어 삭제</span></button>
+		            		                <button class="srchbtn" onclick="searchGo('RAX83');" type="submit"><span class="hd-img">검색</span></button>
+		            		        </fieldset>
+		    </form>
+		</div>
+	</div>
+<script type="text/javascript">
+    var bSearch = '';
+
+	function searchGo(code) {
+        statClick(code);
+		var searchFrm = document.querySelector('#search-field');
+		searchFrm.action = '/search';
+		searchFrm.submit();
+	}
+
+    function statClick(code) {
+        if(bSearch){
+            search_ndrclickwithid('mw0101', code);
+        }
+        else{
+            olapclick(code); // 통계
+        }
+    }
+</script>
+							<!-- SNB 2depth 및 Floating 처리 -->
+												
+
+	<div class="lnbContainer" data-floating="false">
+		<div class="hide">스포츠 메인 메뉴</div>
+		<nav class="lnb flick sports">
+			<ul role="tablist" style="min-width:600px;">
+				<li role="presentation"><a role="tab" href="//testdb-m.news.nate.com/spo" onclick="MNstat('olapclick', 'RAN54', 'RAX26');" class="on" aria-selected="true">홈</a></li>
+				<li role="presentation"><a role="tab" href="//testdb-m.news.nate.com/rank/list?mid=s2001&amp;section=spo&amp;rmode=interest"  aria-selected="false" onclick="MNstat('olapclick', 'RNK138', 'RAX26');">랭킹뉴스</a></li>
+				<li role="presentation"><a role="tab" href="//testdb-m.news.nate.com/spo/section?mid=s01" onclick="MNstat('olapclick', 'RAN55', 'RAX26');"  aria-selected="false">야구</a></li>
+				<li role="presentation"><a role="tab" href="//testdb-m.news.nate.com/spo/section?mid=s21" onclick="MNstat('olapclick', 'RAX62', 'RAX26');"  aria-selected="false">해외야구</a></li>
+				<li role="presentation"><a role="tab" href="//testdb-m.news.nate.com/spo/section?mid=s02" onclick="MNstat('olapclick', 'RAN56', 'RAX26');"  aria-selected="false">축구</a></li>
+				<li role="presentation"><a role="tab" href="//testdb-m.news.nate.com/spo/section?mid=s22" onclick="MNstat('olapclick', 'RAX63', 'RAX26');"  aria-selected="false">해외축구</a></li>
+				<li role="presentation"><a role="tab" href="//testdb-m.news.nate.com/spo/section?mid=s03" onclick="MNstat('olapclick', 'RAN57', 'RAX26');"  aria-selected="false">농구/배구</a></li>
+				<li role="presentation"><a role="tab" href="//testdb-m.news.nate.com/spo/section?mid=s04" onclick="MNstat('olapclick', 'RAN58', 'RAX26');"  aria-selected="false">일반</a></li>
+				<li role="presentation"><a role="tab" href="//testdb-m.news.nate.com/spo/column" onclick="MNstat('olapclick', 'SPO15', 'RAX26');"  aria-selected="false">칼럼</a></li>
+				<li role="presentation"><a role="tab" href="//testdb-m.news.nate.com/photoSlide/index?section=spo" onclick="MNstat('olapclick', 'SPO16', 'RAX26');"  aria-selected="false">포토</a></li>
+			</ul>
+		</nav>
+	</div>
+								</header>		<hr />
+		<section id="contents" role="main" >
+				<div class="responsive_wrap">
+		<!-- Responsive_left -->
+		<section class="rwd_left sportsHome">
+			
+			<div class="mlt01" data-fwrapper="y" data-fsequence="sq,472825,472795,472787,472786,472786,472700,472767,472535">
+				<div class="photoSlide" data-fcover="y">
+											<div class="contents1" >
+							<div class="cluster_title">스포츠 일반 이모저모 QA</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20230601n22052" onclick="olapclick('SPO06');">
+			<span class="ib"><img width="107" height="80" alt="스포츠 일반 이모저모 QA" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2023/06/01/PYH2010042007090001300_P2.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/yt/2023/06/01/PYH2010042007090001300_P2.jpg" /></span>			<span class="tb">
+				<h2 class="tit">전재목 전 쇼트트랙 대표팀 코치, 투병 중 별세</h2>
+				<span class="short">김경윤 기자 = 쇼트트랙 대표팀 지도자를 역임했던 전재목 코치가 1일 새벽 만 50세 일기로 별세했다. 빙상계 관계자는 &quot;전재목 코치가 최근 백혈병 투병 끝에 세상을 떠났다&quot;고 전했다. 전재목 코치는 단국대 재학 시절인 1993년 자</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240625n28646" onclick="olapclick('SPO06');"><h2 class="tit">민족통일원주시협의회, 통일체험교육 행사 개최</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240625n28645" onclick="olapclick('SPO06');"><h2 class="tit">회의 시작 선언하는 이인재 최저임금위원장</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240625n28644" onclick="olapclick('SPO06');"><h2 class="tit">의사 집단행동 중앙재난안전대책본부 브리핑</h2></a>
+	</li>
+	</ul>
+						</div>
+											<div class="contents1" style="display:none;">
+							<div class="cluster_title">[테스트] MLB 서울시리즈</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20240122n18195" onclick="olapclick('SPO06');">
+			<span class="ib"><img width="107" height="80" alt="[테스트] MLB 서울시리즈" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/nn/2024/01/22/202401221353461031_1.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/nn/2024/01/22/202401221353461031_1.jpg" /></span>			<span class="tb">
+				<h2 class="tit">이정후 향한 특급 기대, MLB.com &quot;2024년 삼진율 전체 2위, 타율 TOP 10 들 것&quot;</h2>
+				<span class="short">메이저리그가 이정후의 활약을 예상하고 있다. 메이저리그 공식 홈페이지 MLB.com은 1월 22일(한국시간) 2024시즌 활약이 기대되는 10명의 선수를 선정하고 성적을 예측했다. MLB.com은 팬그래프의 예측 프로그램 중 하</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240122n17407" onclick="olapclick('SPO06');"><h2 class="tit">'삼진율 9.1%' 이정후, ML 가장 정교한 타자 2위 전망</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240122n16662" onclick="olapclick('SPO06');"><h2 class="tit">끊임없는 'RYU-ML' 연결고리…괴물의 마지막 종착지는</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240122n16551" onclick="olapclick('SPO06');"><h2 class="tit">잘라도 하필 11월에…"새 직장 면접도 못 봤다" 컵스에서 쫓겨난 감독 '오프시즌 패자' 1위</h2></a>
+	</li>
+	</ul>
+						</div>
+											<div class="contents1" style="display:none;">
+							<div class="cluster_title">아시안컵 주요뉴스</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20240122n03596" onclick="olapclick('SPO06');">
+			<span class="ib"><img width="107" height="80" alt="아시안컵 주요뉴스" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/sp/2024/01/22/news-p.v1.20231029.7200f8d6d8b44a9d9d0ea26d28bc7622_P1.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/sp/2024/01/22/news-p.v1.20231029.7200f8d6d8b44a9d9d0ea26d28bc7622_P1.jpg" /></span>			<span class="tb">
+				<h2 class="tit">'울산 전격 잔류' 이청용, 22일 가고시마 전훈 합류…다수 팬 &quot;종신 계약&quot; 떼창</h2>
+				<span class="short">울산 현대 이청용(가운데)이 지난해 10월29일 울산문수경기장에서 열린 2023 K리그1 대구FC와 경기에서 헤더로 선제골을 넣은 김민혁과 어우러져 기뻐하고 있다. 박진업 기자 upandup@sportsseoul.com 사진제공 | 한국프로축구연맹 [</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240122n08408" onclick="olapclick('SPO06');"><h2 class="tit">한 순간에 와르르…계속되는 '최하위' 삼성의 고질병</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240121n16626" onclick="olapclick('SPO06');"><h2 class="tit">'부상' 이기제X김태환 훈련 제외→김진수 첫 볼 훈련, 줄줄이 쓰러진 '클린스만호'</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240121n16630" onclick="olapclick('SPO06');"><h2 class="tit">"한국과 비긴 요르단, 일본 이긴 이라크보다 강하네" 日전설의 비교평가</h2></a>
+	</li>
+	</ul>
+						</div>
+											<div class="contents1" style="display:none;">
+							<div class="cluster_title">[테스트] 청소년올림픽</div>
+<!-- 듀얼형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20240120n12340" onclick="olapclick('SPO06');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/xs/2024/01/20/1705755956445483.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/xs/2024/01/20/1705755956445483.jpg" width="107" height="80" alt="쇼트트랙 주재희, 동계청소년올림픽 男 1500m 금메달…컬링 첫 경기서 16점 차 대승(종합)" /></span>			<span class="tb">
+				<h2 class="tit">쇼트트랙 주재희, 동계청소년올림픽 男 1500m 금메달…컬링 첫 경기서 16점 차 대승(종합)</h2><span class="short">2024 강원 동계청소년올림픽에서 한국 선수단에 첫 금메달을 안긴 선수는 '쇼트트랙 기대주' 주재희(한광고)였다. 주재희는 20일 강원도 강릉 아이스아레나에서 열린 2024 강원 동계청소년올림픽 남자 쇼트트랙 1500m 결</span>
+			</span>
+		</a>
+	</li>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20240120n11838" onclick="olapclick('SPO06');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/ae/2024/01/20/ae_1705754344734_611745_0.jpeg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/ae/2024/01/20/ae_1705754344734_611745_0.jpeg" width="107" height="80" alt="쇼트트랙 기대주 주재희, 청소년올림픽 韓 1호 금메달" /></span>			<span class="tb">
+				<h2 class="tit">쇼트트랙 기대주 주재희, 청소년올림픽 韓 1호 금메달</h2><span class="short">남자 쇼트트랙 기대주 주재희(한광고)가 2024 강원 동계청소년올림픽(강원 2024) 한국 대표팀에 첫 금메달을 안겼다.주재희는 20일 강원도 강릉 아이스아레나에서 열린 강원 2024 쇼트트랙 남자 1500ｍ 결승에서 2분21초906의 기록으로 우승을</span>
+			</span>
+		</a>
+	</li>
+</ul>
+						</div>
+											<div class="contents1" style="display:none;">
+							<div class="cluster_title">[테스트] 청소년올림픽</div>
+<!-- 듀얼형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20240120n12340" onclick="olapclick('SPO06');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/xs/2024/01/20/1705755956445483.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/xs/2024/01/20/1705755956445483.jpg" width="107" height="80" alt="쇼트트랙 주재희, 동계청소년올림픽 男 1500m 금메달…컬링 첫 경기서 16점 차 대승(종합)" /></span>			<span class="tb">
+				<h2 class="tit">쇼트트랙 주재희, 동계청소년올림픽 男 1500m 금메달…컬링 첫 경기서 16점 차 대승(종합)</h2><span class="short">2024 강원 동계청소년올림픽에서 한국 선수단에 첫 금메달을 안긴 선수는 '쇼트트랙 기대주' 주재희(한광고)였다. 주재희는 20일 강원도 강릉 아이스아레나에서 열린 2024 강원 동계청소년올림픽 남자 쇼트트랙 1500m 결</span>
+			</span>
+		</a>
+	</li>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20240120n11838" onclick="olapclick('SPO06');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/ae/2024/01/20/ae_1705754344734_611745_0.jpeg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/ae/2024/01/20/ae_1705754344734_611745_0.jpeg" width="107" height="80" alt="쇼트트랙 기대주 주재희, 청소년올림픽 韓 1호 금메달" /></span>			<span class="tb">
+				<h2 class="tit">쇼트트랙 기대주 주재희, 청소년올림픽 韓 1호 금메달</h2><span class="short">남자 쇼트트랙 기대주 주재희(한광고)가 2024 강원 동계청소년올림픽(강원 2024) 한국 대표팀에 첫 금메달을 안겼다.주재희는 20일 강원도 강릉 아이스아레나에서 열린 강원 2024 쇼트트랙 남자 1500ｍ 결승에서 2분21초906의 기록으로 우승을</span>
+			</span>
+		</a>
+	</li>
+</ul>
+						</div>
+											<div class="contents1" style="display:none;">
+							<div class="cluster_title">오늘의 월드컵 뉴스</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20240122n08011" onclick="olapclick('SPO06');">
+			<span class="ib"><img width="107" height="80" alt="오늘의 월드컵 뉴스" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/kz/2024/01/22/news-p.v1.20240122.c3828148ea614d61b8eec3c2a4a0f479_P1.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/kz/2024/01/22/news-p.v1.20240122.c3828148ea614d61b8eec3c2a4a0f479_P1.jpg" /></span>			<span class="tb">
+				<h2 class="tit">뒤가 단단해진 삼성 마운드, 그렇다면 선발은?…좌승현도 선발 경쟁, 국내 '7선발' 준비까지</h2>
+				<span class="short">삼성 이승현. 삼성 라이온즈 제공삼성은 이번 겨울 불펜 보강에 집중했다.자유계약선수(FA) 계약으로 김재윤, 임창민, 오승환과 계약하면서 마무리 투수만 3명을 보유했다.이밖에 2차 드래프트에서 좌완 최성훈과 언더핸드 투수 양현을 데리고 왔고 NC에서</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240122n08356" onclick="olapclick('SPO06');"><h2 class="tit">아마추어 닉 던랩, PGA 아메리칸 익스프레스 우승</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240122n08499" onclick="olapclick('SPO06');"><h2 class="tit">충남 10개 시군 대설주의보…내일까지 최대 7㎝ 눈</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20230113n14607" onclick="olapclick('SPO06');"><h2 class="tit">"텐하흐의 맨더비,이젠 맘편히 볼수 있어" 맨유 레전드의 고백</h2></a>
+	</li>
+	</ul>
+						</div>
+											<div class="contents1" style="display:none;">
+							<div class="cluster_title">아시안컵 이모저모</div>
+<!-- 일반형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20240119n13273" onclick="olapclick('SPO06');">
+			<span class="ib"><img width="107" height="80" alt="아시안컵 이모저모" src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/fb/2024/01/19/622580_629689_334.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/fb/2024/01/19/622580_629689_334.jpg" /></span>			<span class="tb">
+				<h2 class="tit">&quot;일본 조 2위, 한국이 반기지 않는 듯&quot; 일본 매체, 16강 대결 가능성 주목</h2>
+				<span class="short">박지원기자=일본이 조 2위, 한국이 조 1위를 차지하게 되면 16강에서 대결을 펼치게 된다. 19일에 열리는 일본 대 이라크 경기 결과가 중요한 이유다. 이를 두고 일본 매체는 &quot;한국은 일본이 2위로 진출하는 걸 환영하지 않는 것 같다&quot;라고</span>
+			</span>
+		</a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240119n12216" onclick="olapclick('SPO06');"><h2 class="tit">벤투감독 퇴장…UAE, 팔레스타인과 1-1 비겨</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240119n11352" onclick="olapclick('SPO06');"><h2 class="tit">'우승후보들의 만남' 일본-이라크전, 해외 도박사들 예상은</h2></a>
+	</li>
+		<li class="lt2_1 ep">
+		<a href="//testdb-m.news.nate.com/view/20240119n10762" onclick="olapclick('SPO06');"><h2 class="tit">'멀티골' 이강인·미나미노·알타마리, '우즈벡 철벽'까지…아시안컵은 '리그앙 전성시대'</h2></a>
+	</li>
+	</ul>
+						</div>
+											<div class="contents1" style="display:none;">
+							<div class="cluster_title">[테스트] 프로농구</div>
+<!-- 듀얼형 -->
+<ul>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20210426n41715" onclick="olapclick('SPO06');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/sc/2021/04/26/2021042601002233400146461.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/sc/2021/04/26/2021042601002233400146461.jpg" width="107" height="80" alt="벼랑 끝에 섰던 유재학 감독, 왜 장재석 투입 시키지 않았나" /></span>			<span class="tb">
+				<h2 class="tit">벼랑 끝에 섰던 유재학 감독, 왜 장재석 투입 시키지 않았나</h2><span class="short">사진제공=KBL [안양=스포츠조선 김 용 기자] &quot;더 크게 다칠까봐….&quot;울산 현대모비스는 26일 안양에서 열린 안양 KGC와의 4강 플레이오프 3차전에서 80대86으로 패했다. 시리즈 3연패로 이번 시즌을 마감했다. 현대모비스는 벼랑 끝이었다. 하지만</span>
+			</span>
+		</a>
+	</li>
+	<li class="lt1 ep2">
+		<a href="//testdb-m.news.nate.com/view/20210426n41702" onclick="olapclick('SPO06');">
+			<span class="ib"><img src="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/su/2021/04/26/417269_527834_3832.jpg" data-image="//thumbnews.nateimg.co.kr/mnews107x80///news.nateimg.co.kr/orgImg/su/2021/04/26/417269_527834_3832.jpg" width="107" height="80" alt="'커리' 설린저가 '그린' 전성현을 인정했다 &amp;quot;오늘은 클레이 톰슨&amp;quot;" /></span>			<span class="tb">
+				<h2 class="tit">'커리' 설린저가 '그린' 전성현을 인정했다 &quot;오늘은 클레이 톰슨&quot;</h2><span class="short">[스포티비뉴스=안양, 이민재 기자] 안양 KGC가 챔피언결정전으로 간다. KGC는 26일 안양체육관에서 열린 2020-2021시즌 현대모비스 프로농구 4강 플레이오프 3차전 울산 현대모비스와 86-80으로 이겼다. 6강 플레이오프에서 부산 KT를 3승</span>
+			</span>
+		</a>
+	</li>
+</ul>
+						</div>
+									</div>
+
+				<div class="pageNav" data-findicator="y">
+					<button type="button" class="arrow prev" onclick="olapclick('SPO06');"><em>이전</em></button>
+					<span id="nwpage" class="pagenum">
+						<span class="num select">1</span><span class="num">2</span><span class="num">3</span><span class="num">4</span><span class="num">5</span><span class="num">6</span><span class="num">7</span><span class="num">8</span>					</span>
+					<button type="button" class="arrow next" onclick="olapclick('SPO06');"><em>다음</em></button>
+				</div>
+			</div>
+
+			
+			<div class="photoList">
+				<ul class="photoType1 mpt1">
+										<li class="pt1">
+												<a href="//testdb-m.news.nate.com/view/20240625n24978" onclick="olapclick('SPO07');">							<span class="iBox">
+								<img width="90" height="67" alt="기사 이미지" src="//news.nateimg.co.kr/etc/cms/2024/06/25/1719297609_812.jpg" />
+																							</span>
+							<h2>"회사원·치과의사·IT개발자…휴가 쓰고 국대 선발전 나왔죠"</h2>
+						</a>											</li>
+										<li class="pt1">
+												<a href="//testdb-m.news.nate.com/view/20240625n10325" onclick="olapclick('SPO07');">							<span class="iBox">
+								<img width="90" height="67" alt="기사 이미지" src="//news.nateimg.co.kr/etc/cms/2024/06/25/1719298541_035.jpg" />
+																							</span>
+							<h2>'시구의 경제학' 연예인에게 구단은 얼마를 줄까</h2>
+						</a>											</li>
+										<li class="pt1">
+												<a href="//testdb-m.news.nate.com/view/20240625n17208" onclick="olapclick('SPO07');">							<span class="iBox">
+								<img width="90" height="67" alt="기사 이미지" src="//news.nateimg.co.kr/etc/cms/2024/06/25/1719295538_243.jpg" />
+																							</span>
+							<h2>'내가 뛰었어야 하는데' 네이마르, 표정에 답답함 가득</h2>
+						</a>											</li>
+									</ul>
+			</div>
+
+			<div class="mlt01">
+				<ul class="contents1">
+										<li class="lt2 ep">
+						<h2><a href="//testdb-m.news.nate.com/view/20240625n12243" onclick="olapclick('SPO08');">&quot;출산 하루 전에도&quot;…유명 女골퍼, 만삭 아내 둔 코치와 불륜 '폭로'</a></h2>
+					</li>
+										<li class="lt2 ep">
+						<h2><a href="//testdb-m.news.nate.com/view/20240625n31570" onclick="olapclick('SPO08');">대통령배 바둑대회, 화성시 화재로 전격 연기</a></h2>
+					</li>
+										<li class="lt2 ep">
+						<h2><a href="//testdb-m.news.nate.com/view/20240625n24512" onclick="olapclick('SPO08');">한국태권도의 파리올림픽 목표는 '종주국의 자존심 회복'…&quot;3년 전 '노골드' 수모 지우겠다&quot;</a></h2>
+					</li>
+										<li class="lt2 ep">
+						<h2><a href="//testdb-m.news.nate.com/view/20240625n17158" onclick="olapclick('SPO08');">브라질, 호나우지뉴 '디스'가 '팩트폭행'이었네</a></h2>
+					</li>
+										<li class="lt2 ep">
+						<h2><a href="//testdb-m.news.nate.com/view/20240625n09122" onclick="olapclick('SPO08');">'손흥민 인종차별' 벤탄쿠르, 해외팬들도 돌아섰다…&quot;악의여부 안 중요해&quot;</a></h2>
+					</li>
+									</ul>
+			</div>
+			<hr class="componentDivision" />
+
+			
+						<!-- 성능 작업 및 연예, 스포츠 광고영역 위치 변경 -->
+			<div id="big_banner" class="main_banner">
+				<script type="text/javascript">
+				//<![CDATA[
+				// 성능개선 : 초기 로딩 속도에 필요 없는 자원 나중에 로딩
+					window.addEventListener('load', function(){
+					var big_banner = document.getElementById('big_banner');
+					if(big_banner)
+					{ big_banner.innerHTML = '<iframe src="//testdb-m.news.nate.com/etc/AdTop?mid=s0000&pos=spobig" name="ad_big" id="ad_big" width="100%" height="50" title="광고배너" frameborder="0" scrolling="no" allowTransparency="true"></iframe>'; }
+					});
+				// ]]>
+				</script>
+			</div>
+			<hr class="componentDivision" />
+		</section><!-- //Responsive_left -->
+
+		<!-- Responsive_right -->
+		<section class="rwd_right">
+			<aside>
+				<div class="rank_list rank_sports">
+					<div class="cluster_title"><em>스포츠</em>랭킹</div>
+					<ol>
+																				<li>
+								<a href="//testdb-m.news.nate.com/view/20240625n13498">
+									<h2>유명 여성 프로골퍼, 코치와 불륜?…SNS 댓...</h2>
+									<span class="photo">
+										<img src="//thumbnews.nateimg.co.kr/mnews70/http://news.nateimg.co.kr/orgImg/ts/2024/06/25/15510768_1341689_359_org.jpg" width="70" height="70" alt="랭킹 기사 이미지" />[톱스타뉴스 유혜지 기자]유명 여성 프로골퍼와 그의 스승인 남성 코치가 불륜이라는 주장이 제기됐다. 24일 JTBC...<span class="source">톱스타뉴스</span>
+									</span>
+								</a>
+							</li>
+																											<li><a href="//testdb-m.news.nate.com/view/20240625n01473"><h2>유명 여성골퍼, 코치와 불륜…&quot;침대 위 뽀...</h2><span class="source">머니투데이</span></a></li>
+																											<li><a href="//testdb-m.news.nate.com/view/20240625n12391"><h2>KLPGA 선수, 코치와 불륜…증거 사진 속 여...</h2><span class="source">데일리한국</span></a></li>
+																											<li><a href="//testdb-m.news.nate.com/view/20240625n11699"><h2>디올퀸 김연아 여신강림 비주얼, 체크 투피...</h2><span class="source">뉴스엔</span></a></li>
+																											<li><a href="//testdb-m.news.nate.com/view/20240625n21547"><h2>FC서울 황현수, 음주운전 은폐했다가...</h2><span class="source">스포츠서울</span></a></li>
+																		</ol>
+					<a href="//testdb-m.news.nate.com/rank/list?mid=s2001&amp;section=spo&amp;rmode=interest" class="more">더보기</a>
+				</div>
+				<hr class="componentDivision" />
+
+				<div class="quick_section spo">
+	<ul>
+					<li><a href="//testdb-m.news.nate.com/spo/section?mid=s01" onclick="olapclick('RAN75');">야구</a></li>
+			<li><a href="//testdb-m.news.nate.com/spo/section?mid=s21" onclick="olapclick('RAN75');">해외야구</a></li>
+			<li><a href="//testdb-m.news.nate.com/spo/section?mid=s02" onclick="olapclick('RAN75');">축구</a></li>
+			<li><a href="//testdb-m.news.nate.com/spo/section?mid=s22" onclick="olapclick('RAN75');">해외축구</a></li>
+			<li><a href="//testdb-m.news.nate.com/spo/section?mid=s03" onclick="olapclick('RAN75');">농구/배구</a></li>
+			<li><a href="//testdb-m.news.nate.com/spo/section?mid=s04" onclick="olapclick('RAN75');">일반</a></li>
+			<li><a href="//testdb-m.news.nate.com/issuepick" onclick="olapclick('RAN75');">이슈픽</a></li>
+			<li><a href="//testdb-m.news.nate.com/photoSlide/index?section=spo" onclick="olapclick('RAN75');">포토</a></li>
+			</ul>
+</div>				<hr class="componentDivision" />
+				
+				<div class="etc_footer">
+		<div class="fontSize">
+		<button type="button" data-btn="f1" onclick="olapclick('RAM101');changeFontSize(event)" title="보통 글씨" class="">가</button>
+		<button type="button" data-btn="f2" onclick="olapclick('RAM102');changeFontSize(event);" title="큰 글씨">가</button>
+		<button type="button" data-btn="f3" onclick="olapclick('RAM103');changeFontSize(event);" title="가장 큰 글씨" class="">가</button>
+	</div>
+		<div class="scroll_up_v2"><a href="#header" onclick="olapclick('RAM51');">맨위로</a></div></div>			</aside>
+			<div class="bt_banner">
+				<iframe title="쇼핑박스 광고 프레임" id="ifr_ad_shopbox" name="ifr_ad_shopbox" src="about:blank" data-src="//testdb-m.news.nate.com/etc/adShopBox" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" width="100%" height="0"></iframe>
+			</div>
+			<hr class="componentDivision" />
+			
+			<!-- SA 광고 -->
+	<div class="shopBox">
+	    <div class="mallBox">
+	        <div class="ml">
+	        		            <a href="https://mdirect.hi.co.kr/service.do?m=b5eef5f9a4&amp;src=nate_da&amp;kw=003956&amp;HDMS1=cpc&amp;HDMS2=nate&amp;HDMS3=brandsearch&amp;HDMS4=%EC%9E%90%EB%8F%99%EC%B0%A8%5F%EA%B8%B0%EB%B3%B8%5F%EB%A9%94%EC%9D%B8%EC%9D%B4%EB%AF%B8%EC%A7%80&amp;utm_source=nate&amp;utm_medium=brandsearch&amp;utm_campaign=%EC%9E%90%EB%8F%99%EC%B0%A8%EB%B3%B4%ED%97%98&amp;utm_term=%EC%9E%90%EB%8F%99%EC%B0%A8%5F%EA%B8%B0%EB%B3%B8%5F%EB%A9%94%EC%9D%B8%EC%9D%B4%EB%AF%B8%EC%A7%80" target="_blank" onclick="olapclick('SAT01');">현대해상</a>
+	            	            <a href="https://mdirect.kbinsure.co.kr/websquare/mobilePromotion.jsp?pid=1090040&amp;code=0002&amp;page=m_step1&amp;utm_source=Nate&amp;utm_medium=Nate_BS&amp;utm_campaign=0517_1231_nate_bs&amp;utm_term=%7Bkeyword%7D&amp;utm_content=10900400002&amp;_AT=0426143D01A803430876" target="_blank" onclick="olapclick('SAT02');">KB손해보험</a>
+	            	            <a href="https://m.directdb.co.kr/at/prd/atarc/step1/formStepPreView.do?src=nate_da&amp;kw=03F01B&amp;partner_code=C559&amp;keyword=MTZ100015&amp;utm_source=nate_m&amp;utm_medium=cpc&amp;utm_campaign=nhnad&amp;utm_term=DB%EB%8B%A4%EC%9D%B4%EB%A0%89%ED%8A%B8%EC%9E%90%EB%8F%99%EC%B0%A8%EB%B3%B4%ED%97%98" target="_blank" onclick="olapclick('SAT03');">DB손해보험</a>
+	            	        </div>
+	        <div class="ml">
+	        		            <a href="https://m.dbinsure.co.kr/driver?JEHUSA_CD=C5204&amp;utm_medium=cpc&amp;utm_source=nate_mobile&amp;utm_campaign=biz&amp;utm_content=driver&amp;utm_term=%EC%9A%B4%EC%A0%84%EC%9E%90%EB%B3%B4%ED%97%98" target="_blank" onclick="olapclick('SAT04');">운전자보험</a>
+	            	            <a href="https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&amp;tid=1001647852" target="_blank" onclick="olapclick('SAT05');">11번가</a>
+	            	            <a href="https://m.axa.co.kr/indexm_email_relay.jsp?sm_flag=N&amp;site_acq_src=0813001&amp;cmpid=sa_nate_pre_bs_M-image&amp;relay_lang_type=ko&amp;go_url=/mobdblcms/html/dmai/cal/dmai_cal_11_m.html&amp;utm_source=nate&amp;utm_medium=cpm&amp;utm_campaign=BRAND-SEARCH&amp;utm_content=image" target="_blank" onclick="olapclick('SAT06');">AXA손해보험</a>
+	            	        </div>
+	    </div>
+	</div>
+			<hr class="componentDivision" />
+		</section><!-- //Responsive_right -->
+	</div>
+		</section>
+		<hr />
+			<script type="text/javascript">
+		try {
+			function holdPCVersion() {
+				var domain = '.news.nate.com';
+				var exp_time = new Date(); exp_time.setTime(exp_time.getTime() + 5*1000 );
+				setCookie('HOLDPC', '1', exp_time, '/', domain);
+			}
+		} catch(e) {}
+	</script>
+    <!-- footer -->
+    <footer id="footer" role="contentinfo">
+        <!-- 로그인 전 -->
+        <div class="footer">
+            <!-- a태그 줄바꿈 금지 -->
+            <div class="svcBtn">
+                <a href="//m.nate.com" onclick="ndrclick('RAM56');">네이트홈</a><a href="#" onclick="ndrclick('RAM56');loginout(encodeURIComponent(document.location.href));"><span id="loginbtnmsg">로그인</span></a><a href="//testdb-sports.news.nate.com" onclick="ndrclick('RAM56');holdPCVersion();">PC버전</a><a href="//m.nate.com/sitemap.html" onclick="ndrclick('RAM56');">전체서비스</a>
+            </div>            <ul class="sitemap">
+            	<li><a href="//testdb-news.nate.com/enews/editguide" onclick="ndrclick('RAM56');">기사배열기본방침(책임:김경옥)</a></li>
+            	<li><span>청소년보호책임:조유형</span></li>
+            	<li><a href="//testdb-m.news.nate.com/newssitemap" onclick="ndrclick('RAM56');">뉴스 전체서비스</a></li>
+            </ul>                        <div class="copyright"><span>&copy; SK Communications</span><a class="cscenter" href="//m.helpdesk.nate.com" onclick="ndrclick('RAM56');">고객센터</a></div>
+        </div>
+    </footer>
+    <!-- // footer -->		<!-- 최상단으로 이동 / NateAppViewBanner -->
+		<!-- 앱 이벤트 배너 설정 -->
+<div id="viewAppPOP" class="viewAppPOP" style="display: none">
+	<a href="javascript:executeAppLink();" class="txt">네이트앱으로 보기</a>
+	<button class="close" onclick="denyNateApp();">팝업 닫기</button>
+</div>
+
+<script type="text/javascript">
+
+	var appBannerCookie = "NATEAPP_VIEW";
+
+	var visitedAt = +new Date;
+
+	function checkNateApp(retry_num) {
+		
+		var top_button_id = '';
+		var body_class = 'spo';
+		var service_snb = 'spo';
+		
+		if ( typeof gUserJS_sAppFrom == 'undefined' ) {
+			retry_num -= 1;
+			if ( retry_num > 0 ) {
+				setTimeout(checkNateApp(retry_num), 1000);
+			}
+		} else {
+			// TOP 이동 버튼
+			if ( gUserJS_sAppFrom == 'nate_app' && top_button_id != '' ) {
+				$("#").hide();
+			} 
+			
+			// 네이트앱으로 보기 버튼
+			if ( gUserJS_sAppFrom != 'nate_app' && body_class == 'view_pg' && navigator.userAgent.indexOf("nateon_app") === -1 ) {
+				var nateapp_view = GetCookie(appBannerCookie);
+
+				if (nateapp_view != 'no') {
+					if( gUserJS_sOs == 'android' || gUserJS_sOs == 'osx' || (navigator.userAgent.match('Macintosh') && navigator.maxTouchPoints > 1) ){
+	 					if($(".viewAppPOP")){
+	 						$(".viewAppPOP").show();
+	 	 				}
+	 	 				if($(".viewAppEvent")){
+	 	 					$(".viewAppEvent").show();
+	 	 	 			}
+					}
+					if($(".viewAppPop_2023")){
+						$(".viewAppPop_2023").show();
+					}
+				}
+			}
+		}
+	}
+
+	function denyNewsBanner(){
+
+		if(document.querySelector('.viewAppPop_2023')){
+			olapclick('RAX92');
+			document.querySelector('.viewAppPop_2023').style.display='none';
+		}
+
+		setBannerCookie();
+
+		return false;
+	}
+	
+	
+	function denyNateApp() {
+		
+		if(document.querySelector('.viewAppPOP')){
+			document.querySelector('.viewAppPOP').style.display='none';
+		}
+
+		if(document.querySelector('.viewAppEvent')){
+			document.querySelector('.viewAppEvent').style.display='none';
+		}
+
+		if (gUserJS_sOs == 'android') {
+			olapclick('RAX89');
+		} else if (gUserJS_sOs == 'osx') {
+			olapclick('RAX86');
+		}
+		
+		setBannerCookie();
+
+		return false;
+	}
+
+	function setBannerCookie(){
+		var domain = '.news.nate.com';
+		var exp_time = new Date(); 
+		exp_time.setTime(exp_time.getTime() + 1000*60*60*24*1 );
+		setCookie(appBannerCookie, 'no', exp_time, '/', domain);
+	}
+
+	function executeNewsLink(artcSq){
+		olapclick('RAX91');
+		var url = "http://testdb-m.news.nate.com/view/"+artcSq;
+		document.location.href = url;
+		
+	}
+
+	function executePromotionLink(){
+		
+			}
+
+	function executeAppLink(){
+
+		var url = document.location.href
+		useNateApp(url);
+	}
+
+	function useNateApp(link_url) {
+
+		nateapp_custom_scheme = 'nate://newslink?url=' + encodeURIComponent(link_url);
+
+		aos_nateapp_appstore_url = 'https://play.google.com/store/apps/details?id=com.nate.android.portalmini';
+		ios_nateapp_appstore_url = 'https://apps.apple.com/kr/app/id402681762?mt=8';
+
+		aos_intent_url = 'intent://newslink?url=' + encodeURIComponent(link_url) + '#Intent;scheme=nate;package=com.nate.android.portalmini;end';
+		ios_universal_link_url = 'https://m.nate.com/scheme/news/newslink/?' + encodeURIComponent(link_url);
+		
+		var visitedAt = +new Date;
+		
+		if (gUserJS_sOs == 'android') {
+			// AOS execute
+			olapclick('RAX88');
+			document.location = aos_intent_url;
+		} else if (gUserJS_sOs == 'osx') {
+			if ( navigator.userAgent.match('iPhone') != null || navigator.userAgent.match('iPod') != null || navigator.userAgent.match('iPad') != null ) {
+				// IOS execute
+				olapclick('RAX85');
+				document.location = ios_universal_link_url;
+			}
+		} else if (navigator.userAgent.match('Macintosh') && navigator.maxTouchPoints > 1){ //ipad
+			olapclick('RAX85');
+			document.location = ios_universal_link_url;
+		}
+		return false;
+	}
+
+	checkNateApp(10);
+
+	</script>		<!--// 최상단으로 이동 / NateAppViewBanner -->
+	</div>
+
+		
+	<!-- ndr code -->
+	<script type="text/javascript">
+	//<![CDATA[
+		var sRef2 = "";
+				try {
+			draw_mndr('m_ndr.nate.com/news/spo', gUserJS_sAppFrom, '', gUserJS_sAppSkai, gUserJS_sAppNdruk, sRef2);
+		} catch(e) {
+			draw_mndr('m_ndr.nate.com/news/spo', '', '', '', '', sRef2);
+		}
+		
+				draw_ndr('news_ndr.nate.com/mnate/spo');
+			//]]>
+	</script>
+
+
+	
+	<!-- //ndr code -->
+</body> 
+</html>
