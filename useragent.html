@@ -12,13 +12,18 @@
   <h2 id="trendy_mobile">
     토마토
   </h2>
+  <h3 id="agent">
+
+  </h3>
   <script>
     const legacyMobile = document.getElementById('legacy_mobile');
     const trendyMobile = document.getElementById('trendy_mobile');
+    const getAgentView = document.getElementById('agent');
 
     // regacy
     const getAgent = navigator.userAgent.toLowerCase();
     const getAndroid = getAgent.search('android') > -1;
+    const getIPAD = navigator.userAgent.search("ipad") > -1;
     const getIOS = getAgent.search("iphone") > -1 || (getAgent.search("ipod") > -1);
 
     // trendy
@@ -26,8 +31,9 @@
     const getIOS_ = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent);
     const getAndroid_ = /Mozilla\/5\.0 \(Linux; Android [\d\.]+; [^)]+\) AppleWebKit\/[\d\.]+ \(KHTML, like Gecko\) Version\/[\d\.]+ Chrome\/[\d\.]+ Mobile Safari\/[\d\.]+/.test(navigator.userAgent);
 
+    getAgentView.innerText = getAgent;
 
-    if(getIOS){
+    if(getIOS || getIPAD){
       legacyMobile.innerText = 'legacy IOS';
     }
     if(getIOS_){
