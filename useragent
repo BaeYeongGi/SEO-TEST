@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기기체크</title>
+</head>
+<body>
+  <h1 id="legacy_mobile">
+    포도
+  </h2>
+  <h2 id="trendy_mobile">
+    토마토
+  </h2>
+  <script>
+    const legacyMobile = document.getElementById('legacy_mobile');
+    const trendyMobile = document.getElementById('trendy_mobile');
+
+    // regacy
+    const getAgent = navigator.userAgent.toLowerCase();
+    const getAndroid = getAgent.search('android') > -1;
+    const getIOS = getAgent.search("iphone") > -1 || (getAgent.search("ipod") > -1);
+
+    // trendy
+
+    const getIOS_ = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent);
+    const getAndroid_ = /Mozilla\/5\.0 \(Linux; Android [\d\.]+; [^)]+\) AppleWebKit\/[\d\.]+ \(KHTML, like Gecko\) Version\/[\d\.]+ Chrome\/[\d\.]+ Mobile Safari\/[\d\.]+/.test(navigator.userAgent);
+
+
+    if(getIOS){
+      legacyMobile.innerText = 'legacy IOS';
+    }
+    if(getIOS_){
+      trendyMobile.innerText = 'trendy IOS';
+    }
+    if(getAndroid){
+      legacyMobile.innerText = 'legacy Android';
+    }
+    if(getAndroid_){
+      trendyMobile.innerText = 'trendy Android';
+    } 
+
+  </script>
+</body>
+</html>
